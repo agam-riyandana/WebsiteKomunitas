@@ -1,102 +1,93 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #fff7e6; /* Warna krem khas Indonesia */
-    color: #4b2e83; /* Warna ungu sebagai aksen */
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header {
+    background-color: #4CAF50;
+    padding: 10px 20px;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    background-color: #8c1d40; /* Merah marun sebagai warna khas */
 }
 
-.navbar-toggle {
+.logo {
+    color: white;
+    font-size: 24px;
+}
+
+.nav-list {
+    list-style: none;
     display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list li {
+    margin: 0 15px;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: white;
+}
+
+.menu-toggle {
+    display: none;
     flex-direction: column;
     cursor: pointer;
 }
 
-.navbar-toggle div {
+.bar {
+    height: 4px;
     width: 25px;
-    height: 3px;
     background-color: white;
-    margin: 4px 0;
+    margin: 3px 0;
 }
 
-.nav-links {
-    list-style: none;
+.hero {
+    background-image: url('https://example.com/indonesian-background.jpg'); /* Ganti dengan gambar latar khas Indonesia */
+    height: 400px;
     display: flex;
-}
-
-.nav-links li {
-    margin-left: 20px;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.header-content {
-    text-align: center;
-    padding: 2rem;
-}
-
-header h1 {
-    font-size: 2.5rem;
-}
-
-header p {
-    font-size: 1.2rem;
-}
-
-section {
-    padding: 2rem;
-}
-
-h2 {
-    font-size: 2rem;
-    color: #8c1d40;
-    border-bottom: 3px solid #4b2e83;
-    display: inline-block;
-    margin-bottom: 1rem;
-}
-
-.team-container {
-    display: flex;
-    gap: 1rem;
     justify-content: center;
-    padding: 1rem;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.about, .team {
+    padding: 50px 20px;
 }
 
 .team-member {
-    background-color: #f7e6a6; /* Warna krem lembut */
-    padding: 1rem;
-    text-align: center;
-    border-radius: 8px;
-    width: 200px;
-}
-
-.team-member img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    margin-bottom: 1rem;
+    margin-bottom: 20px;
 }
 
 footer {
-    background-color: #4b2e83;
-    color: white;
     text-align: center;
-    padding: 1rem;
-    font-size: 0.9rem;
+    padding: 10px 0;
+    background-color: #333;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
 }
