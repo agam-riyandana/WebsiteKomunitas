@@ -4,45 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tim Kreatif</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">Tim Kreatif</div>
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-list">
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="team.html">Tim Kreatif</a></li>
-                <li><a href="#contact">Kontak</a></li>
+<body class="bg-gray-100">
+    <header class="bg-green-600">
+        <nav class="flex justify-between items-center p-4">
+            <div class="text-white text-2xl">Nama Anda</div>
+            <ul class="flex space-x-4">
+                <li><a href="index.html" class="text-white">Beranda</a></li>
+                <li><a href="#team" class="text-white">Tim Kreatif</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="team" class="team">
-        <h2>Tim Kreatif Kami</h2>
-        <div class="team-member">
-            <h3>Angga</h3>
-            <p>Spesialis Video Editing</p>
-        </div>
-        <div class="team-member">
-            <h3>Rina</h3>
-            <p>Content Writer</p>
-        </div>
-        <div class="team-member">
-            <h3>Rudi</h3>
-            <p>Desainer Grafis</p>
+    <section id="team" class="py-20">
+        <h2 class="text-center text-3xl font-bold mb-10">Tim Kreatif</h2>
+        <div class="flex flex-wrap justify-center">
+            <div class="bg-white shadow-lg rounded-lg p-6 m-4 max-w-xs">
+                <img src="https://example.com/angga-image.jpg" alt="Angga" class="rounded-full w-32 h-32 mx-auto mb-4">
+                <h3 class="text-lg font-semibold">Angga</h3>
+                <p>Spesialis Video Editing</p>
+            </div>
+            <div class="bg-white shadow-lg rounded-lg p-6 m-4 max-w-xs">
+                <img src="https://example.com/rina-image.jpg" alt="Rina" class="rounded-full w-32 h-32 mx-auto mb-4">
+                <h3 class="text-lg font-semibold">Rina</h3>
+                <p>Content Writer</p>
+            </div>
+            <div class="bg-white shadow-lg rounded-lg p-6 m-4 max-w-xs">
+                <img src="https://example.com/rudi-image.jpg" alt="Rudi" class="rounded-full w-32 h-32 mx-auto mb-4">
+                <h3 class="text-lg font-semibold">Rudi</h3>
+                <p>Desainer Grafis</p>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 [Nama Anda]. Semua Hak Dilindungi.</p>
+    <footer class="bg-gray-800 p-4">
+        <div class="text-center text-white">
+            <p>&copy; 2024 Nama Anda. Semua Hak Dilindungi.</p>
+            <div class="flex justify-center space-x-4 mt-2">
+                <a href="https://facebook.com" target="_blank" class="text-white hover:text-green-500"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a href="https://instagram.com" target="_blank" class="text-white hover:text-green-500"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://twitter.com" target="_blank" class="text-white hover:text-green-500"><i class="fab fa-twitter"></i> Twitter</a>
+            </div>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>
