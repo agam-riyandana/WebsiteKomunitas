@@ -1,65 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Content Creator Indonesia</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Creator Indonesia</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <header>
-        <nav>
-            <div class="menu-icon" onclick="toggleMenu()">☰</div>
-            <ul id="menu">
-                <li><a href="#home">Beranda</a></li>
-                <li><a href="#about">Tentang Kami</a></li>
-                <li><a href="#team">Tim Kreatif</a></li>
-                <li><a href="#contact">Kontak</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <h1>Selamat Datang di Dunia Kreatif Indonesia</h1>
-        <p>Menghidupkan cerita melalui konten digital yang menginspirasi dan penuh budaya.</p>
-    </section>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Content Creator Indonesia</div>
+    <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+    <nav class="nav-links" id="nav-links">
+      <a href="#home">Beranda</a>
+      <a href="#about">Tentang</a>
+      <a href="#team">Tim Kreatif</a>
+      <a href="#contact">Kontak</a>
+    </nav>
+  </header>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <h2>Tentang Kami</h2>
-        <p>Kami adalah tim kreatif yang berfokus untuk membawa budaya Indonesia ke kancah digital.</p>
-    </section>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h1>Selamat Datang di Konten Kreator Indonesia</h1>
+    <p>Menghubungkan ide kreatif untuk memajukan budaya Indonesia</p>
+  </section>
 
-    <!-- Tim Kreatif Section -->
-    <section id="team" class="section">
-        <h2>Tim Kreatif</h2>
-        <div class="team-container">
-            <div class="team-member">
-                <img src="https://via.placeholder.com/150" alt="Tim Member">
-                <h3>Nama Anggota 1</h3>
-                <p>Posisi: Fotografer</p>
-            </div>
-            <div class="team-member">
-                <img src="https://via.placeholder.com/150" alt="Tim Member">
-                <h3>Nama Anggota 2</h3>
-                <p>Posisi: Videografer</p>
-            </div>
-            <div class="team-member">
-                <img src="https://via.placeholder.com/150" alt="Tim Member">
-                <h3>Nama Anggota 3</h3>
-                <p>Posisi: Editor</p>
-            </div>
-        </div>
-    </section>
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>Tentang Kami</h2>
+    <p>Kami adalah tim kreator konten yang berfokus untuk mempromosikan budaya dan keindahan Indonesia melalui konten digital.</p>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <h2>Kontak Kami</h2>
-        <p>Hubungi kami di <a href="mailto:info@kreatifindonesia.com">info@kreatifindonesia.com</a></p>
-    </section>
+  <!-- Team Kreatif Section -->
+  <section id="team" class="team">
+    <h2>Tim Kreatif</h2>
+    <div class="team-member">
+      <img src="member1.jpg" alt="Anggota 1">
+      <h3>Budi Setiawan</h3>
+      <p>Fotografer dan Videografer</p>
+    </div>
+    <div class="team-member">
+      <img src="member2.jpg" alt="Anggota 2">
+      <h3>Siti Aminah</h3>
+      <p>Editor Konten</p>
+    </div>
+    <div class="team-member">
+      <img src="member3.jpg" alt="Anggota 3">
+      <h3>Ahmad Rizky</h3>
+      <p>Desainer Grafis</p>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Kontak Kami</h2>
+    <p>Email: info@kreatorindonesia.id</p>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
