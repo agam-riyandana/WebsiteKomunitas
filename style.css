@@ -1,64 +1,79 @@
+/* Gaya Umum */
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-    color: #333;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f3f1;
+  color: #333;
 }
 
+/* Tema Header */
 header {
-    background-color: #4CAF50;
-    padding: 10px 20px;
+  background-color: #d32f2f; /* Merah Indonesia */
+  color: white;
+  text-align: center;
+  padding: 1.5em 0;
+  background-image: url('batik-pattern.png'); /* Tambahkan pola batik */
+  background-size: cover;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
 }
 
-.logo {
-    color: white;
-    font-size: 24px;
+/* Navigasi */
+nav {
+  background-color: #ffffff;
+  border-top: 4px solid #d32f2f;
+  text-align: center;
+  padding: 10px 0;
 }
 
-.nav-list {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
-.nav-list li {
-    margin: 0 15px;
+nav ul li {
+  display: inline;
+  margin: 0 15px;
 }
 
-.nav-list a {
-    text-decoration: none;
-    color: white;
+nav ul li a {
+  text-decoration: none;
+  color: #d32f2f;
+  font-weight: bold;
 }
 
-.hero {
-    background-image: url('https://example.com/indonesian-background.jpg'); /* Ganti dengan gambar latar belakang */
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
+nav ul li a:hover {
+  color: #1b5e20; /* Hijau yang khas Indonesia */
 }
 
-.about, .team {
-    padding: 50px 20px;
+/* Bagian Utama */
+section {
+  padding: 2em;
 }
 
-.team-member {
-    margin-bottom: 20px;
+section h2 {
+  color: #d32f2f;
+  border-bottom: 2px solid #d32f2f;
+  padding-bottom: 5px;
 }
 
+/* Footer */
 footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #333;
-    color: white;
+  background-color: #d32f2f;
+  color: white;
+  text-align: center;
+  padding: 1.5em 0;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+footer section {
+  padding-bottom: 1em;
 }
