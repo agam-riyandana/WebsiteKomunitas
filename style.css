@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: #4CAF50; /* Warna khas Indonesia */
+    background-color: #4CAF50;
     padding: 10px 20px;
 }
 
@@ -51,13 +51,28 @@ header {
     margin: 3px 0;
 }
 
-.about, .team {
+.about, .team, .contact {
     padding: 50px 20px;
-    text-align: center;
+    background-color: #e8f5e9;
 }
 
 .team-member {
     margin-bottom: 20px;
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-button {
+    background-color: #2196F3;
+    color: white;
+    padding: 10px 15px;
+    margin: 5px 0;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
 }
 
 footer {
