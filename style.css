@@ -1,102 +1,100 @@
-* {
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: #f9f4e8;
+    color: #333;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #fff7e6; /* Warna krem khas Indonesia */
-    color: #4b2e83; /* Warna ungu sebagai aksen */
+header {
+    background-color: #c1272d;
+    color: white;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
-.navbar {
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    background-color: #8c1d40; /* Merah marun sebagai warna khas */
 }
 
-.navbar-toggle {
-    display: flex;
-    flex-direction: column;
+.menu-icon {
+    font-size: 24px;
     cursor: pointer;
+    display: none;
 }
 
-.navbar-toggle div {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 4px 0;
-}
-
-.nav-links {
+nav ul {
     list-style: none;
     display: flex;
+    gap: 20px;
 }
 
-.nav-links li {
-    margin-left: 20px;
-}
-
-.nav-links a {
+nav ul li a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
 }
 
-.header-content {
+.hero {
+    padding: 100px 20px;
+    background-color: #f3ab61;
+    color: #333;
     text-align: center;
-    padding: 2rem;
 }
 
-header h1 {
-    font-size: 2.5rem;
+.section {
+    padding: 60px 20px;
+    text-align: center;
 }
 
-header p {
-    font-size: 1.2rem;
-}
-
-section {
-    padding: 2rem;
-}
-
-h2 {
-    font-size: 2rem;
-    color: #8c1d40;
-    border-bottom: 3px solid #4b2e83;
-    display: inline-block;
-    margin-bottom: 1rem;
-}
-
-.team-container {
+#team .team-container {
     display: flex;
-    gap: 1rem;
     justify-content: center;
-    padding: 1rem;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .team-member {
-    background-color: #f7e6a6; /* Warna krem lembut */
-    padding: 1rem;
-    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border: 2px solid #c1272d;
     border-radius: 8px;
     width: 200px;
+    text-align: center;
 }
 
 .team-member img {
     width: 100%;
     height: auto;
     border-radius: 50%;
-    margin-bottom: 1rem;
 }
 
-footer {
-    background-color: #4b2e83;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    font-size: 0.9rem;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        background-color: #c1272d;
+        width: 100%;
+        padding: 0;
+    }
+
+    nav ul li {
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    nav ul.show-menu {
+        display: flex;
+    }
 }
