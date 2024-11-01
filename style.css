@@ -1,100 +1,118 @@
-/* General Styles */
+/* Style dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Tema khas Indonesia: warna merah dan putih */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f4e8;
-    color: #333;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
-header {
-    background-color: #c1272d;
-    color: white;
-    padding: 15px;
-    position: fixed;
-    width: 100%;
-    top: 0;
+/* Navbar */
+.navbar {
+  background-color: #d32f2f;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-.menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-    display: none;
+.menu-toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+.nav-links {
+  display: flex;
+  gap: 1rem;
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
 }
 
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section */
 .hero {
-    padding: 100px 20px;
-    background-color: #f3ab61;
-    color: #333;
-    text-align: center;
+  background-color: #ffc107;
+  text-align: center;
+  padding: 3rem 1rem;
 }
 
-.section {
-    padding: 60px 20px;
-    text-align: center;
+.hero h1 {
+  color: #d32f2f;
+  font-size: 2.5rem;
 }
 
-#team .team-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+.hero p {
+  font-size: 1.2rem;
+}
+
+/* About Section */
+.about, .contact, .team {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+/* Team Kreatif Section */
+.team {
+  background-color: #fff3e0;
 }
 
 .team-member {
-    background-color: #ffffff;
-    padding: 20px;
-    border: 2px solid #c1272d;
-    border-radius: 8px;
-    width: 200px;
-    text-align: center;
+  margin: 1rem;
+  text-align: center;
 }
 
 .team-member img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
 }
 
-/* Responsive Design */
+.team-member h3 {
+  color: #d32f2f;
+  margin-top: 0.5rem;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
-    .menu-icon {
-        display: block;
-    }
+  .menu-toggle {
+    display: block;
+  }
 
-    nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 50px;
-        background-color: #c1272d;
-        width: 100%;
-        padding: 0;
-    }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #d32f2f;
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    left: 0;
+  }
 
-    nav ul li {
-        padding: 10px 0;
-        text-align: center;
-    }
+  .nav-links a {
+    padding: 1rem;
+    border-top: 1px solid white;
+  }
 
-    nav ul.show-menu {
-        display: flex;
-    }
+  .nav-links.show {
+    display: flex;
+  }
 }
