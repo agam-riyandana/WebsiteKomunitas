@@ -3,71 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang Saya</title>
+    <title>About Me - Content Creator</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-100 text-gray-800">
-
-    <header class="bg-green-600 p-4">
-        <nav class="container mx-auto flex justify-between items-center">
-            <div class="text-white text-2xl font-bold">Tentang Saya</div>
-            <ul class="hidden md:flex space-x-4">
-                <li><a href="#about" class="text-white hover:text-green-300">Beranda</a></li>
-                <li><a href="#team" class="text-white hover:text-green-300">Tim Kreatif</a></li>
-                <li><a href="#contact" class="text-white hover:text-green-300">Kontak</a></li>
-            </ul>
-            <div class="md:hidden">
-                <button id="menu-toggle" class="text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
+<body class="bg-gray-100">
+    <header>
+        <nav class="bg-green-600 p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="text-white text-2xl">Content Creator</div>
+                <div class="hidden md:flex space-x-4">
+                    <a href="#about" class="text-white hover:underline">Tentang</a>
+                    <a href="#team" class="text-white hover:underline">Tim Kreatif</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-toggle" class="text-white focus:outline-none">☰</button>
+                </div>
             </div>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden">
-            <ul class="flex flex-col space-y-2 mt-2">
-                <li><a href="#about" class="block text-gray-700 hover:bg-green-300 p-2">Beranda</a></li>
-                <li><a href="#team" class="block text-gray-700 hover:bg-green-300 p-2">Tim Kreatif</a></li>
-                <li><a href="#contact" class="block text-gray-700 hover:bg-green-300 p-2">Kontak</a></li>
-            </ul>
-        </div>
     </header>
 
-    <section id="about" class="container mx-auto p-8">
-        <h1 class="text-4xl font-bold mb-4">Halo, Saya [Nama Anda]</h1>
-        <p class="mb-4">Saya adalah seorang content creator yang berdedikasi untuk menciptakan konten berkualitas tinggi. Saya memiliki pengalaman dalam video editing, penulisan konten, dan desain grafis.</p>
-        <p class="mb-4">Visi saya adalah untuk menyebarkan informasi yang bermanfaat dan menginspirasi banyak orang melalui karya-karya saya.</p>
-        <p class="font-semibold">Selamat datang di dunia kreativitas saya!</p>
-    </section>
+    <main class="container mx-auto my-8">
+        <section id="about" class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-3xl font-bold text-center mb-4">Tentang Saya</h2>
+            <img src="https://example.com/your-image.jpg" alt="Gambar tentang saya" class="w-full rounded-lg mb-4"> <!-- Ganti URL dengan gambar Anda -->
+            <p class="text-gray-700">Saya adalah seorang content creator yang berdedikasi untuk menciptakan konten berkualitas tinggi. Saya berpengalaman dalam video editing, penulisan, dan desain grafis.</p>
+        </section>
 
-    <section id="team" class="container mx-auto p-8 bg-white shadow-md rounded-lg">
-        <h2 class="text-3xl font-bold mb-4">Tim Kreatif</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="p-4 border rounded-lg shadow">
-                <h3 class="text-xl font-bold">Angga</h3>
-                <p>Spesialis Video Editing</p>
+        <section id="team" class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-3xl font-bold text-center mb-4">Tim Kreatif</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold">Angga</h3>
+                    <p>Spesialis Video Editing</p>
+                    <img src="https://example.com/angga-image.jpg" alt="Angga" class="w-full rounded-lg mt-2"> <!-- Ganti URL dengan gambar Angga -->
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold">Rina</h3>
+                    <p>Content Writer</p>
+                    <img src="https://example.com/rina-image.jpg" alt="Rina" class="w-full rounded-lg mt-2"> <!-- Ganti URL dengan gambar Rina -->
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold">Rudi</h3>
+                    <p>Desainer Grafis</p>
+                    <img src="https://example.com/rudi-image.jpg" alt="Rudi" class="w-full rounded-lg mt-2"> <!-- Ganti URL dengan gambar Rudi -->
+                </div>
             </div>
-            <div class="p-4 border rounded-lg shadow">
-                <h3 class="text-xl font-bold">Rina</h3>
-                <p>Content Writer</p>
+            <div class="flex justify-center mt-4">
+                <a href="https://facebook.com" target="_blank" class="text-blue-600 mx-2">
+                    <i class="fab fa-facebook-f fa-lg"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="text-pink-600 mx-2">
+                    <i class="fab fa-instagram fa-lg"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="text-blue-400 mx-2">
+                    <i class="fab fa-twitter fa-lg"></i>
+                </a>
             </div>
-            <div class="p-4 border rounded-lg shadow">
-                <h3 class="text-xl font-bold">Rudi</h3>
-                <p>Desainer Grafis</p>
-            </div>
-        </div>
-        <h2 class="text-2xl font-bold mt-8">Ikuti Kami di Media Sosial</h2>
-        <div class="flex space-x-4 mt-4">
-            <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-facebook fa-2x"></i></a>
-            <a href="#" class="text-red-500 hover:text-red-700"><i class="fab fa-youtube fa-2x"></i></a>
-            <a href="#" class="text-pink-500 hover:text-pink-700"><i class="fab fa-instagram fa-2x"></i></a>
-            <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fab fa-twitter fa-2x"></i></a>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer class="bg-green-600 text-white text-center p-4 mt-8">
-        <p>&copy; 2024 Tentang Saya. Semua Hak Dilindungi.</p>
+    <footer class="bg-green-600 p-4 text-center text-white">
+        <p>&copy; 2024 Content Creator. Semua Hak Dilindungi.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        document.getElementById('mobile-menu-toggle').onclick = function() {
+            const navLinks = document.querySelector('.md\\:flex');
+            navLinks.classList.toggle('hidden');
+        };
+    </script>
 </body>
 </html>
