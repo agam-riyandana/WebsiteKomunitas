@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: #4CAF50;
+    background-color: #FF5733; /* Merah Khas Indonesia */
     padding: 10px 20px;
 }
 
@@ -53,26 +53,21 @@ header {
 
 .about, .team, .contact {
     padding: 50px 20px;
-    background-color: #e8f5e9;
 }
 
 .team-member {
     margin-bottom: 20px;
 }
 
-.social-buttons {
-    display: flex;
-    flex-direction: column;
+.social-icons {
+    margin-top: 10px;
 }
 
-.social-button {
-    background-color: #2196F3;
-    color: white;
-    padding: 10px 15px;
-    margin: 5px 0;
+.social-icon {
     text-decoration: none;
-    border-radius: 5px;
-    text-align: center;
+    color: #FF5733; /* Merah Khas Indonesia */
+    margin-right: 15px;
+    font-weight: bold;
 }
 
 footer {
