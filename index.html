@@ -3,70 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Content Creator Indonesia</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="assets/logo.png" type="image/png">
+    <title>Portfolio Content Creator Indonesia</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navbar -->
     <header>
-        <nav>
-            <div class="logo">
-                <img src="assets/logo.png" alt="Logo" />
-                <span>Creator Nusantara</span>
+        <nav class="navbar">
+            <div class="navbar-toggle">
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
-            <div class="menu-icon">&#9776;</div>
             <ul class="nav-links">
-                <li><a href="#home">Beranda</a></li>
                 <li><a href="#about">Tentang</a></li>
+                <li><a href="#services">Layanan</a></li>
                 <li><a href="#team">Tim Kreatif</a></li>
                 <li><a href="#contact">Kontak</a></li>
             </ul>
         </nav>
+        <div class="header-content">
+            <h1>Selamat Datang di Portfolio Content Creator</h1>
+            <p>Kreatifitas untuk Indonesia</p>
+        </div>
     </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <h1>Selamat Datang di Dunia Kreatif</h1>
-        <p>Kreativitas Nusantara untuk Dunia</p>
+    <section id="about">
+        <h2>Tentang Saya</h2>
+        <p>Saya adalah content creator yang berfokus pada konten-konten bertema budaya Indonesia dan keindahan alamnya.</p>
     </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <h2>Tentang Kami</h2>
-        <p>Saya adalah content creator yang terinspirasi oleh keindahan dan budaya Indonesia.</p>
+    <section id="services">
+        <h2>Layanan Kami</h2>
+        <ul>
+            <li>Fotografi</li>
+            <li>Videografi</li>
+            <li>Pemasaran Digital</li>
+        </ul>
     </section>
-
-    <!-- Team Section -->
-    <section id="team" class="team">
-        <h2>Tim Kreatif</h2>
-        <div class="team-member">
-            <img src="assets/member1.jpg" alt="Tim Kreatif">
-            <h3>Andi Setiawan</h3>
-            <p>Fotografer & Videografer</p>
+    <section id="team">
+        <h2>Tim Kreatif Kami</h2>
+        <div class="team-container">
+            <div class="team-member">
+                <img src="img/member1.jpg" alt="Nama Anggota">
+                <h3>Nama Anggota</h3>
+                <p>Deskripsi Anggota Tim</p>
+            </div>
+            <div class="team-member">
+                <img src="img/member2.jpg" alt="Nama Anggota">
+                <h3>Nama Anggota</h3>
+                <p>Deskripsi Anggota Tim</p>
+            </div>
         </div>
-        <div class="team-member">
-            <img src="assets/member2.jpg" alt="Tim Kreatif">
-            <h3>Sari Dewi</h3>
-            <p>Editor & Desainer Grafis</p>
-        </div>
     </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Kontak Kami</h2>
-        <p>Email: creatornusantara@example.com</p>
-        <p>Instagram: @creatornusantara</p>
-    </section>
-
-    <script>
-    function toggleMenu() {
-      var navLinks = document.getElementById("nav-links");
-      navLinks.classList.toggle("active");
-    }
-    </script>
     <footer>
-        <p>&copy; 2024 Creator Nusantara. Terinspirasi oleh budaya Indonesia.</p>
+        <p>© 2024 Content Creator Indonesia | Mengangkat budaya Indonesia ke dunia</p>
     </footer>
 </body>
 </html>
