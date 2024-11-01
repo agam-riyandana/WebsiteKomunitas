@@ -1,60 +1,65 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Content Creator Indonesia</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Content Creator Indonesia</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Navbar -->
     <header>
-        <nav class="navbar">
-            <div class="navbar-toggle">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#services">Layanan</a></li>
+        <nav>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <ul id="menu">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang Kami</a></li>
                 <li><a href="#team">Tim Kreatif</a></li>
                 <li><a href="#contact">Kontak</a></li>
             </ul>
         </nav>
-        <div class="header-content">
-            <h1>Selamat Datang di Portfolio Content Creator</h1>
-            <p>Kreatifitas untuk Indonesia</p>
-        </div>
     </header>
-    <section id="about">
-        <h2>Tentang Saya</h2>
-        <p>Saya adalah content creator yang berfokus pada konten-konten bertema budaya Indonesia dan keindahan alamnya.</p>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Selamat Datang di Dunia Kreatif Indonesia</h1>
+        <p>Menghidupkan cerita melalui konten digital yang menginspirasi dan penuh budaya.</p>
     </section>
-    <section id="services">
-        <h2>Layanan Kami</h2>
-        <ul>
-            <li>Fotografi</li>
-            <li>Videografi</li>
-            <li>Pemasaran Digital</li>
-        </ul>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2>Tentang Kami</h2>
+        <p>Kami adalah tim kreatif yang berfokus untuk membawa budaya Indonesia ke kancah digital.</p>
     </section>
-    <section id="team">
-        <h2>Tim Kreatif Kami</h2>
+
+    <!-- Tim Kreatif Section -->
+    <section id="team" class="section">
+        <h2>Tim Kreatif</h2>
         <div class="team-container">
             <div class="team-member">
-                <img src="img/member1.jpg" alt="Nama Anggota">
-                <h3>Nama Anggota</h3>
-                <p>Deskripsi Anggota Tim</p>
+                <img src="https://via.placeholder.com/150" alt="Tim Member">
+                <h3>Nama Anggota 1</h3>
+                <p>Posisi: Fotografer</p>
             </div>
             <div class="team-member">
-                <img src="img/member2.jpg" alt="Nama Anggota">
-                <h3>Nama Anggota</h3>
-                <p>Deskripsi Anggota Tim</p>
+                <img src="https://via.placeholder.com/150" alt="Tim Member">
+                <h3>Nama Anggota 2</h3>
+                <p>Posisi: Videografer</p>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/150" alt="Tim Member">
+                <h3>Nama Anggota 3</h3>
+                <p>Posisi: Editor</p>
             </div>
         </div>
     </section>
-    <footer>
-        <p>© 2024 Content Creator Indonesia | Mengangkat budaya Indonesia ke dunia</p>
-    </footer>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2>Kontak Kami</h2>
+        <p>Hubungi kami di <a href="mailto:info@kreatifindonesia.com">info@kreatifindonesia.com</a></p>
+    </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
