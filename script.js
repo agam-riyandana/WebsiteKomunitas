@@ -1,6 +1,7 @@
-const mobileMenu = document.getElementById('mobile-menu');
-const navList = document.querySelector('.nav-list');
+// script.js
+const menuBtn = document.getElementById('menu-btn');
+const navLinks = document.querySelector('.hidden.md\\:flex');
 
-mobileMenu.addEventListener('click', () => {
-    navList.classList.toggle('active');
+menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('hidden');
 });
