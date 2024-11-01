@@ -3,79 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
+    <title>Tentang Saya</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-100 text-gray-800">
-    <header>
-        <nav class="bg-green-600 p-4">
-            <div class="container mx-auto flex justify-between items-center">
-                <div class="text-white text-2xl font-bold">Nama Anda</div>
-                <div class="hidden md:flex space-x-4">
-                    <a href="#about" class="text-white hover:underline">Tentang</a>
-                    <a href="#team" class="text-white hover:underline">Tim Kreatif</a>
-                    <a href="#contact" class="text-white hover:underline">Kontak</a>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="menu-btn" class="text-white">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                    </button>
-                </div>
+
+    <header class="bg-green-600 p-4">
+        <nav class="container mx-auto flex justify-between items-center">
+            <div class="text-white text-2xl font-bold">Tentang Saya</div>
+            <ul class="hidden md:flex space-x-4">
+                <li><a href="#about" class="text-white hover:text-green-300">Beranda</a></li>
+                <li><a href="#team" class="text-white hover:text-green-300">Tim Kreatif</a></li>
+                <li><a href="#contact" class="text-white hover:text-green-300">Kontak</a></li>
+            </ul>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
             </div>
         </nav>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <ul class="flex flex-col space-y-2 mt-2">
+                <li><a href="#about" class="block text-gray-700 hover:bg-green-300 p-2">Beranda</a></li>
+                <li><a href="#team" class="block text-gray-700 hover:bg-green-300 p-2">Tim Kreatif</a></li>
+                <li><a href="#contact" class="block text-gray-700 hover:bg-green-300 p-2">Kontak</a></li>
+            </ul>
+        </div>
     </header>
 
-    <main class="container mx-auto px-4">
-        <section id="about" class="py-20">
-            <h2 class="text-4xl font-bold text-center">Tentang Saya</h2>
-            <p class="mt-4 text-lg text-center">Saya adalah seorang content creator yang berfokus pada [deskripsi singkat]. Dengan pengalaman dalam [bidang keahlian], saya berkomitmen untuk menciptakan konten yang inspiratif dan menarik.</p>
-        </section>
+    <section id="about" class="container mx-auto p-8">
+        <h1 class="text-4xl font-bold mb-4">Halo, Saya [Nama Anda]</h1>
+        <p class="mb-4">Saya adalah seorang content creator yang berdedikasi untuk menciptakan konten berkualitas tinggi. Saya memiliki pengalaman dalam video editing, penulisan konten, dan desain grafis.</p>
+        <p class="mb-4">Visi saya adalah untuk menyebarkan informasi yang bermanfaat dan menginspirasi banyak orang melalui karya-karya saya.</p>
+        <p class="font-semibold">Selamat datang di dunia kreativitas saya!</p>
+    </section>
 
-        <section id="team" class="py-20">
-            <h2 class="text-4xl font-bold text-center">Tim Kreatif</h2>
-            <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="text-xl font-semibold">Angga</h3>
-                    <p>Spesialis Video Editing</p>
-                    <div class="flex space-x-3 mt-3">
-                        <a href="https://www.facebook.com" target="_blank" class="text-blue-600"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="https://www.instagram.com" target="_blank" class="text-pink-600"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="https://www.twitter.com" target="_blank" class="text-blue-400"><i class="fab fa-twitter fa-lg"></i></a>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="text-xl font-semibold">Rina</h3>
-                    <p>Content Writer</p>
-                    <div class="flex space-x-3 mt-3">
-                        <a href="https://www.facebook.com" target="_blank" class="text-blue-600"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="https://www.instagram.com" target="_blank" class="text-pink-600"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="https://www.twitter.com" target="_blank" class="text-blue-400"><i class="fab fa-twitter fa-lg"></i></a>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="text-xl font-semibold">Rudi</h3>
-                    <p>Desainer Grafis</p>
-                    <div class="flex space-x-3 mt-3">
-                        <a href="https://www.facebook.com" target="_blank" class="text-blue-600"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="https://www.instagram.com" target="_blank" class="text-pink-600"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="https://www.twitter.com" target="_blank" class="text-blue-400"><i class="fab fa-twitter fa-lg"></i></a>
-                    </div>
-                </div>
+    <section id="team" class="container mx-auto p-8 bg-white shadow-md rounded-lg">
+        <h2 class="text-3xl font-bold mb-4">Tim Kreatif</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-4 border rounded-lg shadow">
+                <h3 class="text-xl font-bold">Angga</h3>
+                <p>Spesialis Video Editing</p>
             </div>
-        </section>
+            <div class="p-4 border rounded-lg shadow">
+                <h3 class="text-xl font-bold">Rina</h3>
+                <p>Content Writer</p>
+            </div>
+            <div class="p-4 border rounded-lg shadow">
+                <h3 class="text-xl font-bold">Rudi</h3>
+                <p>Desainer Grafis</p>
+            </div>
+        </div>
+        <h2 class="text-2xl font-bold mt-8">Ikuti Kami di Media Sosial</h2>
+        <div class="flex space-x-4 mt-4">
+            <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="#" class="text-red-500 hover:text-red-700"><i class="fab fa-youtube fa-2x"></i></a>
+            <a href="#" class="text-pink-500 hover:text-pink-700"><i class="fab fa-instagram fa-2x"></i></a>
+            <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fab fa-twitter fa-2x"></i></a>
+        </div>
+    </section>
 
-        <section id="contact" class="py-20">
-            <h2 class="text-4xl font-bold text-center">Kontak</h2>
-            <p class="mt-4 text-lg text-center">Jika Anda ingin berkolaborasi atau memiliki pertanyaan, silakan hubungi saya di [email atau media sosial].</p>
-        </section>
-    </main>
-
-    <footer class="bg-green-600 py-4 text-center text-white">
-        <p>&copy; 2024 Nama Anda. Semua Hak Dilindungi.</p>
+    <footer class="bg-green-600 text-white text-center p-4 mt-8">
+        <p>&copy; 2024 Tentang Saya. Semua Hak Dilindungi.</p>
     </footer>
 
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 </html>
