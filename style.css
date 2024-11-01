@@ -1,4 +1,3 @@
-/* CSS Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,29 +5,30 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #fffaf0;
-    color: #333;
+    font-family: 'Arial', sans-serif;
+    background-color: #fff7e6; /* Warna krem khas Indonesia */
+    color: #4b2e83; /* Warna ungu sebagai aksen */
 }
 
-/* Navbar */
 .navbar {
-    background-color: #8b4513;
-    padding: 15px 0;
-}
-
-.container {
-    width: 90%;
-    margin: auto;
-    max-width: 1200px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #8c1d40; /* Merah marun sebagai warna khas */
 }
 
-.logo {
-    font-size: 24px;
-    color: #fff;
+.navbar-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.navbar-toggle div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
 }
 
 .nav-links {
@@ -41,86 +41,62 @@ body {
 }
 
 .nav-links a {
-    color: #fff;
+    color: white;
     text-decoration: none;
-    font-size: 16px;
+    font-weight: bold;
 }
 
-.nav-links a:hover {
-    color: #ffdd57;
-}
-
-/* Home Section */
-.home {
-    background-image: url('batik-pattern.jpg');
-    background-size: cover;
-    background-position: center;
+.header-content {
     text-align: center;
-    padding: 100px 20px;
-    color: #fff;
+    padding: 2rem;
 }
 
-.home h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
+header h1 {
+    font-size: 2.5rem;
 }
 
-.home p {
-    font-size: 18px;
+header p {
+    font-size: 1.2rem;
 }
 
-/* About, Team, Contact Sections */
-.section {
-    padding: 60px 20px;
-    text-align: center;
+section {
+    padding: 2rem;
 }
 
-.about h2, .team h2, .contact h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
+h2 {
+    font-size: 2rem;
+    color: #8c1d40;
+    border-bottom: 3px solid #4b2e83;
+    display: inline-block;
+    margin-bottom: 1rem;
 }
 
-.about p, .contact p {
-    font-size: 18px;
-    color: #555;
-}
-
-/* Team Members */
-.team-members {
+.team-container {
     display: flex;
+    gap: 1rem;
     justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    padding: 1rem;
 }
 
-.member {
+.team-member {
+    background-color: #f7e6a6; /* Warna krem lembut */
+    padding: 1rem;
     text-align: center;
+    border-radius: 8px;
     width: 200px;
 }
 
-.member img {
+.team-member img {
     width: 100%;
+    height: auto;
     border-radius: 50%;
-    border: 3px solid #8b4513;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
-.member h3 {
-    font-size: 18px;
-    margin-bottom: 5px;
-    color: #8b4513;
-}
-
-.member p {
-    font-size: 16px;
-    color: #777;
-}
-
-/* Footer */
-.footer {
-    background-color: #8b4513;
-    color: #fff;
+footer {
+    background-color: #4b2e83;
+    color: white;
     text-align: center;
-    padding: 10px 0;
-    font-size: 14px;
+    padding: 1rem;
+    font-size: 0.9rem;
 }
