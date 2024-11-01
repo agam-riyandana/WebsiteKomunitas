@@ -1,112 +1,126 @@
-/* Reset */
+/* CSS Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fffaf0;
+    color: #333;
 }
 
 /* Navbar */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #B71C1C;
-  color: #FFF;
+    background-color: #8b4513;
+    padding: 15px 0;
 }
 
-.navbar .brand {
-  font-family: 'Serif', sans-serif;
-  font-size: 1.5rem;
+.container {
+    width: 90%;
+    margin: auto;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.navbar ul {
-  list-style-type: none;
-  display: flex;
+.logo {
+    font-size: 24px;
+    color: #fff;
 }
 
-.navbar ul li {
-  margin-left: 1rem;
+.nav-links {
+    list-style: none;
+    display: flex;
 }
 
-.navbar ul li a {
-  text-decoration: none;
-  color: #FFF;
-  font-weight: bold;
+.nav-links li {
+    margin-left: 20px;
 }
 
-.navbar ul li a:hover {
-  color: #FFD700;
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
 }
 
-/* Hero Section */
-.hero {
-  background-image: url('batik-pattern.jpg');
-  background-size: cover;
-  color: white;
-  padding: 4rem 2rem;
-  text-align: center;
+.nav-links a:hover {
+    color: #ffdd57;
 }
 
-.hero h2 {
-  font-size: 2.5rem;
+/* Home Section */
+.home {
+    background-image: url('batik-pattern.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 100px 20px;
+    color: #fff;
 }
 
-.hero p {
-  font-size: 1.2rem;
+.home h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
 }
 
-/* About Section */
-.about, .contact {
-  padding: 2rem;
-  text-align: center;
+.home p {
+    font-size: 18px;
 }
 
-.about h2, .contact h2 {
-  color: #B71C1C;
-  margin-bottom: 1rem;
+/* About, Team, Contact Sections */
+.section {
+    padding: 60px 20px;
+    text-align: center;
 }
 
-/* Team Section */
-.team {
-  padding: 2rem;
-  text-align: center;
+.about h2, .team h2, .contact h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
 }
 
-.team h2 {
-  color: #B71C1C;
-  margin-bottom: 1rem;
+.about p, .contact p {
+    font-size: 18px;
+    color: #555;
 }
 
+/* Team Members */
 .team-members {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .member {
-  width: 200px;
-  text-align: center;
-  margin-bottom: 1rem;
+    text-align: center;
+    width: 200px;
 }
 
 .member img {
-  width: 100%;
-  border-radius: 50%;
-  border: 3px solid #FFD700;
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid #8b4513;
+    margin-bottom: 10px;
 }
 
 .member h3 {
-  font-size: 1.2rem;
-  color: #B71C1C;
-  margin-top: 0.5rem;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #8b4513;
+}
+
+.member p {
+    font-size: 16px;
+    color: #777;
 }
 
 /* Footer */
-footer {
-  background-color: #333;
-  color: #FFF;
-  text-align: center;
-  padding: 1rem 0;
-  font-size: 0.9rem;
+.footer {
+    background-color: #8b4513;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
 }
