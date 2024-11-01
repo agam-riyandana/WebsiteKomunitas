@@ -1,7 +1,7 @@
 // script.js
-const menuBtn = document.getElementById('menu-btn');
-const navLinks = document.querySelector('.hidden.md\\:flex');
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
 
-menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('hidden');
+menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
 });
