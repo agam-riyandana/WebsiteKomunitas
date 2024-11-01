@@ -1,79 +1,112 @@
-/* Gaya Umum */
-body {
-  font-family: Arial, sans-serif;
+/* Reset */
+* {
   margin: 0;
   padding: 0;
-  background-color: #f9f3f1;
-  color: #333;
+  box-sizing: border-box;
 }
 
-/* Tema Header */
-header {
-  background-color: #d32f2f; /* Merah Indonesia */
-  color: white;
-  text-align: center;
-  padding: 1.5em 0;
-  background-image: url('batik-pattern.png'); /* Tambahkan pola batik */
-  background-size: cover;
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #B71C1C;
+  color: #FFF;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2.5em;
+.navbar .brand {
+  font-family: 'Serif', sans-serif;
+  font-size: 1.5rem;
 }
 
-/* Navigasi */
-nav {
-  background-color: #ffffff;
-  border-top: 4px solid #d32f2f;
-  text-align: center;
-  padding: 10px 0;
-}
-
-nav ul {
+.navbar ul {
   list-style-type: none;
-  padding: 0;
-  margin: 0;
+  display: flex;
 }
 
-nav ul li {
-  display: inline;
-  margin: 0 15px;
+.navbar ul li {
+  margin-left: 1rem;
 }
 
-nav ul li a {
+.navbar ul li a {
   text-decoration: none;
-  color: #d32f2f;
+  color: #FFF;
   font-weight: bold;
 }
 
-nav ul li a:hover {
-  color: #1b5e20; /* Hijau yang khas Indonesia */
+.navbar ul li a:hover {
+  color: #FFD700;
 }
 
-/* Bagian Utama */
-section {
-  padding: 2em;
+/* Hero Section */
+.hero {
+  background-image: url('batik-pattern.jpg');
+  background-size: cover;
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
 }
 
-section h2 {
-  color: #d32f2f;
-  border-bottom: 2px solid #d32f2f;
-  padding-bottom: 5px;
+.hero h2 {
+  font-size: 2.5rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+/* About Section */
+.about, .contact {
+  padding: 2rem;
+  text-align: center;
+}
+
+.about h2, .contact h2 {
+  color: #B71C1C;
+  margin-bottom: 1rem;
+}
+
+/* Team Section */
+.team {
+  padding: 2rem;
+  text-align: center;
+}
+
+.team h2 {
+  color: #B71C1C;
+  margin-bottom: 1rem;
+}
+
+.team-members {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.member {
+  width: 200px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.member img {
+  width: 100%;
+  border-radius: 50%;
+  border: 3px solid #FFD700;
+}
+
+.member h3 {
+  font-size: 1.2rem;
+  color: #B71C1C;
+  margin-top: 0.5rem;
 }
 
 /* Footer */
 footer {
-  background-color: #d32f2f;
-  color: white;
+  background-color: #333;
+  color: #FFF;
   text-align: center;
-  padding: 1.5em 0;
-}
-
-footer p {
-  margin: 5px 0;
-}
-
-footer section {
-  padding-bottom: 1em;
+  padding: 1rem 0;
+  font-size: 0.9rem;
 }
