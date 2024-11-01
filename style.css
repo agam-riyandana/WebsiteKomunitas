@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* Warna khas Indonesia */
     padding: 10px 20px;
 }
 
@@ -38,18 +38,22 @@ header {
     color: white;
 }
 
-.hero {
-    background-image: url('https://example.com/your-background-image.jpg'); /* Ganti dengan gambar latar belakang Anda */
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    height: 4px;
+    width: 25px;
+    background-color: white;
+    margin: 3px 0;
 }
 
 .about, .team {
     padding: 50px 20px;
+    text-align: center;
 }
 
 .team-member {
@@ -61,4 +65,20 @@ footer {
     padding: 10px 0;
     background-color: #333;
     color: white;
+}
+
+@media (max-width: 768px) {
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
 }
