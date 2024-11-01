@@ -5,73 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - Content Creator</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-gray-100">
-    <header>
-        <nav class="bg-green-600 p-4">
-            <div class="container mx-auto flex justify-between items-center">
-                <div class="text-white text-2xl">Content Creator</div>
-                <div class="hidden md:flex space-x-4">
-                    <a href="#about" class="text-white hover:underline">Tentang</a>
-                    <a href="#team" class="text-white hover:underline">Tim Kreatif</a>
-                </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-toggle" class="text-white focus:outline-none">☰</button>
-                </div>
+    <header class="bg-green-600 text-white">
+        <nav class="container mx-auto flex justify-between items-center p-5">
+            <div class="text-2xl font-bold">Content Creator</div>
+            <ul class="hidden md:flex space-x-5">
+                <li><a href="#about" class="hover:text-gray-200">Tentang</a></li>
+                <li><a href="#team" class="hover:text-gray-200">Tim Kreatif</a></li>
+                <li><a href="#contact" class="hover:text-gray-200">Kontak</a></li>
+            </ul>
+            <div class="md:hidden">
+                <button id="menu-button" class="focus:outline-none">
+                    <svg class="w-6 h-6" fill="white" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7"/></svg>
+                </button>
             </div>
         </nav>
     </header>
 
-    <main class="container mx-auto my-8">
-        <section id="about" class="bg-white rounded-lg shadow-md p-6 mb-8">
-            <h2 class="text-3xl font-bold text-center mb-4">Tentang Saya</h2>
-            <img src="https://example.com/your-image.jpg" alt="Gambar tentang saya" class="w-full rounded-lg mb-4"> <!-- Ganti URL dengan gambar Anda -->
-            <p class="text-gray-700">Saya adalah seorang content creator yang berdedikasi untuk menciptakan konten berkualitas tinggi. Saya berpengalaman dalam video editing, penulisan, dan desain grafis.</p>
-        </section>
-
-        <section id="team" class="bg-white rounded-lg shadow-md p-6">
-            <h2 class="text-3xl font-bold text-center mb-4">Tim Kreatif</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="bg-gray-100 p-4 rounded-lg">
-                    <h3 class="text-xl font-semibold">Angga</h3>
-                    <p>Spesialis Video Editing</p>
-                    <img src="https://example.com/angga-image.jpg" alt="Angga" class="w-full rounded-lg mt-2"> <!-- Ganti URL dengan gambar Angga -->
-                </div>
-                <div class="bg-gray-100 p-4 rounded-lg">
-                    <h3 class="text-xl font-semibold">Rina</h3>
-                    <p>Content Writer</p>
-                    <img src="https://example.com/rina-image.jpg" alt="Rina" class="w-full rounded-lg mt-2"> <!-- Ganti URL dengan gambar Rina -->
-                </div>
-                <div class="bg-gray-100 p-4 rounded-lg">
-                    <h3 class="text-xl font-semibold">Rudi</h3>
-                    <p>Desainer Grafis</p>
-                    <img src="https://example.com/rudi-image.jpg" alt="Rudi" class="w-full rounded-lg mt-2"> <!-- Ganti URL dengan gambar Rudi -->
-                </div>
+    <section id="about" class="container mx-auto my-10 p-5 bg-white rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold text-center">Tentang Saya</h2>
+        <div class="flex flex-col md:flex-row items-center mt-5">
+            <img src="https://example.com/your-photo.jpg" alt="Foto Saya" class="w-full md:w-1/3 rounded-lg shadow-lg">
+            <div class="md:ml-5 mt-5 md:mt-0">
+                <p class="text-lg">Saya adalah content creator yang berdedikasi untuk menciptakan konten menarik dan berkualitas. Saya memiliki pengalaman dalam berbagai bidang seperti video editing, penulisan, dan desain grafis.</p>
             </div>
-            <div class="flex justify-center mt-4">
-                <a href="https://facebook.com" target="_blank" class="text-blue-600 mx-2">
-                    <i class="fab fa-facebook-f fa-lg"></i>
-                </a>
-                <a href="https://instagram.com" target="_blank" class="text-pink-600 mx-2">
-                    <i class="fab fa-instagram fa-lg"></i>
-                </a>
-                <a href="https://twitter.com" target="_blank" class="text-blue-400 mx-2">
-                    <i class="fab fa-twitter fa-lg"></i>
-                </a>
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer class="bg-green-600 p-4 text-center text-white">
+    <section id="team" class="container mx-auto my-10 p-5 bg-white rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold text-center">Tim Kreatif</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
+            <div class="bg-gray-100 p-5 rounded-lg shadow">
+                <h3 class="text-xl font-semibold">Angga</h3>
+                <p>Spesialis Video Editing</p>
+            </div>
+            <div class="bg-gray-100 p-5 rounded-lg shadow">
+                <h3 class="text-xl font-semibold">Rina</h3>
+                <p>Content Writer</p>
+            </div>
+            <div class="bg-gray-100 p-5 rounded-lg shadow">
+                <h3 class="text-xl font-semibold">Rudi</h3>
+                <p>Desainer Grafis</p>
+            </div>
+        </div>
+        <div class="mt-5 flex justify-center space-x-5">
+            <a href="https://facebook.com" target="_blank">
+                <img src="https://example.com/facebook-icon.png" alt="Facebook" class="w-10 h-10">
+            </a>
+            <a href="https://twitter.com" target="_blank">
+                <img src="https://example.com/twitter-icon.png" alt="Twitter" class="w-10 h-10">
+            </a>
+            <a href="https://instagram.com" target="_blank">
+                <img src="https://example.com/instagram-icon.png" alt="Instagram" class="w-10 h-10">
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-green-600 text-white text-center p-5">
         <p>&copy; 2024 Content Creator. Semua Hak Dilindungi.</p>
     </footer>
 
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script>
-        document.getElementById('mobile-menu-toggle').onclick = function() {
-            const navLinks = document.querySelector('.md\\:flex');
-            navLinks.classList.toggle('hidden');
-        };
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
