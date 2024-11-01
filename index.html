@@ -1,73 +1,199 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Personal Landing Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #0a0d16;
+            color: white;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .profile h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+            opacity: 0.8;
+        }
+
+        .profile p {
+            color: #ccc;
+            margin-bottom: 0.5rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .action-btn {
+            padding: 0.75rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 2rem;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .action-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-links {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu-item {
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.75rem;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .menu-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            max-width: 600px;
+        }
+
+        .social-btn {
+            padding: 0.5rem 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 2rem;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body>
+    <div class="profile">
+        <img src="/placeholder.svg" alt="Profile Photo">
+        <h1>Agam Riyandana</h1>
+        <h2>Agam Riyandana</h2>
+        <p>📹 Content Creator</p>
+        <p>📍 Jember, Indonesia</p>
+    </div>
 
-    <!-- Navbar -->
-    <header class="bg-green-600 text-white">
-        <nav class="container mx-auto flex justify-between items-center p-5">
-            <div class="text-2xl font-bold">Nama Anda</div>
-            <ul class="flex space-x-6">
-                <li><a href="#about" class="hover:underline">Tentang</a></li>
-                <li><a href="#team" class="hover:underline">Tim Kreatif</a></li>
-                <li><a href="#contact" class="hover:underline">Kontak</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="action-buttons">
+        <a href="#" class="action-btn">
+            <span class="icon">🖼️</span>
+            Portfolio
+        </a>
+        <a href="#" class="action-btn">
+            <span class="icon">📧</span>
+            Email
+        </a>
+    </div>
 
-    <!-- About Me Section -->
-    <section id="about" class="container mx-auto p-10">
-        <h1 class="text-4xl font-bold mb-5">Tentang Saya</h1>
-        <img src="https://example.com/gambar-profile.jpg" alt="Profile Picture" class="rounded-full w-48 h-48 mb-5 mx-auto">
-        <p class="text-lg mb-5">Saya adalah seorang content creator yang berfokus pada pembuatan konten berkualitas tinggi. Dengan pengalaman di berbagai platform, saya menciptakan karya yang menginspirasi dan menarik.</p>
-        <p class="text-lg">Saya percaya bahwa setiap cerita memiliki kekuatan dan tujuan. Saya berkomitmen untuk membantu klien saya dalam mengkomunikasikan pesan mereka dengan cara yang unik dan menarik.</p>
-    </section>
+    <div class="menu-links">
+        <a href="#" class="menu-item">
+            <span class="icon">📸</span>
+            Photography Gallery
+        </a>
+        <a href="#" class="menu-item">
+            <span class="icon">🔥</span>
+            Presets & Updates
+        </a>
+        <a href="#" class="menu-item">
+            <span class="icon">💰</span>
+            Donate Me!
+        </a>
+    </div>
 
-    <!-- Team Kreatif Section -->
-    <section id="team" class="bg-green-100 py-10">
-        <div class="container mx-auto p-10">
-            <h2 class="text-3xl font-bold mb-5">Tim Kreatif</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="bg-white p-5 rounded-lg shadow-md text-center">
-                    <img src="https://example.com/team-member1.jpg" alt="Team Member 1" class="rounded-full w-32 h-32 mx-auto mb-3">
-                    <h3 class="text-xl font-semibold">Angga</h3>
-                    <p class="text-gray-600">Spesialis Video Editing</p>
-                </div>
-                <div class="bg-white p-5 rounded-lg shadow-md text-center">
-                    <img src="https://example.com/team-member2.jpg" alt="Team Member 2" class="rounded-full w-32 h-32 mx-auto mb-3">
-                    <h3 class="text-xl font-semibold">Rina</h3>
-                    <p class="text-gray-600">Content Writer</p>
-                </div>
-                <div class="bg-white p-5 rounded-lg shadow-md text-center">
-                    <img src="https://example.com/team-member3.jpg" alt="Team Member 3" class="rounded-full w-32 h-32 mx-auto mb-3">
-                    <h3 class="text-xl font-semibold">Rudi</h3>
-                    <p class="text-gray-600">Desainer Grafis</p>
-                </div>
-            </div>
-            <div class="flex justify-center mt-8">
-                <a href="#" class="mx-2"><img src="https://example.com/icon-facebook.png" alt="Facebook" class="w-8 h-8"></a>
-                <a href="#" class="mx-2"><img src="https://example.com/icon-instagram.png" alt="Instagram" class="w-8 h-8"></a>
-                <a href="#" class="mx-2"><img src="https://example.com/icon-twitter.png" alt="Twitter" class="w-8 h-8"></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-green-600 text-white py-5">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2024 Nama Anda. Semua Hak Dilindungi.</p>
-            <div class="flex justify-center mt-3">
-                <a href="#" class="mx-2"><img src="https://example.com/icon-facebook.png" alt="Facebook" class="w-6 h-6"></a>
-                <a href="#" class="mx-2"><img src="https://example.com/icon-instagram.png" alt="Instagram" class="w-6 h-6"></a>
-                <a href="#" class="mx-2"><img src="https://example.com/icon-twitter.png" alt="Twitter" class="w-6 h-6"></a>
-            </div>
-        </div>
-    </footer>
+    <div class="social-links">
+        <a href="#" class="social-btn">
+            <span class="icon">📸</span>
+            AGAM
+        </a>
+        <a href="#" class="social-btn">
+            <span class="icon">🎵</span>
+            AGAM
+        </a>
+        <a href="#" class="social-btn">
+            <span class="icon">▶️</span>
+            AGAM
+        </a>
+        <a href="#" class="social-btn">
+            <span class="icon">⭕</span>
+            AGAM
+        </a>
+        <a href="#" class="social-btn">
+            <span class="icon">𝕏</span>
+            AGAM
+        </a>
+        <a href="#" class="social-btn">
+            <span class="icon">👥</span>
+            AGAM
+        </a>
+        <a href="#" class="social-btn">
+            <span class="icon">💼</span>
+            AGAM
+        </a>
+    </div>
 </body>
 </html>
