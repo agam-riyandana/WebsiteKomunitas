@@ -5,55 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-100">
-    <header class="bg-green-700 p-4">
-        <nav class="flex justify-between items-center">
-            <div class="text-white text-2xl font-bold">Nama Anda</div>
-            <ul class="flex space-x-4">
-                <li><a href="#about" class="text-white hover:text-green-300">Tentang</a></li>
-                <li><a href="#team" class="text-white hover:text-green-300">Tim Kreatif</a></li>
-                <li><a href="#contact" class="text-white hover:text-green-300">Kontak</a></li>
-            </ul>
+<body class="bg-gray-100 text-gray-800">
+    <header>
+        <nav class="bg-green-600 p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="text-white text-2xl font-bold">Nama Anda</div>
+                <div class="hidden md:flex space-x-4">
+                    <a href="#about" class="text-white hover:underline">Tentang</a>
+                    <a href="#team" class="text-white hover:underline">Tim Kreatif</a>
+                    <a href="#contact" class="text-white hover:underline">Kontak</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
         </nav>
     </header>
 
-    <section id="about" class="p-8">
-        <h1 class="text-4xl font-bold text-center mb-4">Tentang Saya</h1>
-        <p class="text-lg text-center mb-6">
-            Saya adalah seorang content creator yang berdedikasi untuk menciptakan konten berkualitas tinggi dengan sentuhan budaya Indonesia.
-        </p>
-        <img src="https://example.com/your-image.jpg" alt="Foto Anda" class="mx-auto rounded-full w-1/3 mb-4"> <!-- Ganti dengan URL gambar Anda -->
-        <p class="text-center">
-            Saya mencintai seni, musik, dan semua hal yang berkaitan dengan kreativitas. Melalui platform ini, saya ingin berbagi cerita dan inspirasi.
-        </p>
-    </section>
+    <main class="container mx-auto px-4">
+        <section id="about" class="py-20">
+            <h2 class="text-4xl font-bold text-center">Tentang Saya</h2>
+            <p class="mt-4 text-lg text-center">Saya adalah seorang content creator yang berfokus pada [deskripsi singkat]. Dengan pengalaman dalam [bidang keahlian], saya berkomitmen untuk menciptakan konten yang inspiratif dan menarik.</p>
+        </section>
 
-    <section id="team" class="p-8 bg-gray-200">
-        <h2 class="text-3xl font-bold text-center mb-4">Tim Kreatif</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white p-4 rounded-lg shadow-md text-center">
-                <h3 class="text-xl font-semibold">Angga</h3>
-                <p>Spesialis Video Editing</p>
+        <section id="team" class="py-20">
+            <h2 class="text-4xl font-bold text-center">Tim Kreatif</h2>
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold">Angga</h3>
+                    <p>Spesialis Video Editing</p>
+                    <div class="flex space-x-3 mt-3">
+                        <a href="https://www.facebook.com" target="_blank" class="text-blue-600"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" class="text-pink-600"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="https://www.twitter.com" target="_blank" class="text-blue-400"><i class="fab fa-twitter fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold">Rina</h3>
+                    <p>Content Writer</p>
+                    <div class="flex space-x-3 mt-3">
+                        <a href="https://www.facebook.com" target="_blank" class="text-blue-600"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" class="text-pink-600"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="https://www.twitter.com" target="_blank" class="text-blue-400"><i class="fab fa-twitter fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold">Rudi</h3>
+                    <p>Desainer Grafis</p>
+                    <div class="flex space-x-3 mt-3">
+                        <a href="https://www.facebook.com" target="_blank" class="text-blue-600"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" class="text-pink-600"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="https://www.twitter.com" target="_blank" class="text-blue-400"><i class="fab fa-twitter fa-lg"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="bg-white p-4 rounded-lg shadow-md text-center">
-                <h3 class="text-xl font-semibold">Rina</h3>
-                <p>Content Writer</p>
-            </div>
-            <div class="bg-white p-4 rounded-lg shadow-md text-center">
-                <h3 class="text-xl font-semibold">Rudi</h3>
-                <p>Desainer Grafis</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="bg-green-700 p-4 text-center text-white">
-        <div class="mb-4">
-            <a href="https://www.instagram.com" class="mx-2"><img src="https://img.icons8.com/fluent/48/ffffff/instagram-new.png" alt="Instagram" class="inline w-8 h-8"></a>
-            <a href="https://www.facebook.com" class="mx-2"><img src="https://img.icons8.com/fluent/48/ffffff/facebook-new.png" alt="Facebook" class="inline w-8 h-8"></a>
-            <a href="https://www.twitter.com" class="mx-2"><img src="https://img.icons8.com/fluent/48/ffffff/twitter.png" alt="Twitter" class="inline w-8 h-8"></a>
-        </div>
+        <section id="contact" class="py-20">
+            <h2 class="text-4xl font-bold text-center">Kontak</h2>
+            <p class="mt-4 text-lg text-center">Jika Anda ingin berkolaborasi atau memiliki pertanyaan, silakan hubungi saya di [email atau media sosial].</p>
+        </section>
+    </main>
+
+    <footer class="bg-green-600 py-4 text-center text-white">
         <p>&copy; 2024 Nama Anda. Semua Hak Dilindungi.</p>
     </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 </html>
