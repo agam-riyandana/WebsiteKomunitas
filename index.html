@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="agam, atau yang lebih dikenal dengan agam riyandana adalah seorang content creator Independen Berkebangsaan Indonesia.">
+    <meta name="keywords" content="content creator, music, portfolio, Spotify, agam, agam riyandana">
     <title>Agam Riyandana - Portofolio</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
 
         body {
@@ -28,17 +30,13 @@
             text-align: center;
         }
 
-        .profile-section {
-            margin-bottom: 2rem;
-        }
-
         .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             margin: 1rem 0;
             object-fit: cover;
-            border: 3px solid white;
+            border: 3px solid rgba(255, 255, 255, 0.1);
         }
 
         h1 {
@@ -46,52 +44,57 @@
             margin-bottom: 0.5rem;
         }
 
-        .japanese-text {
+        .subtitle {
             font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .info {
-            color: #ccc;
+            color: rgba(255, 255, 255, 0.8);
             margin-bottom: 0.5rem;
         }
 
-        .button-container {
+        .location {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 2rem;
+        }
+
+        .button-group {
             display: flex;
             gap: 1rem;
             justify-content: center;
-            margin: 1.5rem 0;
+            margin-bottom: 2rem;
         }
 
-        .primary-button {
-            background-color: transparent;
+        .button {
+            padding: 0.8rem 2rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.05);
             color: white;
-            border: 2px solid white;
-            padding: 0.75rem 2rem;
-            border-radius: 50px;
             text-decoration: none;
-            font-weight: 500;
             transition: all 0.3s ease;
         }
 
-        .primary-button:hover {
-            background-color: white;
-            color: #0a0d16;
-        }
-
-        .menu-button {
+        .button:hover {
             background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 1rem;
-            border-radius: 10px;
-            text-decoration: none;
-            margin: 0.5rem 0;
-            display: block;
-            transition: background-color 0.3s ease;
         }
 
-        .menu-button:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+        .menu-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu-item {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
         .social-links {
@@ -99,68 +102,68 @@
             flex-wrap: wrap;
             gap: 0.5rem;
             justify-content: center;
-            margin-top: 2rem;
         }
 
-        .social-button {
-            background-color: rgba(255, 255, 255, 0.1);
+        .social-link {
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.05);
             color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .social-button:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+        .social-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <section class="profile-section">
-            <img src="https://cdn-sdotid.adg.id/images/6be810a2-46ed-4590-b3e8-804dc2bcbd7b_930x931.webp.jpeg" alt="Profile" class="profile-img">
-            <h1>Agam Riyandana</h1>
-            <div class="japanese-">ユーザー名</div>
-            <div class="info">
-                <p>Jember, Indonesia</p>
-            </div>
-        </section>
+        <img src="https://cdn-sdotid.adg.id/images/6be810a2-46ed-4590-b3e8-804dc2bcbd7b_930x931.webp.jpeg?height=150&width=150" alt="Profile" class="profile-img">
+        <h1>Agam Riyandana</h1>
+        <p class="subtitle">Content Creator</p>
+        <p class="location">📍 Jember, Indonesia</p>
 
-        <div class="button-container">
-            <a href="https://instagram.com/realagam1" class="primary-button">Portfolio</a>
-            <a href="mailto:agamriyandana7@gmail.com" class="primary-button">Email</a>
+        <div class="button-group">
+            <a href="https://instagram.com/realagam1" class="button">Portfolio</a>
+            <a href="mailto:agamriyandana7@gmail.com" class="button">Email</a>
         </div>
 
-        <nav>
-            <a href="https://instagram.com/realagam1" class="menu-button">📸 Gallery Instagram</a>
-            <a href="https://trakteer.id/agam1/tip" class="menu-button">💰 Donate Me!</a>
-        </nav>
+        <div class="menu-items">
+            <a href="https://instagram.com/realagam1" class="menu-item">🔥 Konten & Updates</a>
+            <a href="https://trakteer.id/agam1/tip" class="menu-item">💰 Donate Me!</a>
+        </div>
 
         <div class="social-links">
-            <a href="https://instagram.com/realagam1" class="social-button">
-                <span>📷</span> realagam1
+            <a href="https://instagram.com/realagam1" class="social-link">
+                <svg class="icon" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                Instagram
             </a>
-            <a href="https://www.facebook.com/agamriyandana.id" class="social-button">
-                <span>👤</span> realagam1
+            <a href="https://www.facebook.com/agamriyandana.id" class="social-link">
+                <svg class="icon" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                Facebook
             </a>
-            <a href="#https://www.twitter.com/agam_riyandana1/" class="social-button">
-                <span>🐦</span> realagam1
+            <a href="https://www.twitter.com/agam_riyandana1/" class="social-link">
+                <svg class="icon" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                X
             </a>
-            <a href="https://youtube.com/@agam_riyandana/" class="social-button">
-                <span>📺</span> agam_riyandana
+            <a href="https://youtube.com/@agam_riyandana" class="social-link">
+                <svg class="icon" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                YouTube
             </a>
-            <a href="https://open.spotify.com/artist/47w2bmfv89qm3wss9v4aEX?si=cNOsHHnoSnKnSGnpfIzxCA" class="social-button">
-                <span>🎵</span> Agam Riyandana
-            </a>
-            <a href="https://www.linkedin.com/in/agam-riyandana" class="social-button">
-                <span>💼</span> agam-riyandana
-            </a>
-            <a href="https://www.threads.net/@realagam1" class="social-button">
-                <span>📱</span> realagam1
+            <a href="https://open.spotify.com/artist/47w2bmfv89qm3wss9v4aEX?si=bLttpBoNT4u85dTDd573VA" class="social-link">
+                <svg class="icon" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                Spotify
             </a>
         </div>
     </div>
