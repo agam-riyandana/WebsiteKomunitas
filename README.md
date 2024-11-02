@@ -8,7 +8,7 @@ In today's social media era, grabbing the attention of internet users is a big c
 
 ## Authors
 
-- [@agam-riyandanaa](https://www.github.com/agam-riyandana)
+- [@realagam1](https://www.instagram.com/realagam1/)
 
 
 ## Demo
