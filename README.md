@@ -10,6 +10,14 @@ In today's social media era, grabbing the attention of internet users is a big c
 
 - [@realagam1](https://www.instagram.com/realagam1/)
 
+## Demo
+1. Feature : profile using link or to local 
+
+2. Feature : Link Button
+
+3. Feature  : Social Media Buttons
+
+4. Feature  : Open Graph
 
 ## Demo
 
