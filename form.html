@@ -3,97 +3,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontak Kami</title>
+  <title>Formulir Kontak Agam Riyandana</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f5f0;
-      color: #333;
+      font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #f9f9f9;
     }
-
     header {
-      background-color: #b71c1c;
-      color: white;
-      padding: 20px;
+      background-color: #d71921;
+      color: #ffffff;
       text-align: center;
+      padding: 15px 0;
     }
-
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
     form {
-      max-width: 600px;
-      margin: 50px auto;
-      background-color: #ffffff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
+      max-width: 500px;
+      margin: 30px auto;
+      background: #fff;
       padding: 20px;
+      border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-
     form h2 {
+      text-align: center;
+      color: #d71921;
       margin-bottom: 20px;
-      color: #b71c1c;
     }
-
-    form label {
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
       display: block;
-      font-weight: bold;
       margin-bottom: 5px;
+      font-weight: bold;
     }
-
-    form input,
-    form textarea {
+    .form-group input,
+    .form-group textarea {
       width: 100%;
       padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ddd;
+      border: 1px solid #ccc;
       border-radius: 5px;
+      font-size: 16px;
     }
-
-    form button {
-      background-color: #b71c1c;
-      color: white;
+    .form-group textarea {
+      resize: none;
+      height: 100px;
+    }
+    button {
+      background-color: #d71921;
+      color: #ffffff;
       border: none;
       padding: 10px 20px;
+      font-size: 16px;
       border-radius: 5px;
       cursor: pointer;
+      display: block;
+      width: 100%;
     }
-
-    form button:hover {
-      background-color: #8a1212;
+    button:hover {
+      background-color: #b0171c;
     }
-
     footer {
-      background-color: #333;
-      color: white;
       text-align: center;
-      padding: 10px;
+      padding: 10px 0;
       margin-top: 20px;
+      background-color: #d71921;
+      color: #fff;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
 </head>
 <body>
   <header>
-    <h1>Form Kontak</h1>
-    <p>Hubungi Kami Disini</p>
+    <h1>Formulir Kontak</h1>
   </header>
-  <main>
-    <form action="send_email.php" method="POST">
-      <h2>Hubungi Kami</h2>
-      <label for="name">Nama</label>
-      <input type="text" id="name" name="name" placeholder="Nama Anda" required>
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Email Anda" required>
-
+  <form id="contactForm">
+    <h2>Hubungi Kami</h2>
+    <div class="form-group">
+      <label for="name">Nama Anda</label>
+      <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email Anda</label>
+      <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
+    </div>
+    <div class="form-group">
       <label for="message">Pesan</label>
-      <textarea id="message" name="message" rows="5" placeholder="Tulis pesan Anda di sini..." required></textarea>
-
-      <button type="submit">Kirim Pesan</button>
-    </form>
-  </main>
+      <textarea id="message" name="message" placeholder="Tulis pesan Anda" required></textarea>
+    </div>
+    <button type="submit">Kirim Pesan</button>
+  </form>
   <footer>
-    <p>© 2024 Contact Website Agam Riyandana| All Rights Reserved</p>
+    &copy; 2024 Kontak Indonesia
   </footer>
+
+  <script>
+    (function() {
+      emailjs.init("RoKwMXF065EMIf5Bc"); // Ganti YOUR_PUBLIC_KEY dengan public key dari EmailJS
+    })();
+
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const serviceID = 'service_w1jp7lr'; // Ganti dengan service_id dari EmailJS
+      const templateID = 'template_qj2rqi6'; // Ganti dengan template_id dari EmailJS
+
+      emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+          alert('Pesan Anda berhasil dikirim!');
+          this.reset();
+        }, (err) => {
+          alert('Gagal mengirim pesan! Coba lagi.\n' + JSON.stringify(err));
+        });
+    });
+  </script>
 </body>
 </html>
