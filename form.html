@@ -1,133 +1,130 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulir Kontak Agam Riyandana</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-    }
-    header {
-      background-color: #d71921;
-      color: #ffffff;
-      text-align: center;
-      padding: 15px 0;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-    }
-    form {
-      max-width: 500px;
-      margin: 30px auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    form h2 {
-      text-align: center;
-      color: #d71921;
-      margin-bottom: 20px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-    .form-group textarea {
-      resize: none;
-      height: 100px;
-    }
-    button {
-      background-color: #d71921;
-      color: #ffffff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      display: block;
-      width: 100%;
-    }
-    button:hover {
-      background-color: #b0171c;
-    }
-    footer {
-      text-align: center;
-      padding: 10px 0;
-      margin-top: 20px;
-      background-color: #d71921;
-      color: #fff;
-    }
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Kontak - Agam Riyandana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        h1 {
+            text-align: center;
+            color: #D50032; /* Warna merah khas Indonesia */
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        .form-group button {
+            background-color: #D50032; /* Merah Indonesia */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .form-group button:hover {
+            background-color: #C51162; /* Warna merah lebih gelap */
+        }
+        .recaptcha {
+            text-align: center;
+            margin-top: 20px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+    <!-- Include reCAPTCHA V2 script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-  <header>
-    <h1>Formulir Kontak</h1>
-  </header>
-  <form id="contactForm">
-    <h2>Hubungi Kami</h2>
-    <div class="form-group">
-      <label for="name">Nama Anda</label>
-      <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
+    <div class="container">
+        <h1>Form Kontak</h1>
+        <form id="contact-form">
+            <div class="form-group">
+                <label for="name">Nama</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Pesan</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <div class="form-group recaptcha">
+                <div class="g-recaptcha" data-sitekey="6Lds-mQpAAAAAB9p2wcXUIqoyxSuN3jXlYtHYsTv"></div>
+            </div>
+            <div class="form-group">
+                <button type="submit">Kirim Pesan</button>
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-      <label for="email">Email Anda</label>
-      <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
-    </div>
-    <div class="form-group">
-      <label for="message">Pesan</label>
-      <textarea id="message" name="message" placeholder="Tulis pesan Anda" required></textarea>
-    </div>
-    <button type="submit">Kirim Pesan</button>
-  </form>
-  <footer>
-    &copy; 2024 Kontak Agam Riyandana
-  </footer>
 
-  <script>
-    (function() {
-      emailjs.init("RoKwMXF065EMIf5Bc"); // Ganti YOUR_PUBLIC_KEY dengan public key dari EmailJS
-    })();
+    <footer>
+        &copy; 2024 - Website Kontak Agam Riyandana. All rights reserved.
+    </footer>
 
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-      event.preventDefault();
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("RoKwMXF065EMIf5Bc"); // Gantilah dengan public key EmailJS Anda
+        })();
 
-    // Verifikasi reCAPTCHA
+        const form = document.getElementById('contact-form');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
             const recaptchaResponse = grecaptcha.getResponse();
-            if (recaptchaResponse === "") {
-                alert("Silakan verifikasi reCAPTCHA terlebih dahulu.");
+            if (recaptchaResponse.length === 0) {
+                alert("Harap verifikasi reCAPTCHA terlebih dahulu.");
                 return;
             }
 
-      const serviceID = 'service_w1jp7lr'; // Ganti dengan service_id dari EmailJS
-      const templateID = 'template_qj2rqi6'; // Ganti dengan template_id dari EmailJS
+            const formData = new FormData(form);
 
-      emailjs.sendForm(serviceID, templateID, this)
-        .then(() => {
-          alert('Pesan Anda berhasil dikirim!');
-          this.reset();
-        }, (err) => {
-          alert('Gagal mengirim pesan! Coba lagi.\n' + JSON.stringify(err));
+            emailjs.sendForm('service_w1jp7lr', 'template_qj2rqi6', formData)
+                .then(function(response) {
+                    alert('Pesan berhasil dikirim!');
+                    form.reset();
+                }, function(error) {
+                    alert('Terjadi kesalahan. Silakan coba lagi.');
+                });
         });
-    });
-  </script>
+    </script>
 </body>
 </html>
