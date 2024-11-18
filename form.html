@@ -3,126 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Kontak - Agam Riyandana</title>
+    <meta name="description" content="Form Kontak untuk mengirim pesan ke Gmail menggunakan EmailJS">
+    <title>Form Kontak - Website Indonesia</title>
+
+    <!-- Tambahkan CSS untuk tema Indonesia -->
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
             color: #333;
+            margin: 0;
+            padding: 0;
         }
-        .container {
-            width: 50%;
-            margin: 0 auto;
-            background-color: #fff;
+        header {
+            background-color: #d32f2f;
+            color: white;
             padding: 20px;
+            text-align: center;
+        }
+        section {
+            padding: 40px;
+            background-color: #ffffff;
+            max-width: 800px;
+            margin: 20px auto;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-top: 50px;
         }
         h1 {
-            text-align: center;
-            color: #D50032; /* Warna merah khas Indonesia */
-        }
-        .form-group {
+            font-size: 2rem;
             margin-bottom: 20px;
         }
-        .form-group label {
-            font-size: 16px;
-            font-weight: bold;
+        .form-group {
+            margin-bottom: 15px;
         }
-        .form-group input, .form-group textarea {
+        input[type="text"], input[type="email"], textarea {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
             border-radius: 4px;
-            font-size: 14px;
+            box-sizing: border-box;
         }
-        .form-group textarea {
-            height: 150px;
-            resize: vertical;
-        }
-        .form-group button {
-            background-color: #D50032; /* Merah Indonesia */
+        button {
+            background-color: #d32f2f;
             color: white;
+            padding: 12px 20px;
             border: none;
-            padding: 10px 20px;
             border-radius: 4px;
-            font-size: 16px;
             cursor: pointer;
-            width: 100%;
+            font-size: 1rem;
         }
-        .form-group button:hover {
-            background-color: #C51162; /* Warna merah lebih gelap */
+        button:hover {
+            background-color: #c62828;
         }
-        .recaptcha {
+        .footer {
             text-align: center;
-            margin-top: 20px;
-        }
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 14px;
-            color: #777;
+            padding: 10px;
+            background-color: #333;
+            color: white;
         }
     </style>
-    <!-- Include reCAPTCHA V2 script -->
+
+    <!-- reCAPTCHA v2 Script -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <!-- EmailJS Script -->
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("RoKwMXF065EMIf5Bc"); // Ganti dengan public key dari EmailJS
+        })();
+    </script>
 </head>
 <body>
-    <div class="container">
+
+    <!-- Header -->
+    <header>
+        <h1>Kontak Kami</h1>
+    </header>
+
+    <!-- Form Kontak -->
+    <section>
         <h1>Form Kontak</h1>
         <form id="contact-form">
+            <!-- Nama -->
             <div class="form-group">
                 <label for="name">Nama</label>
                 <input type="text" id="name" name="name" required>
             </div>
+
+            <!-- Email -->
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
             </div>
+
+            <!-- Pesan -->
             <div class="form-group">
                 <label for="message">Pesan</label>
-                <textarea id="message" name="message" required></textarea>
+                <textarea id="message" name="message" rows="4" required></textarea>
             </div>
-            <div class="form-group recaptcha">
-                <div class="g-recaptcha" data-sitekey="6Lds-mQpAAAAAB9p2wcXUIqoyxSuN3jXlYtHYsTv"></div>
-            </div>
-            <div class="form-group">
-                <button type="submit">Kirim Pesan</button>
-            </div>
+
+            <!-- reCAPTCHA -->
+            <div class="g-recaptcha" data-sitekey="6Lds-mQpAAAAAB9p2wcXUIqoyxSuN3jXlYtHYsTv"></div>
+
+            <!-- Tombol Kirim -->
+            <button type="submit">Kirim Pesan</button>
         </form>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Website Indonesia</p>
     </div>
 
-    <footer>
-        &copy; 2024 - Website Kontak Agam Riyandana. All rights reserved.
-    </footer>
-
-    <!-- EmailJS SDK -->
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <!-- Script untuk Kirim Email dengan EmailJS -->
     <script>
-        (function() {
-            emailjs.init("RoKwMXF065EMIf5Bc"); // Gantilah dengan public key EmailJS Anda
-        })();
-
-        const form = document.getElementById('contact-form');
-
-        form.addEventListener('submit', function(event) {
+        document.getElementById("contact-form").addEventListener("submit", function(event){
             event.preventDefault();
-
-            const recaptchaResponse = grecaptcha.getResponse();
+            
+            // Verifikasi reCAPTCHA
+            var recaptchaResponse = grecaptcha.getResponse();
             if (recaptchaResponse.length === 0) {
-                alert("Harap verifikasi reCAPTCHA terlebih dahulu.");
+                alert("Mohon verifikasi reCAPTCHA!");
                 return;
             }
 
-            const formData = new FormData(form);
+            var formData = new FormData(this);
+            formData.append("g-recaptcha-response", recaptchaResponse);
 
+            // Kirim email menggunakan EmailJS
             emailjs.sendForm('service_w1jp7lr', 'template_qj2rqi6', formData)
                 .then(function(response) {
-                    alert('Pesan berhasil dikirim!');
-                    form.reset();
+                    alert("Pesan berhasil dikirim!");
                 }, function(error) {
-                    alert('Terjadi kesalahan. Silakan coba lagi.');
+                    alert("Terjadi kesalahan: " + error.text);
                 });
         });
     </script>
