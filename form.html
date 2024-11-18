@@ -101,23 +101,27 @@
       emailjs.init("RoKwMXF065EMIf5Bc"); // Ganti dengan Public Key EmailJS Anda
     })();
 
-    document.getElementById("contact-form").addEventListener("submit", function (event) {
-      event.preventDefault();
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-      emailjs.sendForm(
-        "service_w1jp7lr", // Ganti dengan Service ID EmailJS Anda
-        "template_qj2rqi6", // Ganti dengan Template ID EmailJS Anda
-        this
-      ).then(
-        function () {
-          alert("Pesan berhasil dikirim!");
-        },
-        function (error) {
-          alert("Gagal mengirim pesan, coba lagi nanti.");
-          console.error(error);
-        }
-      );
-    });
-  </script>
+            // Verifikasi reCAPTCHA
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (recaptchaResponse === "") {
+                alert("Silakan verifikasi reCAPTCHA terlebih dahulu.");
+                return;
+            }
+
+            // Ambil data dari form
+            const formData = new FormData(this);
+
+            // Kirim email menggunakan EmailJS
+            emailjs.sendForm("YOUR_EMAILJS_SERVICE_ID", "YOUR_EMAILJS_TEMPLATE_ID", formData)
+                .then(function(response) {
+                    alert("Pesan berhasil dikirim!");
+                    document.getElementById('contact-form').reset();
+                }, function(error) {
+                    alert("Terjadi kesalahan, coba lagi nanti.");
+                });
+        });
 </body>
 </html>
