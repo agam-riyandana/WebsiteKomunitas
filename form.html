@@ -66,6 +66,8 @@
       margin-top: 2rem;
     }
   </style>
+  <!-- Load reCAPTCHA API -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
   <header>
@@ -81,6 +83,11 @@
       
       <label for="message">Pesan</label>
       <textarea id="message" name="message" rows="5" placeholder="Tulis pesan Anda di sini" required></textarea>
+      
+      <!-- reCAPTCHA -->
+            <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="6Lds-mQpAAAAAB9p2wcXUIqoyxSuN3jXlYtHYsTv"></div>
+            </div>
       
       <button type="submit">Kirim</button>
     </form>
