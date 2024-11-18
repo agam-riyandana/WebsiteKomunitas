@@ -1,105 +1,116 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Kontak - Agam Riyandana</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff4e6;
-            color: #333;
-        }
-        header {
-            background-color: #ff4500;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-        }
-        .container {
-            max-width: 600px;
-            margin: 2rem auto;
-            padding: 1rem;
-            background: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-        }
-        h1 {
-            color: #d80000;
-        }
-        label {
-            display: block;
-            margin: 0.5rem 0 0.2rem;
-            font-weight: bold;
-        }
-        input, textarea, button {
-            width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #ff4500;
-            color: white;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #d80000;
-        }
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background-color: #d80000;
-            color: white;
-            margin-top: 2rem;
-        }
-    </style>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        (function(){
-            emailjs.init("service_w1jp7lr"); // Ganti dengan User ID Anda dari EmailJS
-        })();
-
-        function sendEmail(event) {
-            event.preventDefault();
-            const form = event.target;
-
-            emailjs.sendForm('service_w1jp7lr', 'template_qj2rqi6', form)
-                .then(function(response) {
-                    alert("Pesan berhasil dikirim!");
-                    form.reset();
-                }, function(error) {
-                    alert("Pesan gagal dikirim, coba lagi.");
-                });
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Kontak - Agam Riyandana</title>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+    header {
+      background-color: #d32f2f;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .container {
+      max-width: 500px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background-color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      border-top: 5px solid #d32f2f;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+    input, textarea, button {
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #d32f2f;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #b71c1c;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background-color: #f0f0f0;
+      color: #333;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Kontak Kami</h1>
-        <p>Hubungi kami dengan mudah melalui formulir di bawah ini</p>
-    </header>
-    <div class="container">
-        <form id="contact-form" onsubmit="sendEmail(event)">
-            <label for="name">Nama</label>
-            <input type="text" id="name" name="user_name" placeholder="Masukkan nama Anda" required>
+  <header>
+    <h1>Kontak Kami</h1>
+  </header>
+  <div class="container">
+    <form id="contact-form">
+      <label for="name">Nama</label>
+      <input type="text" id="name" name="name" placeholder="Masukkan Nama Anda" required>
+      
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Masukkan Email Anda" required>
+      
+      <label for="message">Pesan</label>
+      <textarea id="message" name="message" rows="5" placeholder="Tulis pesan Anda di sini" required></textarea>
+      
+      <button type="submit">Kirim</button>
+    </form>
+  </div>
+  <footer>
+    &copy; 2024 Form Kontak - Agam Riyandana
+  </footer>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="user_email" placeholder="Masukkan email Anda" required>
+  <script>
+    (function () {
+      emailjs.init("PrZvhRcOFtrLrMEM4JOSt"); // Ganti dengan Public Key EmailJS Anda
+    })();
 
-            <label for="message">Pesan</label>
-            <textarea id="message" name="message" rows="5" placeholder="Tulis pesan Anda" required></textarea>
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+      event.preventDefault();
 
-            <button type="submit">Kirim Pesan</button>
-        </form>
-    </div>
-    <footer>
-        &copy; 2024 Contact Agam Riyandana | All Rights Reserved
-    </footer>
+      emailjs.sendForm(
+        "service_w1jp7lr", // Ganti dengan Service ID EmailJS Anda
+        "template_qj2rqi6", // Ganti dengan Template ID EmailJS Anda
+        this
+      ).then(
+        function () {
+          alert("Pesan berhasil dikirim!");
+        },
+        function (error) {
+          alert("Gagal mengirim pesan, coba lagi nanti.");
+          console.error(error);
+        }
+      );
+    });
+  </script>
 </body>
 </html>
-
