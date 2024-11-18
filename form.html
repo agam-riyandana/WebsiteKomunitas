@@ -3,125 +3,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Form Kontak - Agam Riyandana</title>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+  <title>Formulir Kontak Agam Riyandana</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f8f8f8;
+      background-color: #f9f9f9;
     }
     header {
-      background-color: #d32f2f;
-      color: white;
+      background-color: #d71921;
+      color: #ffffff;
       text-align: center;
-      padding: 1rem 0;
+      padding: 15px 0;
     }
     header h1 {
       margin: 0;
-      font-size: 2rem;
-    }
-    .container {
-      max-width: 500px;
-      margin: 2rem auto;
-      padding: 1.5rem;
-      background-color: white;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      border-top: 5px solid #d32f2f;
+      font-size: 24px;
     }
     form {
-      display: flex;
-      flex-direction: column;
+      max-width: 500px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    label {
-      margin-bottom: 0.5rem;
+    form h2 {
+      text-align: center;
+      color: #d71921;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
       font-weight: bold;
-      color: #333;
     }
-    input, textarea, button {
-      margin-bottom: 1rem;
-      padding: 0.75rem;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-size: 1rem;
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .form-group textarea {
+      resize: none;
+      height: 100px;
     }
     button {
-      background-color: #d32f2f;
-      color: white;
+      background-color: #d71921;
+      color: #ffffff;
       border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
       cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s;
+      display: block;
+      width: 100%;
     }
     button:hover {
-      background-color: #b71c1c;
+      background-color: #b0171c;
     }
     footer {
       text-align: center;
-      padding: 1rem 0;
-      background-color: #f0f0f0;
-      color: #333;
-      margin-top: 2rem;
+      padding: 10px 0;
+      margin-top: 20px;
+      background-color: #d71921;
+      color: #fff;
     }
   </style>
-  <!-- Load reCAPTCHA API -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
 </head>
 <body>
   <header>
-    <h1>Kontak Kami</h1>
+    <h1>Formulir Kontak</h1>
   </header>
-  <div class="container">
-    <form id="contact-form">
-      <label for="name">Nama</label>
-      <input type="text" id="name" name="name" placeholder="Masukkan Nama Anda" required>
-      
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Masukkan Email Anda" required>
-      
+  <form id="contactForm">
+    <h2>Hubungi Kami</h2>
+    <div class="form-group">
+      <label for="name">Nama Anda</label>
+      <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email Anda</label>
+      <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
+    </div>
+    <div class="form-group">
       <label for="message">Pesan</label>
-      <textarea id="message" name="message" rows="5" placeholder="Tulis pesan Anda di sini" required></textarea>
-      
-      <!-- reCAPTCHA -->
-            <div class="form-group">
-                <div class="g-recaptcha" data-sitekey="6Lds-mQpAAAAAB9p2wcXUIqoyxSuN3jXlYtHYsTv"></div>
-            </div>
-      
-      <button type="submit">Kirim</button>
-    </form>
-  </div>
+      <textarea id="message" name="message" placeholder="Tulis pesan Anda" required></textarea>
+    </div>
+    <button type="submit">Kirim Pesan</button>
+  </form>
   <footer>
-    &copy; 2024 Form Kontak - Agam Riyandana
+    &copy; 2024 Kontak Agam Riyandana
   </footer>
 
   <script>
-    (function () {
-      emailjs.init("RoKwMXF065EMIf5Bc"); // Ganti dengan Public Key EmailJS Anda
+    (function() {
+      emailjs.init("RoKwMXF065EMIf5Bc"); // Ganti YOUR_PUBLIC_KEY dengan public key dari EmailJS
     })();
 
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
 
-            // Verifikasi reCAPTCHA
+    // Verifikasi reCAPTCHA
             const recaptchaResponse = grecaptcha.getResponse();
             if (recaptchaResponse === "") {
                 alert("Silakan verifikasi reCAPTCHA terlebih dahulu.");
                 return;
             }
 
-            // Ambil data dari form
-            const formData = new FormData(this);
+      const serviceID = 'service_w1jp7lr'; // Ganti dengan service_id dari EmailJS
+      const templateID = 'template_qj2rqi6'; // Ganti dengan template_id dari EmailJS
 
-            // Kirim email menggunakan EmailJS
-            emailjs.sendForm("YOUR_EMAILJS_SERVICE_ID", "YOUR_EMAILJS_TEMPLATE_ID", formData)
-                .then(function(response) {
-                    alert("Pesan berhasil dikirim!");
-                    document.getElementById('contact-form').reset();
-                }, function(error) {
-                    alert("Terjadi kesalahan, coba lagi nanti.");
-                });
+      emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+          alert('Pesan Anda berhasil dikirim!');
+          this.reset();
+        }, (err) => {
+          alert('Gagal mengirim pesan! Coba lagi.\n' + JSON.stringify(err));
         });
+    });
+  </script>
 </body>
 </html>
