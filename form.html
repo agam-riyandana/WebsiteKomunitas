@@ -1,173 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agam Riyandana Contact Form</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Form Kontak</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f1f1f1;
+            color: #333;
             margin: 0;
             padding: 0;
-            background-image: url('https://i.pinimg.com/originals/8f/b8/41/8fb841d386a5b4e3576ef0095d17f83f.jpg');
-            background-size: cover;
-            background-attachment: fixed;
         }
+
+        header {
+            background-color: #d32f2f;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            font-family: 'Poppins', sans-serif;
+        }
+
         .container {
-            max-width: 600px;
-            margin: 50px auto;
-            background-color: rgba(255, 255, 255, 0.9);
+            width: 80%;
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: white;
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        h1 {
-            color: #d62828;
+
+        h2 {
+            color: #d32f2f;
             text-align: center;
-            margin-bottom: 30px;
         }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        label {
-            margin-bottom: 5px;
-            color: #003049;
-        }
-        input, textarea {
+
+        .form-group {
             margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
             padding: 10px;
-            border: 1px solid #ccc;
+            font-size: 16px;
+            border: 1px solid #ddd;
             border-radius: 5px;
         }
+
         button {
-            background-color: #d62828;
+            background-color: #d32f2f;
             color: white;
+            font-size: 16px;
+            padding: 12px 20px;
             border: none;
-            padding: 10px;
             border-radius: 5px;
             cursor: pointer;
+            width: 100%;
             transition: background-color 0.3s;
         }
+
         button:hover {
-            background-color: #9e0000;
+            background-color: #b71c1c;
         }
-        #file-label {
-            background-color: #003049;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-        #file-name {
-            margin-top: 5px;
-            font-size: 0.9em;
-        }
+
         .footer {
+            background-color: #d32f2f;
+            color: white;
             text-align: center;
-            margin-top: 30px;
-            color: #003049;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
-        .social-icons {
-            margin-top: 10px;
-        }
-        .social-icons a {
-            color: #003049;
-            margin: 0 10px;
-            font-size: 1.5em;
-            transition: color 0.3s;
-        }
-        .social-icons a:hover {
-            color: #d62828;
+
+        .g-recaptcha {
+            margin: 15px 0;
         }
     </style>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 <body>
+    <header>
+        Form Kontak - Agam Riyandana
+    </header>
+
     <div class="container">
-        <h1>Contact Us</h1>
+        <h2>Hubungi Kami</h2>
         <form id="contact-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+            <div class="form-group">
+                <label for="name">Nama Anda</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Anda</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Pesan Anda</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
             <div class="g-recaptcha" data-sitekey="6Lds-mQpAAAAAB9p2wcXUIqoyxSuN3jXlYtHYsTv"></div>
-            <button type="submit">Send Message</button>
+            <button type="submit">Kirim Pesan</button>
         </form>
     </div>
 
-    <footer class="footer">
-        <div class="social-icons">
-            <a href="https://www.facebook.com/agamriyandana.id" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.twitter.com/agam_riyandana1/" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://instagram.com/realagam1" target="_blank"><i class="fab fa-instagram"></i></a>
-        </div>
-        <p>&copy; <span id="year"></span> Contact Form Agam Riyandana. All rights reserved.</p>
-    </footer>
+    <div class="footer">
+        &copy; 2024 Agam Riyandana. All Rights Reserved.
+    </div>
 
     <script>
         (function() {
-            emailjs.init("RoKwMXF065EMIf5Bc");
+            emailjs.init('RoKwMXF065EMIf5Bc');
         })();
 
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault();
 
-            if (grecaptcha.getResponse() == "") {
-                alert("Please complete the reCAPTCHA");
-                return false;
+            const form = event.target;
+
+            if (grecaptcha.getResponse() === "") {
+                alert("Harap verifikasi reCAPTCHA terlebih dahulu.");
+                return;
             }
 
-            const fileInput = document.getElementById('file');
-            const file = fileInput.files[0];
-
-            const templateParams = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                message: document.getElementById('message').value,
-                'g-recaptcha-response': grecaptcha.getResponse()
-            };
-
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    templateParams.attachment = e.target.result;
-                    sendEmail(templateParams);
-                };
-                reader.readAsDataURL(file);
-            } else {
-                sendEmail(templateParams);
-            }
-        });
-
-        function sendEmail(templateParams) {
-            emailjs.send('service_w1jp7lr', 'template_qj2rqi6', templateParams)
+            emailjs.sendForm('service_w1jp7lr', 'template_qj2rqi6', form)
                 .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    alert('Your message has been sent successfully!');
-                    document.getElementById('contact-form').reset();
-                    grecaptcha.reset();
+                    alert("Pesan Anda telah terkirim!");
+                    form.reset();
                 }, function(error) {
-                    console.log('FAILED...', error);
-                    alert('Failed to send the message. Please try again later.');
+                    alert("Terjadi kesalahan. Silakan coba lagi.");
                 });
-        }
-
-        document.getElementById('file').addEventListener('change', function(e) {
-            const fileName = e.target.files[0] ? e.target.files[0].name : 'No file chosen';
-            document.getElementById('file-name').textContent = fileName;
         });
-
-        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
