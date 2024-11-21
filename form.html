@@ -3,144 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Kontak</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Contact Form - Agam Riyandana</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #f1f1f1;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
             color: #333;
+            background-color: #f4f4f4;
             margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #d32f2f;
             padding: 20px;
-            color: white;
-            text-align: center;
-            font-size: 24px;
-            font-family: 'Poppins', sans-serif;
         }
-
         .container {
-            width: 80%;
-            max-width: 900px;
-            margin: 20px auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-
-        h2 {
-            color: #d32f2f;
+        h1 {
+            color: #d50000;
             text-align: center;
         }
-
-        .form-group {
-            margin-bottom: 15px;
+        form {
+            display: flex;
+            flex-direction: column;
         }
-
         label {
-            font-weight: 600;
-            display: block;
-            margin-bottom: 5px;
+            margin-top: 10px;
         }
-
         input, textarea {
-            width: 100%;
             padding: 10px;
-            font-size: 16px;
+            margin-top: 5px;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 4px;
         }
-
         button {
-            background-color: #d32f2f;
-            color: white;
-            font-size: 16px;
-            padding: 12px 20px;
+            background-color: #d50000;
+            color: #fff;
+            padding: 10px;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             cursor: pointer;
-            width: 100%;
-            transition: background-color 0.3s;
+            margin-top: 20px;
         }
-
         button:hover {
             background-color: #b71c1c;
         }
-
         .footer {
-            background-color: #d32f2f;
-            color: white;
             text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            margin-top: 20px;
+            font-size: 0.9em;
         }
-
-        .g-recaptcha {
-            margin: 15px 0;
+        .social-icons {
+            margin-top: 10px;
+        }
+        .social-icons a {
+            color: #d50000;
+            font-size: 1.5em;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        @media (max-width: 600px) {
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
         }
     </style>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 <body>
-    <header>
-        Form Kontak - Agam Riyandana
-    </header>
-
     <div class="container">
-        <h2>Hubungi Kami</h2>
-        <form id="contact-form">
-            <div class="form-group">
-                <label for="name">Nama Anda</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email Anda</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Pesan Anda</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
+        <h1>Hubungi Kami</h1>
+        <form action="https://formspree.io/f/mnqerqzn" method="POST" enctype="multipart/form-data">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <label for="file">Attach File:</label>
+            <input type="file" name="upload">
+
             <div class="g-recaptcha" data-sitekey="6Lds-mQpAAAAAB9p2wcXUIqoyxSuN3jXlYtHYsTv"></div>
+
             <button type="submit">Kirim Pesan</button>
         </form>
     </div>
 
-    <div class="footer">
-        &copy; 2024 Agam Riyandana. All Rights Reserved.
-    </div>
+    <footer class="footer">
+        <p>&copy; <span id="year"></span> Contact Form Agam Riyandana. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/agamriyandana.id" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.twitter.com/agam_riyandana1/" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/realagam1" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/@agam_riyandana" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+    </footer>
 
     <script>
-        (function() {
-            emailjs.init('RoKwMXF065EMIf5Bc');
-        })();
-
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const form = event.target;
-
-            if (grecaptcha.getResponse() === "") {
-                alert("Harap verifikasi reCAPTCHA terlebih dahulu.");
-                return;
-            }
-
-            emailjs.sendForm('service_w1jp7lr', 'template_3yb6wdl', form)
-                .then(function(response) {
-                    alert("Pesan Anda telah terkirim!");
-                    form.reset();
-                }, function(error) {
-                    alert("Terjadi kesalahan. Silakan coba lagi.");
-                });
-        });
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
