@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Form - Agam Riyandana</title>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
@@ -76,18 +77,13 @@
 <body>
     <div class="container">
         <h1>Hubungi Kami</h1>
-        <form method="POST" action="https://formsubmit.co/agamriyandana7@gmail.com" enctype="multipart/form-data">
-        <input type="email" name="email" placeholder="Your email">
-        <textarea name="message" placeholder="Details of your problem"></textarea>
-        <input type="file" name="attachment" accept="image/png, image/jpeg">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_autoresponse" value="Thank you for your message. We will reply as soon as possible.">
-        <input type="text" name="_honey" style="display:none">
-        <input type="hidden" name="_blacklist" value="spammy pattern, banned term, phrase">
-        <input type="hidden" name="_cc" value="info@agamriyandana.my.id">
-        <input type="hidden" name="_subject" value="New submission!">
-        
-        <button type="submit">Send Message</button>
+        <form action="https://www.formbackend.com/f/a82adc9ff28ef4a9"method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAA0jD29urnudvzt_"></div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <button type="submit">Submit</button>
         </form>
         </form>
     </div>
