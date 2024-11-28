@@ -197,10 +197,8 @@
     <footer>
         <p>&copy; <span id="year"></span> Agam Riyandana. All Rights Reserved.</p>
     </footer>
-
-    <amp-script layout="container" script="year-script">
-        <script type="text/plain" target="amp-script" id="year-script">
-            document.getElementById('year').textContent = new Date().getFullYear();
+    <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
         </script>
     </amp-script>
 </body>
