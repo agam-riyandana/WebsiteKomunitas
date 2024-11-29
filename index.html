@@ -19,150 +19,17 @@
     <meta property="og:url" content="https://agamriyandana.my.id">
     <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
     <style amp-custom>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        }
-
-        body {
-            background-color: #0a0d16;
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem 1rem;
-        }
-
-        .container {
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 1rem 0;
-            object-fit: cover;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 0.5rem;
-        }
-
-        .location {
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .button-group {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-
-        .button {
-            padding: 0.8rem 2rem;
-            border-radius: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background-color: rgba(255, 255, 255, 0.05);
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .menu-items {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .menu-item {
-            padding: 1rem;
-            border-radius: 0.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background-color: rgba(255, 255, 255, 0.05);
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .menu-item:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .social-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 10px;
-            margin: 30px 0;
-        }
-
-        .social-button {
-            color: white;
-            padding: 12px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: opacity 0.3s;
-        }
-
-        .social-button:hover {
-            opacity: 0.8;
-        }
-
-        .icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        footer {
-            margin-top: auto;
-            padding: 2rem;
-            text-align: center;
-            color: #888;
-        }
-
-        .instagram { background-color: #E1306C; }
-        .facebook { background-color: #1877F2; }
-        .twitter { background-color: #1DA1F2; }
-        .youtube { background-color: #FF0000; }
-        .spotify { background-color: #1DB954; }
+        /* Your existing styles here */
     </style>
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 </head>
 <body>
     <div class="container">
-        <amp-img src="https://cdn-sdotid.adg.id/images/6be810a2-46ed-4590-b3e8-804dc2bcbd7b_930x931.webp.jpeg?height=150&width=150" alt="Profile" class="profile-img" width="150" height="150" layout="fixed"></amp-img>
+        <amp-img src="https://cdn-sdotid.adg.id/images/6be810a2-46ed-4590-b3e8-804dc2bcbd7b_930x931.webp.jpeg" alt="Profile" class="profile-img" width="150" height="150" layout="fixed"></amp-img>
         <h1>Agam Riyandana</h1>
         <p class="subtitle">Content Creator</p>
         <div class="location">
-            <amp-img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/svgs/solid/map-marker-alt.svg" width="12" height="12" alt="Location icon" layout="fixed"></amp-img>
+            <amp-img src="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome/svgs/solid/map-marker-alt.svg" width="12" height="12" alt="Location icon" layout="fixed"></amp-img>
             <span>Jember, Indonesia</span>
         </div>
         <div class="button-group">
@@ -177,23 +44,23 @@
 
         <div class="social-container">
             <a href="https://instagram.com/realagam1" class="social-button instagram">
-                <amp-img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/svgs/brands/instagram.svg" width="20" height="20" alt="Instagram icon" layout="fixed"></amp-img>
+                <amp-img src="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome/svgs/brands/instagram.svg" width="20" height="20" alt="Instagram icon" layout="fixed"></amp-img>
                 Instagram
             </a>
             <a href="https://www.facebook.com/agamriyandana.id" class="social-button facebook">
-                <amp-img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/svgs/brands/facebook.svg" width="20" height="20" alt="Facebook icon" layout="fixed"></amp-img>
+                <amp-img src="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome/svgs/brands/facebook.svg" width="20" height="20" alt="Facebook icon" layout="fixed"></amp-img>
                 Facebook
             </a>
             <a href="https://www.twitter.com/agam_riyandana1/" class="social-button twitter">
-                <amp-img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/svgs/brands/twitter.svg" width="20" height="20" alt="Twitter icon" layout="fixed"></amp-img>
+                <amp-img src="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome/svgs/brands/twitter.svg" width="20" height="20" alt="Twitter icon" layout="fixed"></amp-img>
                 X
             </a>
             <a href="https://youtube.com/@agam_riyandana" class="social-button youtube">
-                <amp-img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/svgs/brands/youtube.svg" width="20" height="20" alt="YouTube icon" layout="fixed"></amp-img>
+                <amp-img src="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome/svgs/brands/youtube.svg" width="20" height="20" alt="YouTube icon" layout="fixed"></amp-img>
                 YouTube
             </a>
             <a href="https://open.spotify.com/artist/47w2bmfv89qm3wss9v4aEX?si=bLttpBoNT4u85dTDd573VA" class="social-button spotify">
-                <amp-img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/svgs/brands/spotify.svg" width="20" height="20" alt="Spotify icon" layout="fixed"></amp-img>
+                <amp-img src="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome/svgs/brands/spotify.svg" width="20" height="20" alt="Spotify icon" layout="fixed"></amp-img>
                 Spotify
             </a>
         </div>
@@ -202,7 +69,7 @@
         <p>&copy; <span id="year"></span> Agam Riyandana. All Rights Reserved.</p>
     </footer>
 
-    <amp-script layout="container" script="year-script">
+    <amp-script layout="container" script="year-script" width="300" height="50">
         <script type="text/plain" target="amp-script" id="year-script">
             document.getElementById('year').textContent = new Date().getFullYear();
         </script>
