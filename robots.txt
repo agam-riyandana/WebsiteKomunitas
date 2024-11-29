@@ -1,28 +1,4 @@
 User-agent: *
 Disallow: /search
-Disallow: /a/
-Disallow: /action/
-Disallow: /c/
-Disallow: /crt/
-Disallow: /h/
-Disallow: /i/
-Disallow: /ii/
-Disallow: /m/
-Disallow: /r/
-Disallow: /v/
-Disallow: /wp/
-
 Allow: /
-Allow: /a/
-Allow: /action/
-Allow: /c/
-Allow: /crt/
-Allow: /h/
-Allow: /i/
-Allow: /ii/
-Allow: /m/
-Allow: /r/
-Allow: /v/
-Allow: /wp/
-
 Sitemap: https://agamriyandana.my.id/sitemap.xml
