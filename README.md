@@ -19,7 +19,8 @@ In today's social media era, grabbing the attention of internet users is a big c
 
 4. Feature  : Open Graph
 
-5. Valid AMP Page support
+## Update
+1. Biolink Improvements and Updates Are More Enjoyable to Look At
 
 ## Demo
 
