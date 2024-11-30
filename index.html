@@ -90,6 +90,9 @@
             transition: all 0.3s ease;
             font-size: 14px; /* Updated button font-size */
             font-weight: 600; /* Added font-weight to button */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .button:hover {
@@ -113,6 +116,9 @@
             transition: all 0.3s ease;
             font-size: 14px; /* Updated menu-item font-size */
             font-weight: 600; /* Added font-weight to menu-item */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .menu-item:hover {
@@ -203,6 +209,10 @@
       .social-button.spotify:hover {
        background-color: #1AA34A;
        }
+
+        .button i, .menu-item i {
+            margin-right: 8px;
+        }
     </style>
     <script type="application/ld+json">
     {
@@ -240,13 +250,25 @@
             <span>Jember, Indonesia</span>
         </div>
         <div class="button-group">
-            <a href="https://instagram.com/realagam1" class="button">Portfolio</a>
-            <a href="mailto:agamriyandana7@gmail.com" class="button">Email Contact</a>
+            <a href="https://instagram.com/realagam1" class="button">
+                <i class="fas fa-briefcase"></i>
+                Portfolio
+            </a>
+            <a href="mailto:agamriyandana7@gmail.com" class="button">
+                <i class="fas fa-envelope"></i>
+                Email Contact
+            </a>
         </div>
 
         <div class="menu-items">
-            <a href="https://blog.agamriyandana.my.id" class="menu-item">🔥 Konten & Updates</a>
-            <a href="https://trakteer.id/agam1/tip" class="menu-item">💰 Donate Me!</a>
+            <a href="https://blog.agamriyandana.my.id" class="menu-item">
+                <i class="fas fa-fire"></i>
+                Konten & Updates
+            </a>
+            <a href="https://trakteer.id/agam1/tip" class="menu-item">
+                <i class="fas fa-donate"></i>
+                Donate Me!
+            </a>
         </div>
 
         <div class="social-container">
