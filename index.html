@@ -41,28 +41,35 @@
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 96px;
+            height: 96px;
             border-radius: 50%;
-            margin: 1rem 0;
+            margin: 1rem auto;
             object-fit: cover;
             border: 3px solid rgba(255, 255, 255, 0.1);
+            display: block;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 1.5rem;
             margin-bottom: 0.5rem;
         }
 
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: 0.5rem;
         }
 
+        .subtitle i {
+            font-size: 0.875rem;
+            margin-right: 0.25rem;
+        }
+
         .location {
+            font-size: 0.875rem;
             color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .button-group {
@@ -73,13 +80,14 @@
         }
 
         .button {
-            padding: 0.8rem 2rem;
-            border-radius: 2rem;
+            padding: 0.6rem 1.5rem;
+            border-radius: 0.5rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
             background-color: rgba(255, 255, 255, 0.05);
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
+            font-size: 0.875rem;
         }
 
         .button:hover {
@@ -94,13 +102,14 @@
         }
 
         .menu-item {
-            padding: 1rem;
+            padding: 0.75rem;
             border-radius: 0.5rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
             background-color: rgba(255, 255, 255, 0.05);
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
+            font-size: 0.875rem;
         }
 
         .menu-item:hover {
@@ -117,20 +126,24 @@
         .social-button {
             background-color: #1a1a1a;
             color: white;
-            padding: 12px 20px;
-            border-radius: 25px;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
             text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             transition: background-color 0.3s;
+            font-size: 0.75rem;
         }
 
         .social-button:hover {
             background-color: #333;
         }
 
+        .social-button i {
+            font-size: 1rem;
+        }
         .icon {
             width: 20px;
             height: 20px;
@@ -186,10 +199,32 @@
        background-color: #1AA34A;
        }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Agam Riyandana",
+      "jobTitle": "Content Creator",
+      "url": "https://agamriyandana.my.id",
+      "sameAs": [
+        "https://instagram.com/realagam1",
+        "https://www.facebook.com/agamriyandana.id",
+        "https://x.com/agam_riyandana1/",
+        "https://youtube.com/@agam_riyandana",
+        "https://open.spotify.com/artist/47w2bmfv89qm3wss9v4aEX"
+      ],
+      "image": "/webprofil.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jember",
+        "addressCountry": "Indonesia"
+      }
+    }
+    </script>
 </head>
 <body>
     <div class="container">
-        <img src="/webprofil.png?height=150&width=150" alt="Profile" class="profile-img">
+        <img src="/webprofil.png?height=96&width=96" alt="Profile" class="profile-img">
         <h1>Agam Riyandana</h1>
         <div class="subtitle">
             <i class="fa-solid fa-star"></i>
