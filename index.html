@@ -31,19 +31,19 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 1.5rem 1rem; /* Updated body padding */
+            padding: 1.5rem 1rem;
         }
 
         .container {
-            max-width: 680px; /* Updated container max-width */
+            max-width: 680px;
             width: 100%;
             text-align: center;
-            padding: 0 1rem; /* Added padding to container */
+            padding: 0 1rem;
         }
 
         .profile-img {
-            width: 96px; /* Updated profile-img width */
-            height: 96px; /* Updated profile-img height */
+            width: 96px;
+            height: 96px;
             border-radius: 50%;
             margin: 1rem 0;
             object-fit: cover;
@@ -51,26 +51,35 @@
         }
 
         h1 {
-            font-size: 20px; /* Updated h1 font-size */
-            font-weight: 700; /* Added font-weight to h1 */
+            font-size: 20px;
+            font-weight: 700;
             margin-bottom: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .verified-badge {
+            color: #3897f0;
+            font-size: 16px;
+            margin-left: 5px;
         }
 
         .subtitle {
-            font-size: 14px; /* Updated subtitle font-size */
+            font-size: 14px;
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: 0.6rem;
         }
 
         .subtitle i {
-            font-size: 14px; /* Updated subtitle i font-size */
-            margin-right: 4px; /* Added margin-right to subtitle i */
+            font-size: 14px;
+            margin-right: 4px;
         }
 
         .location {
-            font-size: 14px; /* Updated location font-size */
+            font-size: 14px;
             color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 1.5rem; /* Updated location margin-bottom */
+            margin-bottom: 1.5rem;
         }
 
         .button-group {
@@ -81,15 +90,15 @@
         }
 
         .button {
-            padding: 0.75rem 1rem; /* Updated button padding */
-            border-radius: 0.5rem; /* Updated button border-radius */
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
             background-color: rgba(255, 255, 255, 0.05);
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
-            font-size: 14px; /* Updated button font-size */
-            font-weight: 600; /* Added font-weight to button */
+            font-size: 14px;
+            font-weight: 600;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -107,15 +116,15 @@
         }
 
         .menu-item {
-            padding: 0.75rem 1rem; /* Updated menu-item padding */
-            border-radius: 0.5rem; /* Updated menu-item border-radius */
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
             background-color: rgba(255, 255, 255, 0.05);
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
-            font-size: 14px; /* Updated menu-item font-size */
-            font-weight: 600; /* Added font-weight to menu-item */
+            font-size: 14px;
+            font-weight: 600;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -135,16 +144,16 @@
         .social-button {
             background-color: #1a1a1a;
             color: white;
-            padding: 10px 16px; /* Updated social-button padding */
-            border-radius: 0.5rem; /* Updated social-button border-radius */
+            padding: 10px 16px;
+            border-radius: 0.5rem;
             text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             transition: background-color 0.3s;
-            font-size: 14px; /* Updated social-button font-size */
-            font-weight: 600; /* Added font-weight to social-button */
+            font-size: 14px;
+            font-weight: 600;
         }
 
         .social-button:hover {
@@ -152,66 +161,116 @@
         }
 
         .social-button i {
-            font-size: 16px; /* Updated social-button i font-size */
+            font-size: 16px;
         }
 
         .icon {
             width: 20px;
             height: 20px;
         }
+
         footer {
             margin-top: auto;
             padding: 2rem;
             text-align: center;
             color: #888;
         }
+
         .social-button.instagram {
-         background-color: #FF0163;
-         color: white;
+            background-color: #FF0163;
+            color: white;
         }
 
-       .social-button.instagram:hover {
-       background-color: #FF0163;
+        .social-button.instagram:hover {
+            background-color: #FF0163;
         }
 
-      .social-button.facebook {
-       background-color: #0865FF;
-       color: white;
-       }
+        .social-button.facebook {
+            background-color: #0865FF;
+            color: white;
+        }
 
-      .social-button.facebook:hover {
-       background-color: #0865FF;
-       }
+        .social-button.facebook:hover {
+            background-color: #0865FF;
+        }
 
-      .social-button.twitter {
-       background-color: #1D3050;
-       color: white;
-       }
+        .social-button.twitter {
+            background-color: #1D3050;
+            color: white;
+        }
 
-      .social-button.twitter:hover {
-       background-color: #1D3050;
-       }
+        .social-button.twitter:hover {
+            background-color: #1D3050;
+        }
 
-      .social-button.youtube {
-       background-color: #FF0030;
-       color: white;
-       }
+        .social-button.youtube {
+            background-color: #FF0030;
+            color: white;
+        }
 
-      .social-button.youtube:hover {
-       background-color: #FF0030;
-       }
+        .social-button.youtube:hover {
+            background-color: #FF0030;
+        }
 
-      .social-button.spotify {
-       background-color: #19DA63;
-       color: white;
-       }
+        .social-button.spotify {
+            background-color: #19DA63;
+            color: white;
+        }
 
-      .social-button.spotify:hover {
-       background-color: #19DA63;
-       }
+        .social-button.spotify:hover {
+            background-color: #19DA63;
+        }
 
         .button i, .menu-item i {
             margin-right: 8px;
+        }
+
+        .share-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .share-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .share-dropdown {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: #1a1a1a;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            display: none;
+        }
+
+        .share-dropdown.show {
+            display: block;
+        }
+
+        .share-dropdown a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .share-dropdown a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
     </style>
     <script type="application/ld+json">
@@ -240,7 +299,12 @@
 <body>
     <div class="container">
         <img src="/webprofil.png?height=150&width=150" alt="Profile" class="profile-img">
-        <h1>Agam Riyandana</h1>
+        <h1>
+            Agam Riyandana
+            <span class="verified-badge" aria-label="Verified Account">
+                <i class="fas fa-check-circle"></i>
+            </span>
+        </h1>
         <div class="subtitle">
             <i class="fa-solid fa-star"></i>
             <span>Content Creator</span>
@@ -297,8 +361,48 @@
     <footer>
         <p>&copy; <span id="year"></span> Agam Riyandana. All Rights Reserved.</p>
     </footer>
+
+    <button class="share-button" aria-label="Share" id="shareButton">
+        <i class="fas fa-share-alt"></i>
+    </button>
+    <div class="share-dropdown" id="shareDropdown">
+        <a href="https://agamriyandana.my.id/" onclick="shareOnFacebook()"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="https://agamriyandana.my.id/" onclick="shareOnTwitter()"><i class="fab fa-twitter"></i> Twitter</a>
+        <a href="https://agamriyandana.my.id/" onclick="shareOnLinkedIn()"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://agamriyandana.my.id/" onclick="shareOnWhatsApp()"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        const shareButton = document.getElementById('shareButton');
+        const shareDropdown = document.getElementById('shareDropdown');
+
+        shareButton.addEventListener('click', () => {
+            shareDropdown.classList.toggle('show');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!shareButton.contains(event.target) && !shareDropdown.contains(event.target)) {
+                shareDropdown.classList.remove('show');
+            }
+        });
+
+        function shareOnFacebook() {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank');
+        }
+
+        function shareOnTwitter() {
+            window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent('Check out Agam Riyandana\'s portfolio!')}`, '_blank');
+        }
+
+        function shareOnLinkedIn() {
+            window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(window.location.href)}&title=${encodeURIComponent('Agam Riyandana - Portfolio')}`, '_blank');
+        }
+
+        function shareOnWhatsApp() {
+            window.open(`https://wa.me/?text=${encodeURIComponent('Check out Agam Riyandana\'s portfolio: ' + window.location.href)}`, '_blank');
+        }
     </script>
 </body>
 </html>
