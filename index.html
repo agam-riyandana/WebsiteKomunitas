@@ -31,19 +31,19 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 1.5rem 1rem; /* Updated body padding */
+            padding: 1.5rem 1rem;
         }
 
         .container {
-            max-width: 680px; /* Updated container max-width */
+            max-width: 680px;
             width: 100%;
             text-align: center;
-            padding: 0 1rem; /* Added padding to container */
+            padding: 0 1rem;
         }
 
         .profile-img {
-            width: 96px; /* Updated profile-img width */
-            height: 96px; /* Updated profile-img height */
+            width: 96px;
+            height: 96px;
             border-radius: 50%;
             margin: 1rem 0;
             object-fit: cover;
@@ -51,9 +51,12 @@
         }
 
         h1 {
-            font-size: 20px; /* Updated h1 font-size */
-            font-weight: 700; /* Added font-weight to h1 */
+            font-size: 20px;
+            font-weight: 700;
             margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .verified-badge {
@@ -65,6 +68,7 @@
             align-items: center;
             justify-content: center;
             margin-left: 6px;
+            vertical-align: middle;
         }
 
         .verified-badge i {
@@ -73,20 +77,20 @@
         }
 
         .subtitle {
-            font-size: 14px; /* Updated subtitle font-size */
+            font-size: 14px;
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: 0.6rem;
         }
 
         .subtitle i {
-            font-size: 14px; /* Updated subtitle i font-size */
-            margin-right: 4px; /* Added margin-right to subtitle i */
+            font-size: 14px;
+            margin-right: 4px;
         }
 
         .location {
-            font-size: 14px; /* Updated location font-size */
+            font-size: 14px;
             color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 1.5rem; /* Updated location margin-bottom */
+            margin-bottom: 1.5rem;
         }
 
         .button-group {
@@ -97,15 +101,15 @@
         }
 
         .button {
-            padding: 0.75rem 1rem; /* Updated button padding */
-            border-radius: 0.5rem; /* Updated button border-radius */
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
             background-color: rgba(255, 255, 255, 0.05);
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
-            font-size: 14px; /* Updated button font-size */
-            font-weight: 600; /* Added font-weight to button */
+            font-size: 14px;
+            font-weight: 600;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -123,15 +127,15 @@
         }
 
         .menu-item {
-            padding: 0.75rem 1rem; /* Updated menu-item padding */
-            border-radius: 0.5rem; /* Updated menu-item border-radius */
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
             background-color: rgba(255, 255, 255, 0.05);
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
-            font-size: 14px; /* Updated menu-item font-size */
-            font-weight: 600; /* Added font-weight to menu-item */
+            font-size: 14px;
+            font-weight: 600;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -151,16 +155,16 @@
         .social-button {
             background-color: #1a1a1a;
             color: white;
-            padding: 10px 16px; /* Updated social-button padding */
-            border-radius: 0.5rem; /* Updated social-button border-radius */
+            padding: 10px 16px;
+            border-radius: 0.5rem;
             text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             transition: background-color 0.3s;
-            font-size: 14px; /* Updated social-button font-size */
-            font-weight: 600; /* Added font-weight to social-button */
+            font-size: 14px;
+            font-weight: 600;
         }
 
         .social-button:hover {
@@ -168,63 +172,65 @@
         }
 
         .social-button i {
-            font-size: 16px; /* Updated social-button i font-size */
+            font-size: 16px;
         }
 
         .icon {
             width: 20px;
             height: 20px;
         }
+
         footer {
             margin-top: auto;
             padding: 2rem;
             text-align: center;
             color: #888;
         }
+
         .social-button.instagram {
-         background-color: #FF0163;
-         color: white;
+            background-color: #FF0163;
+            color: white;
         }
 
-       .social-button.instagram:hover {
-       background-color: #FF0163;
+        .social-button.instagram:hover {
+            background-color: #FF0163;
         }
 
-      .social-button.facebook {
-       background-color: #0865FF;
-       color: white;
-       }
+        .social-button.facebook {
+            background-color: #0865FF;
+            color: white;
+        }
 
-      .social-button.facebook:hover {
-       background-color: #0865FF;
-       }
+        .social-button.facebook:hover {
+            background-color: #0865FF;
+        }
 
-      .social-button.twitter {
-       background-color: #1D3050;
-       color: white;
-       }
+        .social-button.twitter {
+            background-color: #1D3050;
+            color: white;
+        }
 
-      .social-button.twitter:hover {
-       background-color: #1D3050;
-       }
+        .social-button.twitter:hover {
+            background-color: #1D3050;
+        }
 
-      .social-button.youtube {
-       background-color: #FF0030;
-       color: white;
-       }
+        .social-button.youtube {
+            background-color: #FF0030;
+            color: white;
+        }
 
-      .social-button.youtube:hover {
-       background-color: #FF0030;
-       }
+        .social-button.youtube:hover {
+            background-color: #FF0030;
+        }
 
-      .social-button.spotify {
-       background-color: #19DA63;
-       color: white;
-       }
+        .social-button.spotify {
+            background-color: #19DA63;
+            color: white;
+        }
 
-      .social-button.spotify:hover {
-       background-color: #19DA63;
-       }
+        .social-button.spotify:hover {
+            background-color: #19DA63;
+        }
 
         .button i, .menu-item i {
             margin-right: 8px;
@@ -256,10 +262,11 @@
 <body>
     <div class="container">
         <img src="/webprofil.png?height=150&width=150" alt="Profile" class="profile-img">
-        <h1>Agam Riyandana
-        <span class="verified-badge" title="Verified">
-           <i class="fas fa-check"></i>
-        </span>
+        <h1>
+            Agam Riyandana
+            <span class="verified-badge" title="Verified">
+                <i class="fas fa-check"></i>
+            </span>
         </h1>
         <div class="subtitle">
             <i class="fa-solid fa-star"></i>
