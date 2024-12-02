@@ -16,6 +16,7 @@
     <meta property="og:description" content="agam, atau yang lebih dikenal dengan agam riyandana adalah seorang content creator Independen Berkebangsaan Indonesia." />
     <meta property="og:url" content="https://agamriyandana.my.id">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -39,6 +40,7 @@
             width: 100%;
             text-align: center;
             padding: 0 1rem;
+            position: relative;
         }
 
         .profile-img {
@@ -85,7 +87,7 @@
         .subtitle i {
             font-size: 14px;
             margin-right: 4px;
-            color: #FFD700; /* Gold color for the star */
+            color: #FFD700;
         }
 
         .location {
@@ -94,7 +96,7 @@
             margin-bottom: 1.5rem;
         }
         .location i {
-            color: #4CAF50; /* Green color for the location icon */
+            color: #4CAF50;
         }
 
         .button-group {
@@ -126,10 +128,10 @@
             margin-right: 8px;
         }
         .button:nth-child(1) i {
-            color: #FF9800; /* Orange color for the portfolio icon */
+            color: #FF9800;
         }
         .button:nth-child(2) i {
-            color: #2196F3; /* Blue color for the email contact icon */
+            color: #2196F3;
         }
 
         .menu-items {
@@ -161,10 +163,10 @@
             margin-right: 8px;
         }
         .menu-item:nth-child(1) i {
-            color: #FF5722; /* Deep orange color for the fire icon */
+            color: #FF5722;
         }
         .menu-item:nth-child(2) i {
-            color: #E91E63; /* Pink color for the donate icon */
+            color: #E91E63;
         }
 
         .social-container {
@@ -277,6 +279,144 @@
         .button i, .menu-item i {
             margin-right: 8px;
         }
+
+        /* New styles for share button and modal */
+        .share-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .share-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .share-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1000;
+            max-width: 90%;
+            width: 300px;
+        }
+
+        .share-modal h2 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .share-options {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .share-option {
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .share-option:hover {
+            color: #3897f0;
+        }
+
+        .qr-code {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .qr-code img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        /* Styles for Verified Status menu */
+        .verified-status-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1000;
+            max-width: 90%;
+            width: 300px;
+        }
+
+        .verified-status-modal h2 {
+            margin-bottom: 15px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .verified-status-modal h2 .verified-badge {
+            margin-left: 10px;
+        }
+
+        .verified-status-content {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .verified-status-content p {
+            margin-bottom: 10px;
+        }
+
+        .verified-status-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
     </style>
     <script type="application/ld+json">
     {
@@ -306,7 +446,7 @@
         <img src="/webprofil.png?height=150&width=150" alt="Profile" class="profile-img">
         <h1>
             Agam Riyandana
-            <span class="verified-badge" title="Verified">
+            <span class="verified-badge" title="Verified" id="verifiedBadge">
                 <i class="fas fa-check"></i>
             </span>
         </h1>
@@ -366,8 +506,114 @@
     <footer>
         <p>&copy; <span id="year"></span> Agam Riyandana. All Rights Reserved.</p>
     </footer>
+
+    <!-- Share button -->
+    <button class="share-button" id="shareButton">
+        <i class="fas fa-share-alt"></i>
+    </button>
+
+    <!-- Share modal -->
+    <div class="share-modal" id="shareModal">
+        <button class="modal-close" id="closeModal">&times;</button>
+        <h2>Share this page</h2>
+        <div class="share-options">
+            <a href="https://agamriyandana.my.id" class="share-option" id="shareFacebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://agamriyandana.my.id" class="share-option" id="shareTwitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://agamriyandana.my.id" class="share-option" id="shareWhatsapp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <div class="qr-code" id="qrCode"></div>
+    </div>
+
+    <!-- Verified Status modal -->
+    <div class="verified-status-modal" id="verifiedStatusModal">
+        <button class="verified-status-close" id="closeVerifiedStatus">&times;</button>
+        <h2>
+            Verified Status
+            <span class="verified-badge">
+                <i class="fas fa-check"></i>
+            </span>
+        </h2>
+        <div class="verified-status-content">
+            <p>This account is verified because it's notable in government, news, entertainment, or another designated category.</p>
+            <p>Verified accounts have the following benefits:</p>
+            <ul>
+                <li>Increased visibility and reach</li>
+                <li>Protection against impersonation</li>
+                <li>Access to exclusive features</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Share functionality
+        const shareButton = document.getElementById('shareButton');
+        const shareModal = document.getElementById('shareModal');
+        const closeModal = document.getElementById('closeModal');
+        const overlay = document.getElementById('overlay');
+        const shareFacebook = document.getElementById('shareFacebook');
+        const shareTwitter = document.getElementById('shareTwitter');
+        const shareWhatsapp = document.getElementById('shareWhatsapp');
+        const qrCode = document.getElementById('qrCode');
+
+        // Verified Status functionality
+        const verifiedBadge = document.getElementById('verifiedBadge');
+        const verifiedStatusModal = document.getElementById('verifiedStatusModal');
+        const closeVerifiedStatus = document.getElementById('closeVerifiedStatus');
+
+        shareButton.addEventListener('click', () => {
+            shareModal.style.display = 'block';
+            overlay.style.display = 'block';
+            generateQRCode();
+        });
+
+        closeModal.addEventListener('click', () => {
+            shareModal.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+
+        verifiedBadge.addEventListener('click', (e) => {
+            e.preventDefault();
+            verifiedStatusModal.style.display = 'block';
+            overlay.style.display = 'block';
+        });
+
+        closeVerifiedStatus.addEventListener('click', () => {
+            verifiedStatusModal.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+
+        overlay.addEventListener('click', () => {
+            shareModal.style.display = 'none';
+            verifiedStatusModal.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+
+        shareFacebook.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank');
+        });
+
+        shareTwitter.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent('Check out Agam Riyandana\'s portfolio!')}`, '_blank');
+        });
+
+        shareWhatsapp.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent('Check out Agam Riyandana\'s portfolio: ' + window.location.href)}`, '_blank');
+        });
+
+        function generateQRCode() {
+            const qr = qrcode(0, 'M');
+            qr.addData(window.location.href);
+            qr.make();
+            qrCode.innerHTML = qr.createImgTag(5);
+        }
     </script>
 </body>
 </html>
