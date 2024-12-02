@@ -71,7 +71,6 @@
             justify-content: center;
             margin-left: 6px;
             vertical-align: middle;
-            cursor: pointer;
         }
 
         .verified-badge i {
@@ -372,49 +371,51 @@
             z-index: 999;
         }
 
-        .modal {
+        /* Styles for Verified Status menu */
+        .verified-status-modal {
             display: none;
             position: fixed;
-            z-index: 1001;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
-        }
-
-        .modal-content {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             background-color: #1a1a1a;
-            margin: 15% auto;
             padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 500px;
             border-radius: 10px;
-            color: white;
+            z-index: 1000;
+            max-width: 90%;
+            width: 300px;
         }
 
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #fff;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .info-container {
+        .verified-status-modal h2 {
+            margin-bottom: 15px;
+            font-size: 18px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 1.5rem;
+            justify-content: center;
+        }
+
+        .verified-status-modal h2 .verified-badge {
+            margin-left: 10px;
+        }
+
+        .verified-status-content {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .verified-status-content p {
+            margin-bottom: 10px;
+        }
+
+        .verified-status-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
         }
     </style>
     <script type="application/ld+json">
@@ -445,19 +446,17 @@
         <img src="/webprofil.png?height=150&width=150" alt="Profile" class="profile-img">
         <h1>
             Agam Riyandana
-            <span class="verified-badge" id="verifiedBadge" title="Verified">
+            <span class="verified-badge" title="Verified" id="verifiedBadge">
                 <i class="fas fa-check"></i>
             </span>
         </h1>
-        <div class="info-container">
-            <div class="subtitle">
-                <i class="fa-solid fa-star"></i>
-                <span>Content Creator</span>
-            </div>
-            <div class="location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Jember, Indonesia</span>
-            </div>
+        <div class="subtitle">
+            <i class="fa-solid fa-star"></i>
+            <span>Content Creator</span>
+        </div>
+        <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Jember, Indonesia</span>
         </div>
         <div class="button-group">
             <a href="https://instagram.com/realagam1" class="button">
@@ -518,28 +517,36 @@
         <button class="modal-close" id="closeModal">&times;</button>
         <h2>Share this page</h2>
         <div class="share-options">
-            <a href="#" class="share-option" id="shareFacebook"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="share-option" id="shareTwitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="share-option" id="shareWhatsapp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://agamriyandana.my.id" class="share-option" id="shareFacebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://agamriyandana.my.id" class="share-option" id="shareTwitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://agamriyandana.my.id" class="share-option" id="shareWhatsapp"><i class="fab fa-whatsapp"></i></a>
         </div>
         <div class="qr-code" id="qrCode"></div>
     </div>
 
-    <!-- Overlay -->
-    <div class="overlay" id="overlay"></div>
-
-    <!-- Verified Status Modal -->
-    <div id="verifiedModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Verified Status</h2>
-            <p>This account is verified for the following reasons:</p>
+    <!-- Verified Status modal -->
+    <div class="verified-status-modal" id="verifiedStatusModal">
+        <button class="verified-status-close" id="closeVerifiedStatus">&times;</button>
+        <h2>
+            Verified Status
+            <span class="verified-badge">
+                <i class="fas fa-check"></i>
+            </span>
+        </h2>
+        <div class="verified-status-content">
+            <p>This account is verified because it's notable in government, news, entertainment, or another designated category.</p>
+            <p>Verified accounts have the following benefits:</p>
             <ul>
-                <li>Domain ownership verified</li>
-                <li>Identity confirmed</li>
+                <li>• Increased visibility and reach</li>
+                <li>• Protection against impersonation</li>
+                <li>• Domain ownership verified</li>
+                <li>• Identity confirmed</li>
             </ul>
         </div>
     </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
@@ -554,6 +561,11 @@
         const shareWhatsapp = document.getElementById('shareWhatsapp');
         const qrCode = document.getElementById('qrCode');
 
+        // Verified Status functionality
+        const verifiedBadge = document.getElementById('verifiedBadge');
+        const verifiedStatusModal = document.getElementById('verifiedStatusModal');
+        const closeVerifiedStatus = document.getElementById('closeVerifiedStatus');
+
         shareButton.addEventListener('click', () => {
             shareModal.style.display = 'block';
             overlay.style.display = 'block';
@@ -565,8 +577,20 @@
             overlay.style.display = 'none';
         });
 
+        verifiedBadge.addEventListener('click', (e) => {
+            e.preventDefault();
+            verifiedStatusModal.style.display = 'block';
+            overlay.style.display = 'block';
+        });
+
+        closeVerifiedStatus.addEventListener('click', () => {
+            verifiedStatusModal.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+
         overlay.addEventListener('click', () => {
             shareModal.style.display = 'none';
+            verifiedStatusModal.style.display = 'none';
             overlay.style.display = 'none';
         });
 
@@ -590,29 +614,6 @@
             qr.addData(window.location.href);
             qr.make();
             qrCode.innerHTML = qr.createImgTag(5);
-        }
-
-        // Verified Status Modal
-        const verifiedBadge = document.getElementById("verifiedBadge");
-        const verifiedModal = document.getElementById("verifiedModal");
-        const verifiedClose = verifiedModal.getElementsByClassName("close")[0];
-
-        verifiedBadge.onclick = function() {
-            verifiedModal.style.display = "block";
-        }
-
-        verifiedClose.onclick = function() {
-            verifiedModal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == verifiedModal) {
-                verifiedModal.style.display = "none";
-            }
-            if (event.target == shareModal) {
-                shareModal.style.display = "none";
-                overlay.style.display = "none";
-            }
         }
     </script>
 </body>
