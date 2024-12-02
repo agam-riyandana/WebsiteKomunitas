@@ -71,6 +71,7 @@
             justify-content: center;
             margin-left: 6px;
             vertical-align: middle;
+            cursor: pointer;
         }
 
         .verified-badge i {
@@ -371,8 +372,7 @@
             z-index: 999;
         }
 
-        /* Styles for Verified Status menu */
-        .verified-status-modal {
+        .verified-modal {
             display: none;
             position: fixed;
             top: 50%;
@@ -384,38 +384,17 @@
             z-index: 1000;
             max-width: 90%;
             width: 300px;
+            color: white;
         }
 
-        .verified-status-modal h2 {
+        .verified-modal h2 {
             margin-bottom: 15px;
             font-size: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .verified-status-modal h2 .verified-badge {
-            margin-left: 10px;
-        }
-
-        .verified-status-content {
-            text-align: left;
-            margin-bottom: 20px;
-        }
-
-        .verified-status-content p {
+        .verified-modal p {
             margin-bottom: 10px;
-        }
-
-        .verified-status-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
+            font-size: 14px;
         }
     </style>
     <script type="application/ld+json">
@@ -502,6 +481,14 @@
                 Spotify
             </a>
         </div>
+        <!-- Verified Status Modal -->
+        <div class="verified-modal" id="verifiedModal">
+            <button class="modal-close" id="closeVerifiedModal">&times;</button>
+            <h2>Verified Status</h2>
+            <p><strong>Domain Created:</strong> <span id="domainCreated"></span></p>
+            <p><strong>Position:</strong> Content Creator</p>
+            <p><strong>Location:</strong> Jember, Indonesia</p>
+        </div>
     </div>
     <footer>
         <p>&copy; <span id="year"></span> Agam Riyandana. All Rights Reserved.</p>
@@ -517,31 +504,11 @@
         <button class="modal-close" id="closeModal">&times;</button>
         <h2>Share this page</h2>
         <div class="share-options">
-            <a href="https://agamriyandana.my.id" class="share-option" id="shareFacebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://agamriyandana.my.id" class="share-option" id="shareTwitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://agamriyandana.my.id" class="share-option" id="shareWhatsapp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="share-option" id="shareFacebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="share-option" id="shareTwitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="share-option" id="shareWhatsapp"><i class="fab fa-whatsapp"></i></a>
         </div>
         <div class="qr-code" id="qrCode"></div>
-    </div>
-
-    <!-- Verified Status modal -->
-    <div class="verified-status-modal" id="verifiedStatusModal">
-        <button class="verified-status-close" id="closeVerifiedStatus">&times;</button>
-        <h2>
-            Verified Status
-            <span class="verified-badge">
-                <i class="fas fa-check"></i>
-            </span>
-        </h2>
-        <div class="verified-status-content">
-            <p>This account is verified because it's notable in government, news, entertainment, or another designated category.</p>
-            <p>Verified accounts have the following benefits:</p>
-            <ul>
-                <li>Increased visibility and reach</li>
-                <li>Protection against impersonation</li>
-                <li>Access to exclusive features</li>
-            </ul>
-        </div>
     </div>
 
     <!-- Overlay -->
@@ -560,11 +527,6 @@
         const shareWhatsapp = document.getElementById('shareWhatsapp');
         const qrCode = document.getElementById('qrCode');
 
-        // Verified Status functionality
-        const verifiedBadge = document.getElementById('verifiedBadge');
-        const verifiedStatusModal = document.getElementById('verifiedStatusModal');
-        const closeVerifiedStatus = document.getElementById('closeVerifiedStatus');
-
         shareButton.addEventListener('click', () => {
             shareModal.style.display = 'block';
             overlay.style.display = 'block';
@@ -576,20 +538,9 @@
             overlay.style.display = 'none';
         });
 
-        verifiedBadge.addEventListener('click', (e) => {
-            e.preventDefault();
-            verifiedStatusModal.style.display = 'block';
-            overlay.style.display = 'block';
-        });
-
-        closeVerifiedStatus.addEventListener('click', () => {
-            verifiedStatusModal.style.display = 'none';
-            overlay.style.display = 'none';
-        });
-
         overlay.addEventListener('click', () => {
             shareModal.style.display = 'none';
-            verifiedStatusModal.style.display = 'none';
+            verifiedModal.style.display = 'none';
             overlay.style.display = 'none';
         });
 
@@ -614,6 +565,26 @@
             qr.make();
             qrCode.innerHTML = qr.createImgTag(5);
         }
+
+        // Verified Status functionality
+        const verifiedBadge = document.getElementById('verifiedBadge');
+        const verifiedModal = document.getElementById('verifiedModal');
+        const closeVerifiedModal = document.getElementById('closeVerifiedModal');
+        const domainCreated = document.getElementById('domainCreated');
+
+        // Set the domain creation date (replace with actual date if known)
+        const creationDate = new Date('2023-01-01').toLocaleDateString();
+        domainCreated.textContent = creationDate;
+
+        verifiedBadge.addEventListener('click', () => {
+            verifiedModal.style.display = 'block';
+            overlay.style.display = 'block';
+        });
+
+        closeVerifiedModal.addEventListener('click', () => {
+            verifiedModal.style.display = 'none';
+            overlay.style.display = 'none';
+        });
     </script>
 </body>
 </html>
