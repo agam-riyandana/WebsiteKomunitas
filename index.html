@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-gray-900 text-white">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-adsense-account" content="ca-pub-3345566781682408">
     <meta name="description" content="Agam, atau yang lebih dikenal dengan Agam Riyandana adalah seorang content creator Independen Berkebangsaan Indonesia.">
     <meta name="keywords" content="content creator, music, portfolio, Spotify, agam, agam riyandana">
     <title>Agam Riyandana - Portofolio</title>
@@ -16,439 +15,124 @@
     <meta property="og:title" content="Agam Riyandana - Portofolio">
     <meta property="og:description" content="Agam, atau yang lebih dikenal dengan Agam Riyandana adalah seorang content creator Independen Berkebangsaan Indonesia." />
     <meta property="og:url" content="https://agamriyandana.my.id">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3345566781682408"
-     crossorigin="anonymous"></script>
-    <style>
-        :root {
-            --background-color: #0a0d16;
-            --text-color: #ffffff;
-            --button-bg: #2a2a2a;
-            --button-hover-bg: #3a3a3a;
-            --social-button-bg: #1a1a1a;
-            --social-button-hover-bg: #333333;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'instagram': '#E1306C',
+                        'facebook': '#1877F2',
+                        'twitter': '#1DA1F2',
+                        'youtube': '#FF0000',
+                        'spotify': '#1DB954',
+                    }
+                }
+            }
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        }
-
-        body {
-            background-color: var(--background-color);
-            color: var(--text-color);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 1.5rem 1rem;
-        }
-
-        .container {
-            max-width: 680px;
-            width: 100%;
-            text-align: center;
-            padding: 0 1rem;
-            position: relative;
-        }
-
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 1rem auto;
-            object-fit: cover;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            display: block;
-        }
-
-        h1 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .verified-badge {
-            width: 16px;
-            height: 16px;
-            background-color: #3897f0;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 6px;
-            vertical-align: middle;
-        }
-
-        .verified-badge i {
-            font-size: 10px;
-            color: var(--text-color);
-        }
-
-        .subtitle {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 0.6rem;
-        }
-
-        .subtitle i {
-            font-size: 14px;
-            margin-right: 4px;
-            color: #FFD700;
-        }
-
-        .location {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 1.5rem;
-        }
-
-        .location i {
-            color: #4CAF50;
-        }
-
-        .button-group {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-
-        .button {
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background-color: var(--button-bg);
-            color: var(--text-color);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 14px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .button:hover,
-        .button:focus {
-            background-color: var(--button-hover-bg);
-        }
-
-        .button i {
-            margin-right: 8px;
-        }
-
-        .menu-items {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .menu-item {
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background-color: var(--button-bg);
-            color: var(--text-color);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 14px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .menu-item:hover,
-        .menu-item:focus {
-            background-color: var(--button-hover-bg);
-        }
-
-        .menu-item i {
-            margin-right: 8px;
-        }
-
-        .social-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 10px;
-            margin: 30px 0;
-        }
-
-        .social-button {
-            background-color: var(--social-button-bg);
-            color: var(--text-color);
-            padding: 10px 16px;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: background-color 0.3s;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .social-button:hover,
-        .social-button:focus {
-            background-color: var(--social-button-hover-bg);
-        }
-
-        .social-button i {
-            font-size: 16px;
-        }
-
-        .social-button.instagram { background-color: #E1306C; }
-        .social-button.facebook { background-color: #1877F2; }
-        .social-button.twitter { background-color: #1DA1F2; }
-        .social-button.youtube { background-color: #FF0000; }
-        .social-button.spotify { background-color: #1DB954; }
-
-        footer {
-            margin-top: auto;
-            padding: 2rem;
-            text-align: center;
-            color: #888;
-        }
-
-        #shareButton {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #4a4a4a;
-            color: var(--text-color);
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 20px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s;
-        }
-
-        #shareButton:hover,
-        #shareButton:focus {
-            background-color: #5a5a5a;
-        }
-
-        .share-modal,
-        .verified-status-modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: var(--social-button-bg);
-            padding: 20px;
-            border-radius: 10px;
-            z-index: 1000;
-            max-width: 90%;
-            width: 300px;
-        }
-
-        .share-modal h2,
-        .verified-status-modal h2 {
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-
-        .share-options {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 20px;
-        }
-
-        .share-option {
-            color: var(--text-color);
-            font-size: 24px;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .share-option:hover,
-        .share-option:focus {
-            color: #3897f0;
-        }
-
-        .qr-code {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .qr-code img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .modal-close,
-        .verified-status-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            color: var(--text-color);
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-        }
-
-        .verified-status-content {
-            text-align: left;
-            margin-bottom: 20px;
-        }
-
-        .verified-status-content p {
-            margin-bottom: 10px;
-        }
-
-        .verified-status-content ul {
-            padding-left: 20px;
-        }
-    </style>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Agam Riyandana",
-      "jobTitle": "Content Creator",
-      "url": "https://agamriyandana.my.id",
-      "sameAs": [
-        "https://instagram.com/realagam1",
-        "https://www.facebook.com/agamriyandana.id",
-        "https://x.com/agam_riyandana1/",
-        "https://youtube.com/@agam_riyandana",
-        "https://open.spotify.com/artist/47w2bmfv89qm3wss9v4aEX"
-      ],
-      "image": "/webprofil.png",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Jember",
-        "addressCountry": "Indonesia"
-      }
-    }
     </script>
 </head>
-<body>
-    <div class="container">
-        <img src="/webprofil.png?height=240&width=240" alt="Profile picture of Agam Riyandana" class="profile-img">
-        <h1>
+<body class="min-h-screen flex flex-col items-center py-8 px-4">
+    <div class="container max-w-2xl mx-auto text-center">
+        <img src="/webprofil.png?height=240&width=240" alt="Profile picture of Agam Riyandana" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-gray-700">
+        <h1 class="text-2xl font-bold mb-2 flex items-center justify-center">
             Agam Riyandana
-            <span class="verified-badge" title="Verified" id="verifiedBadge">
-                <i class="fas fa-check" aria-hidden="true"></i>
+            <span class="ml-2 bg-blue-500 rounded-full w-5 h-5 flex items-center justify-center" title="Verified" id="verifiedBadge">
+                <i class="fas fa-check text-xs" aria-hidden="true"></i>
             </span>
         </h1>
-        <div class="subtitle">
-            <i class="fa-solid fa-star" aria-hidden="true"></i>
+        <div class="text-sm text-gray-300 mb-1">
+            <i class="fa-solid fa-star text-yellow-400 mr-1" aria-hidden="true"></i>
             <span>Content Creator</span>
         </div>
-        <div class="location">
-            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+        <div class="text-sm text-gray-400 mb-6">
+            <i class="fas fa-map-marker-alt text-green-500 mr-1" aria-hidden="true"></i>
             <span>Jember, Indonesia</span>
         </div>
-        <div class="button-group">
-            <a href="https://instagram.com/realagam1" class="button" aria-label="View Portfolio">
-                <i class="fas fa-briefcase" aria-hidden="true" style="color: #FF9800;"></i>
+        <div class="flex justify-center space-x-4 mb-8">
+            <a href="https://instagram.com/realagam1" class="bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-lg transition duration-300 flex items-center" aria-label="View Portfolio">
+                <i class="fas fa-briefcase text-orange-500 mr-2" aria-hidden="true"></i>
                 Portfolio
             </a>
-            <a href="mailto:agamriyandana7@gmail.com" class="button" aria-label="Email Contact">
-                <i class="fas fa-envelope" aria-hidden="true" style="color: #2196F3;"></i>
+            <a href="mailto:agamriyandana7@gmail.com" class="bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-lg transition duration-300 flex items-center" aria-label="Email Contact">
+                <i class="fas fa-envelope text-blue-400 mr-2" aria-hidden="true"></i>
                 Email Contact
             </a>
         </div>
 
-        <div class="menu-items">
-            <a href="https://blog.agamriyandana.my.id" class="menu-item" aria-label="Content and Updates">
-                <i class="fas fa-fire" aria-hidden="true" style="color: #FF5722;"></i>
+        <div class="space-y-4 mb-8">
+            <a href="https://blog.agamriyandana.my.id" class="bg-gray-800 hover:bg-gray-700 text-white py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center" aria-label="Content and Updates">
+                <i class="fas fa-fire text-red-500 mr-2" aria-hidden="true"></i>
                 Konten & Updates
             </a>
-            <a href="https://trakteer.id/agam1/tip" class="menu-item" aria-label="Donate">
-                <i class="fas fa-donate" aria-hidden="true" style="color: #4CAF50;"></i>
+            <a href="https://trakteer.id/agam1/tip" class="bg-gray-800 hover:bg-gray-700 text-white py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center" aria-label="Donate">
+                <i class="fas fa-donate text-green-500 mr-2" aria-hidden="true"></i>
                 Donate Me!
             </a>
-            <a href="https://literasi-digital.agamriyandana.my.id" class="menu-item" aria-label="Learn Digital Literacy">
-                <i class="fa-solid fa-school" aria-hidden="true" style="color: #03A9F4;"></i>
+            <a href="https://literasi-digital.agamriyandana.my.id" class="bg-gray-800 hover:bg-gray-700 text-white py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center" aria-label="Learn Digital Literacy">
+                <i class="fa-solid fa-school text-blue-400 mr-2" aria-hidden="true"></i>
                 Belajar Literasi Digital
             </a>
         </div>
 
-        <div class="social-container">
-            <a href="https://instagram.com/realagam1" class="social-button instagram" aria-label="Instagram Profile">
-                <i class="fab fa-instagram" aria-hidden="true"></i>
+        <div class="grid grid-cols-2 gap-4 mb-8">
+            <a href="https://instagram.com/realagam1" class="bg-instagram hover:bg-opacity-90 text-white py-2 px-4 rounded-lg transition duration-300 flex items-center justify-center" aria-label="Instagram Profile">
+                <i class="fab fa-instagram mr-2" aria-hidden="true"></i>
                 Instagram
             </a>
-            <a href="https://www.facebook.com/agamriyandana.id" class="social-button facebook" aria-label="Facebook Profile">
-                <i class="fab fa-facebook" aria-hidden="true"></i>
+            <a href="https://www.facebook.com/agamriyandana.id" class="bg-facebook hover:bg-opacity-90 text-white py-2 px-4 rounded-lg transition duration-300 flex items-center justify-center" aria-label="Facebook Profile">
+                <i class="fab fa-facebook mr-2" aria-hidden="true"></i>
                 Facebook
             </a>
-            <a href="https://x.com/agam_riyandana1/" class="social-button twitter" aria-label="X-Twitter Profile">
-                <i class="fa-brands fa-square-x-twitter" aria-hidden="true"></i>
+            <a href="https://x.com/agam_riyandana1/" class="bg-twitter hover:bg-opacity-90 text-white py-2 px-4 rounded-lg transition duration-300 flex items-center justify-center" aria-label="X-Twitter Profile">
+                <i class="fa-brands fa-square-x-twitter mr-2" aria-hidden="true"></i>
                 X-Twitter
             </a>
-            <a href="https://youtube.com/@agam_riyandana" class="social-button youtube" aria-label="YouTube Channel">
-                <i class="fab fa-youtube" aria-hidden="true"></i>
+            <a href="https://youtube.com/@agam_riyandana" class="bg-youtube hover:bg-opacity-90 text-white py-2 px-4 rounded-lg transition duration-300 flex items-center justify-center" aria-label="YouTube Channel">
+                <i class="fab fa-youtube mr-2" aria-hidden="true"></i>
                 YouTube
             </a>
-            <a href="https://open.spotify.com/artist/47w2bmfv89qm3wss9v4aEX?si=bLttpBoNT4u85dTDd573VA" class="social-button spotify" aria-label="Spotify Artist Page">
-                <i class="fab fa-spotify" aria-hidden="true"></i>
+            <a href="https://open.spotify.com/artist/47w2bmfv89qm3wss9v4aEX?si=bLttpBoNT4u85dTDd573VA" class="bg-spotify hover:bg-opacity-90 text-white py-2 px-4 rounded-lg transition duration-300 flex items-center justify-center" aria-label="Spotify Artist Page">
+                <i class="fab fa-spotify mr-2" aria-hidden="true"></i>
                 Spotify
             </a>
         </div>
     </div>
-    <footer>
+    <footer class="mt-auto text-center text-gray-500">
         <p>&copy; <span id="year"></span> Agam Riyandana. All Rights Reserved.</p>
     </footer>
 
-    <button class="share-button" id="shareButton" aria-label="Share this page">
+    <button class="fixed top-5 right-5 bg-gray-700 hover:bg-gray-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition duration-300" id="shareButton" aria-label="Share this page">
         <i class="fas fa-share-alt" aria-hidden="true"></i>
     </button>
 
     <!-- Share modal -->
-    <div class="share-modal" id="shareModal">
-        <button class="modal-close" id="closeModal" aria-label="Close share modal">&times;</button>
-        <h2>Share this page</h2>
-        <div class="share-options">
-            <a href="#" class="share-option" id="shareFacebook" aria-label="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
-            <a href="#" class="share-option" id="shareTwitter" aria-label="Share on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-            <a href="#" class="share-option" id="shareWhatsapp" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+    <div class="hidden fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 p-6 rounded-lg z-50 max-w-sm w-full" id="shareModal">
+        <button class="absolute top-2 right-2 text-gray-400 hover:text-white" id="closeModal" aria-label="Close share modal">&times;</button>
+        <h2 class="text-xl font-bold mb-4">Share this page</h2>
+        <div class="flex justify-around mb-6">
+            <a href="#" class="text-3xl text-gray-400 hover:text-white transition duration-300" id="shareFacebook" aria-label="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+            <a href="#" class="text-3xl text-gray-400 hover:text-white transition duration-300" id="shareTwitter" aria-label="Share on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+            <a href="#" class="text-3xl text-gray-400 hover:text-white transition duration-300" id="shareWhatsapp" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
         </div>
-        <div class="qr-code" id="qrCode"></div>
+        <div id="qrCode" class="flex justify-center"></div>
     </div>
 
     <!-- Verified Status modal -->
-    <div class="verified-status-modal" id="verifiedStatusModal">
-        <button class="verified-status-close" id="closeVerifiedStatus" aria-label="Close verified status modal">&times;</button>
-        <h2>
+    <div class="hidden fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 p-6 rounded-lg z-50 max-w-sm w-full" id="verifiedStatusModal">
+        <button class="absolute top-2 right-2 text-gray-400 hover:text-white" id="closeVerifiedStatus" aria-label="Close verified status modal">&times;</button>
+        <h2 class="text-xl font-bold mb-4 flex items-center">
             Verified Status
-            <span class="verified-badge">
-                <i class="fas fa-check" aria-hidden="true"></i>
+            <span class="ml-2 bg-blue-500 rounded-full w-5 h-5 flex items-center justify-center">
+                <i class="fas fa-check text-xs" aria-hidden="true"></i>
             </span>
         </h2>
-        <div class="verified-status-content">
-            <p>This account is verified because it's notable in government, news, entertainment, or another designated category.</p>
-            <p>Verified accounts have the following benefits:</p>
-            <ul>
+        <div class="text-left">
+            <p class="mb-2">This account is verified because it's notable in government, news, entertainment, or another designated category.</p>
+            <p class="mb-2">Verified accounts have the following benefits:</p>
+            <ul class="list-disc pl-5">
                 <li>Increased visibility and reach</li>
                 <li>Protection against impersonation</li>
                 <li>Domain ownership verified</li>
@@ -458,7 +142,7 @@
     </div>
 
     <!-- Overlay -->
-    <div class="overlay" id="overlay"></div>
+    <div class="hidden fixed inset-0 bg-black bg-opacity-50 z-40" id="overlay"></div>
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
@@ -479,31 +163,31 @@
         const closeVerifiedStatus = document.getElementById('closeVerifiedStatus');
 
         shareButton.addEventListener('click', () => {
-            shareModal.style.display = 'block';
-            overlay.style.display = 'block';
+            shareModal.classList.remove('hidden');
+            overlay.classList.remove('hidden');
             generateQRCode();
         });
 
         closeModal.addEventListener('click', () => {
-            shareModal.style.display = 'none';
-            overlay.style.display = 'none';
+            shareModal.classList.add('hidden');
+            overlay.classList.add('hidden');
         });
 
         verifiedBadge.addEventListener('click', (e) => {
             e.preventDefault();
-            verifiedStatusModal.style.display = 'block';
-            overlay.style.display = 'block';
+            verifiedStatusModal.classList.remove('hidden');
+            overlay.classList.remove('hidden');
         });
 
         closeVerifiedStatus.addEventListener('click', () => {
-            verifiedStatusModal.style.display = 'none';
-            overlay.style.display = 'none';
+            verifiedStatusModal.classList.add('hidden');
+            overlay.classList.add('hidden');
         });
 
         overlay.addEventListener('click', () => {
-            shareModal.style.display = 'none';
-            verifiedStatusModal.style.display = 'none';
-            overlay.style.display = 'none';
+            shareModal.classList.add('hidden');
+            verifiedStatusModal.classList.add('hidden');
+            overlay.classList.add('hidden');
         });
 
         shareFacebook.addEventListener('click', (e) => {
