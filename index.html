@@ -3,24 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="agam, atau yang lebih dikenal dengan agam riyandana adalah seorang content creator Independen Berkebangsaan Indonesia.">
-    <meta name="keywords" content="content creator, music, portfolio, Spotify, agam, agam riyandana">
     <meta name="google-adsense-account" content="ca-pub-3345566781682408">
+    <meta name="description" content="Agam, atau yang lebih dikenal dengan Agam Riyandana adalah seorang content creator Independen Berkebangsaan Indonesia.">
+    <meta name="keywords" content="content creator, music, portfolio, Spotify, agam, agam riyandana">
     <title>Agam Riyandana - Portofolio</title>
     <meta property="twitter:image" content="/webprofil.png">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="Agam Riyandana - Portofolio">
-    <meta property="twitter:description" content="agam, atau yang lebih dikenal dengan agam riyandana adalah seorang content creator Independen Berkebangsaan Indonesia.">
+    <meta property="twitter:description" content="Agam, atau yang lebih dikenal dengan Agam Riyandana adalah seorang content creator Independen Berkebangsaan Indonesia.">
     <meta property="og:image" content="webprofil.png">
     <meta property="og:site_name" content="Agam Riyandana">
     <meta property="og:title" content="Agam Riyandana - Portofolio">
-    <meta property="og:description" content="agam, atau yang lebih dikenal dengan agam riyandana adalah seorang content creator Independen Berkebangsaan Indonesia." />
+    <meta property="og:description" content="Agam, atau yang lebih dikenal dengan Agam Riyandana adalah seorang content creator Independen Berkebangsaan Indonesia." />
     <meta property="og:url" content="https://agamriyandana.my.id">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3345566781682408"
      crossorigin="anonymous"></script>
     <style>
+        :root {
+            --background-color: #0a0d16;
+            --text-color: #ffffff;
+            --button-bg: #2a2a2a;
+            --button-hover-bg: #3a3a3a;
+            --social-button-bg: #1a1a1a;
+            --social-button-hover-bg: #333333;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -29,8 +38,8 @@
         }
 
         body {
-            background-color: #0a0d16;
-            color: white;
+            background-color: var(--background-color);
+            color: var(--text-color);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -47,12 +56,13 @@
         }
 
         .profile-img {
-            width: 96px;
-            height: 96px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            margin: 1rem 0;
+            margin: 1rem auto;
             object-fit: cover;
             border: 3px solid rgba(255, 255, 255, 0.1);
+            display: block;
         }
 
         h1 {
@@ -78,7 +88,7 @@
 
         .verified-badge i {
             font-size: 10px;
-            color: white;
+            color: var(--text-color);
         }
 
         .subtitle {
@@ -98,6 +108,7 @@
             color: rgba(255, 255, 255, 0.6);
             margin-bottom: 1.5rem;
         }
+
         .location i {
             color: #4CAF50;
         }
@@ -113,8 +124,8 @@
             padding: 0.75rem 1rem;
             border-radius: 0.5rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            background-color: rgba(255, 255, 255, 0.05);
-            color: white;
+            background-color: var(--button-bg);
+            color: var(--text-color);
             text-decoration: none;
             transition: all 0.3s ease;
             font-size: 14px;
@@ -124,17 +135,13 @@
             justify-content: center;
         }
 
-        .button:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+        .button:hover,
+        .button:focus {
+            background-color: var(--button-hover-bg);
         }
+
         .button i {
             margin-right: 8px;
-        }
-        .button:nth-child(1) i {
-            color: #FF9800;
-        }
-        .button:nth-child(2) i {
-            color: #2196F3;
         }
 
         .menu-items {
@@ -148,8 +155,8 @@
             padding: 0.75rem 1rem;
             border-radius: 0.5rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            background-color: rgba(255, 255, 255, 0.05);
-            color: white;
+            background-color: var(--button-bg);
+            color: var(--text-color);
             text-decoration: none;
             transition: all 0.3s ease;
             font-size: 14px;
@@ -159,17 +166,13 @@
             justify-content: center;
         }
 
-        .menu-item:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+        .menu-item:hover,
+        .menu-item:focus {
+            background-color: var(--button-hover-bg);
         }
+
         .menu-item i {
             margin-right: 8px;
-        }
-        .menu-item:nth-child(1) i {
-            color: #FF5722;
-        }
-        .menu-item:nth-child(2) i {
-            color: #E91E63;
         }
 
         .social-container {
@@ -180,8 +183,8 @@
         }
 
         .social-button {
-            background-color: #1a1a1a;
-            color: white;
+            background-color: var(--social-button-bg);
+            color: var(--text-color);
             padding: 10px 16px;
             border-radius: 0.5rem;
             text-decoration: none;
@@ -194,18 +197,20 @@
             font-weight: 600;
         }
 
-        .social-button:hover {
-            background-color: #333;
+        .social-button:hover,
+        .social-button:focus {
+            background-color: var(--social-button-hover-bg);
         }
 
         .social-button i {
             font-size: 16px;
         }
 
-        .icon {
-            width: 20px;
-            height: 20px;
-        }
+        .social-button.instagram { background-color: #E1306C; }
+        .social-button.facebook { background-color: #1877F2; }
+        .social-button.twitter { background-color: #1DA1F2; }
+        .social-button.youtube { background-color: #FF0000; }
+        .social-button.spotify { background-color: #1DB954; }
 
         footer {
             margin-top: auto;
@@ -214,82 +219,12 @@
             color: #888;
         }
 
-        .social-button.instagram {
-            background-color: #E1306C;
-            color: white;
-        }
-
-        .social-button.instagram:hover {
-            background-color: #C13584;
-        }
-
-        .social-button.instagram i {
-            color: #FFFFFF;
-        }
-
-        .social-button.facebook {
-            background-color: #1877F2;
-            color: white;
-        }
-
-        .social-button.facebook:hover {
-            background-color: #166FE5;
-        }
-
-        .social-button.facebook i {
-            color: #FFFFFF;
-        }
-
-        .social-button.twitter {
-            background-color: #1D3050;
-            color: white;
-        }
-
-        .social-button.twitter:hover {
-            background-color: #1D3050;
-        }
-
-        .social-button.twitter i {
-            color: #FFFFFF;
-        }
-
-        .social-button.youtube {
-            background-color: #FF0000;
-            color: white;
-        }
-
-        .social-button.youtube:hover {
-            background-color: #CC0000;
-        }
-
-        .social-button.youtube i {
-            color: #FFFFFF;
-        }
-
-        .social-button.spotify {
-            background-color: #1DB954;
-            color: white;
-        }
-
-        .social-button.spotify:hover {
-            background-color: #1AA34A;
-        }
-
-        .social-button.spotify i {
-            color: #FFFFFF;
-        }
-
-        .button i, .menu-item i {
-            margin-right: 8px;
-        }
-
-        /* New styles for share button and modal */
-        .share-button {
+        #shareButton {
             position: fixed;
             top: 20px;
             right: 20px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
+            background-color: #4a4a4a;
+            color: var(--text-color);
             border: none;
             border-radius: 50%;
             width: 40px;
@@ -302,17 +237,19 @@
             transition: background-color 0.3s;
         }
 
-        .share-button:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+        #shareButton:hover,
+        #shareButton:focus {
+            background-color: #5a5a5a;
         }
 
-        .share-modal {
+        .share-modal,
+        .verified-status-modal {
             display: none;
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: #1a1a1a;
+            background-color: var(--social-button-bg);
             padding: 20px;
             border-radius: 10px;
             z-index: 1000;
@@ -320,7 +257,8 @@
             width: 300px;
         }
 
-        .share-modal h2 {
+        .share-modal h2,
+        .verified-status-modal h2 {
             margin-bottom: 15px;
             font-size: 18px;
         }
@@ -332,13 +270,14 @@
         }
 
         .share-option {
-            color: white;
+            color: var(--text-color);
             font-size: 24px;
             cursor: pointer;
             transition: color 0.3s;
         }
 
-        .share-option:hover {
+        .share-option:hover,
+        .share-option:focus {
             color: #3897f0;
         }
 
@@ -352,13 +291,14 @@
             height: auto;
         }
 
-        .modal-close {
+        .modal-close,
+        .verified-status-close {
             position: absolute;
             top: 10px;
             right: 10px;
             background: none;
             border: none;
-            color: white;
+            color: var(--text-color);
             font-size: 20px;
             cursor: pointer;
         }
@@ -374,33 +314,6 @@
             z-index: 999;
         }
 
-        /* Styles for Verified Status menu */
-        .verified-status-modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #1a1a1a;
-            padding: 20px;
-            border-radius: 10px;
-            z-index: 1000;
-            max-width: 90%;
-            width: 300px;
-        }
-
-        .verified-status-modal h2 {
-            margin-bottom: 15px;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .verified-status-modal h2 .verified-badge {
-            margin-left: 10px;
-        }
-
         .verified-status-content {
             text-align: left;
             margin-bottom: 20px;
@@ -410,15 +323,8 @@
             margin-bottom: 10px;
         }
 
-        .verified-status-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
+        .verified-status-content ul {
+            padding-left: 20px;
         }
     </style>
     <script type="application/ld+json">
@@ -446,66 +352,66 @@
 </head>
 <body>
     <div class="container">
-        <img src="/webprofil.png?height=150&width=150" alt="Profile" class="profile-img">
+        <img src="/webprofil.png?height=240&width=240" alt="Profile picture of Agam Riyandana" class="profile-img">
         <h1>
             Agam Riyandana
             <span class="verified-badge" title="Verified" id="verifiedBadge">
-                <i class="fas fa-check"></i>
+                <i class="fas fa-check" aria-hidden="true"></i>
             </span>
         </h1>
         <div class="subtitle">
-            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
             <span>Content Creator</span>
         </div>
         <div class="location">
-            <i class="fas fa-map-marker-alt"></i>
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
             <span>Jember, Indonesia</span>
         </div>
         <div class="button-group">
-            <a href="https://instagram.com/realagam1" class="button">
-                <i class="fas fa-briefcase"></i>
+            <a href="https://instagram.com/realagam1" class="button" aria-label="View Portfolio">
+                <i class="fas fa-briefcase" aria-hidden="true" style="color: #FF9800;"></i>
                 Portfolio
             </a>
-            <a href="mailto:agamriyandana7@gmail.com" class="button">
-                <i class="fas fa-envelope"></i>
+            <a href="mailto:agamriyandana7@gmail.com" class="button" aria-label="Email Contact">
+                <i class="fas fa-envelope" aria-hidden="true" style="color: #2196F3;"></i>
                 Email Contact
             </a>
         </div>
 
         <div class="menu-items">
-            <a href="https://blog.agamriyandana.my.id" class="menu-item">
-                <i class="fas fa-fire"></i>
+            <a href="https://blog.agamriyandana.my.id" class="menu-item" aria-label="Content and Updates">
+                <i class="fas fa-fire" aria-hidden="true" style="color: #FF5722;"></i>
                 Konten & Updates
             </a>
-            <a href="https://trakteer.id/agam1/tip" class="menu-item">
-                <i class="fas fa-donate"></i>
+            <a href="https://trakteer.id/agam1/tip" class="menu-item" aria-label="Donate">
+                <i class="fas fa-donate" aria-hidden="true" style="color: #4CAF50;"></i>
                 Donate Me!
             </a>
-            <a href="https://literasi-digital.agamriyandana.my.id" class="menu-item">
-                <i class="fa-solid fa-school"></i>
-               Blog Belajar Literasi Digital
+            <a href="https://literasi-digital.agamriyandana.my.id" class="menu-item" aria-label="Learn Digital Literacy">
+                <i class="fa-solid fa-school" aria-hidden="true" style="color: #03A9F4;"></i>
+                Belajar Literasi Digital
             </a>
         </div>
 
         <div class="social-container">
-            <a href="https://instagram.com/realagam1" class="social-button instagram">
-                <i class="fab fa-instagram"></i>
+            <a href="https://instagram.com/realagam1" class="social-button instagram" aria-label="Instagram Profile">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
                 Instagram
             </a>
-            <a href="https://www.facebook.com/agamriyandana.id" class="social-button facebook">
-                <i class="fab fa-facebook"></i>
+            <a href="https://www.facebook.com/agamriyandana.id" class="social-button facebook" aria-label="Facebook Profile">
+                <i class="fab fa-facebook" aria-hidden="true"></i>
                 Facebook
             </a>
-            <a href="https://x.com/agam_riyandana1/" class="social-button twitter">
-                <i class="fa-brands fa-square-x-twitter"></i>
+            <a href="https://x.com/agam_riyandana1/" class="social-button twitter" aria-label="X-Twitter Profile">
+                <i class="fa-brands fa-square-x-twitter" aria-hidden="true"></i>
                 X-Twitter
             </a>
-            <a href="https://youtube.com/@agam_riyandana" class="social-button youtube">
-                <i class="fab fa-youtube"></i>
+            <a href="https://youtube.com/@agam_riyandana" class="social-button youtube" aria-label="YouTube Channel">
+                <i class="fab fa-youtube" aria-hidden="true"></i>
                 YouTube
             </a>
-            <a href="https://open.spotify.com/artist/47w2bmfv89qm3wss9v4aEX?si=bLttpBoNT4u85dTDd573VA" class="social-button spotify">
-                <i class="fab fa-spotify"></i>
+            <a href="https://open.spotify.com/artist/47w2bmfv89qm3wss9v4aEX?si=bLttpBoNT4u85dTDd573VA" class="social-button spotify" aria-label="Spotify Artist Page">
+                <i class="fab fa-spotify" aria-hidden="true"></i>
                 Spotify
             </a>
         </div>
@@ -514,30 +420,29 @@
         <p>&copy; <span id="year"></span> Agam Riyandana. All Rights Reserved.</p>
     </footer>
 
-    <!-- Share button -->
-    <button class="share-button" id="shareButton">
-        <i class="fas fa-share-alt"></i>
+    <button class="share-button" id="shareButton" aria-label="Share this page">
+        <i class="fas fa-share-alt" aria-hidden="true"></i>
     </button>
 
     <!-- Share modal -->
     <div class="share-modal" id="shareModal">
-        <button class="modal-close" id="closeModal">&times;</button>
+        <button class="modal-close" id="closeModal" aria-label="Close share modal">&times;</button>
         <h2>Share this page</h2>
         <div class="share-options">
-            <a href="https://agamriyandana.my.id" class="share-option" id="shareFacebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://agamriyandana.my.id" class="share-option" id="shareTwitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://agamriyandana.my.id" class="share-option" id="shareWhatsapp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="share-option" id="shareFacebook" aria-label="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+            <a href="#" class="share-option" id="shareTwitter" aria-label="Share on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+            <a href="#" class="share-option" id="shareWhatsapp" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
         </div>
         <div class="qr-code" id="qrCode"></div>
     </div>
 
     <!-- Verified Status modal -->
     <div class="verified-status-modal" id="verifiedStatusModal">
-        <button class="verified-status-close" id="closeVerifiedStatus">&times;</button>
+        <button class="verified-status-close" id="closeVerifiedStatus" aria-label="Close verified status modal">&times;</button>
         <h2>
             Verified Status
             <span class="verified-badge">
-                <i class="fas fa-check"></i>
+                <i class="fas fa-check" aria-hidden="true"></i>
             </span>
         </h2>
         <div class="verified-status-content">
