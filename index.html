@@ -20,7 +20,6 @@
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3345566781682408"
      crossorigin="anonymous"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         * {
             margin: 0;
@@ -36,7 +35,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 2rem 1rem;
+            padding: 1.5rem 1rem;
         }
 
         .container {
@@ -51,13 +50,13 @@
             width: 96px;
             height: 96px;
             border-radius: 50%;
-            margin: 0 auto 1rem;
+            margin: 1rem 0;
             object-fit: cover;
             border: 3px solid rgba(255, 255, 255, 0.1);
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
             margin-bottom: 0.5rem;
             display: flex;
@@ -105,16 +104,16 @@
 
         .button-group {
             display: flex;
-            flex-direction: column;
             gap: 1rem;
+            justify-content: center;
             margin-bottom: 2rem;
         }
 
         .button {
             padding: 0.75rem 1rem;
             border-radius: 0.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.05);
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -123,7 +122,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 100%;
         }
 
         .button:hover {
@@ -149,8 +147,8 @@
         .menu-item {
             padding: 0.75rem 1rem;
             border-radius: 0.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.05);
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -159,7 +157,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 100%;
         }
 
         .menu-item:hover {
@@ -174,9 +171,6 @@
         .menu-item:nth-child(2) i {
             color: #E91E63;
         }
-        .menu-item:nth-child(3) i {
-            color: #4CAF50;
-        }
 
         .social-container {
             display: grid;
@@ -186,7 +180,7 @@
         }
 
         .social-button {
-            background-color: transparent;
+            background-color: #1a1a1a;
             color: white;
             padding: 10px 16px;
             border-radius: 0.5rem;
@@ -198,11 +192,10 @@
             transition: background-color 0.3s;
             font-size: 14px;
             font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .social-button:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: #333;
         }
 
         .social-button i {
@@ -221,38 +214,83 @@
             color: #888;
         }
 
+        .social-button.instagram {
+            background-color: #E1306C;
+            color: white;
+        }
+
+        .social-button.instagram:hover {
+            background-color: #C13584;
+        }
+
         .social-button.instagram i {
-            color: #E1306C;
+            color: #FFFFFF;
+        }
+
+        .social-button.facebook {
+            background-color: #1877F2;
+            color: white;
+        }
+
+        .social-button.facebook:hover {
+            background-color: #166FE5;
         }
 
         .social-button.facebook i {
-            color: #1877F2;
+            color: #FFFFFF;
+        }
+
+        .social-button.twitter {
+            background-color: #1D3050;
+            color: white;
+        }
+
+        .social-button.twitter:hover {
+            background-color: #1D3050;
         }
 
         .social-button.twitter i {
-            color: #1DA1F2;
+            color: #FFFFFF;
+        }
+
+        .social-button.youtube {
+            background-color: #FF0000;
+            color: white;
+        }
+
+        .social-button.youtube:hover {
+            background-color: #CC0000;
         }
 
         .social-button.youtube i {
-            color: #FF0000;
+            color: #FFFFFF;
+        }
+
+        .social-button.spotify {
+            background-color: #1DB954;
+            color: white;
+        }
+
+        .social-button.spotify:hover {
+            background-color: #1AA34A;
         }
 
         .social-button.spotify i {
-            color: #1DB954;
+            color: #FFFFFF;
         }
 
         .button i, .menu-item i {
             margin-right: 8px;
         }
 
-        /* Share button and modal styles */
+        /* New styles for share button and modal */
         .share-button {
             position: fixed;
             top: 20px;
             right: 20px;
-            background-color: transparent;
+            background-color: rgba(255, 255, 255, 0.1);
             color: white;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: none;
             border-radius: 50%;
             width: 40px;
             height: 40px;
@@ -265,7 +303,7 @@
         }
 
         .share-button:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
         .share-modal {
@@ -301,7 +339,7 @@
         }
 
         .share-option:hover {
-            opacity: 0.8;
+            color: #3897f0;
         }
 
         .qr-code {
@@ -336,7 +374,7 @@
             z-index: 999;
         }
 
-        /* Verified Status modal styles */
+        /* Styles for Verified Status menu */
         .verified-status-modal {
             display: none;
             position: fixed;
@@ -381,37 +419,6 @@
             color: white;
             font-size: 20px;
             cursor: pointer;
-        }
-
-        /* 404 Page styles */
-        .error-page {
-            display: none;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .error-page h1 {
-            font-size: 6rem;
-            margin-bottom: 1rem;
-        }
-
-        .error-page p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .error-page a {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background-color: #3897f0;
-            color: white;
-            text-decoration: none;
-            border-radius: 0.5rem;
-            transition: background-color 0.3s;
-        }
-
-        .error-page a:hover {
-            background-color: #1877f2;
         }
     </style>
     <script type="application/ld+json">
@@ -517,9 +524,9 @@
         <button class="modal-close" id="closeModal">&times;</button>
         <h2>Share this page</h2>
         <div class="share-options">
-            <a href="#" class="share-option" id="shareFacebook"><i class="fab fa-facebook" style="color: #1877F2;"></i></a>
-            <a href="#" class="share-option" id="shareTwitter"><i class="fab fa-twitter" style="color: #1DA1F2;"></i></a>
-            <a href="#" class="share-option" id="shareWhatsapp"><i class="fab fa-whatsapp" style="color: #25D366;"></i></a>
+            <a href="https://agamriyandana.my.id" class="share-option" id="shareFacebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://agamriyandana.my.id" class="share-option" id="shareTwitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://agamriyandana.my.id" class="share-option" id="shareWhatsapp"><i class="fab fa-whatsapp"></i></a>
         </div>
         <div class="qr-code" id="qrCode"></div>
     </div>
@@ -545,13 +552,6 @@
         </div>
     </div>
 
-    <!-- 404 Page -->
-    <div class="error-page" id="errorPage">
-        <h1>404</h1>
-        <p>Oops! The page you're looking for doesn't exist.</p>
-        <a href="/">Go back to homepage</a>
-    </div>
-
     <!-- Overlay -->
     <div class="overlay" id="overlay"></div>
 
@@ -572,9 +572,6 @@
         const verifiedBadge = document.getElementById('verifiedBadge');
         const verifiedStatusModal = document.getElementById('verifiedStatusModal');
         const closeVerifiedStatus = document.getElementById('closeVerifiedStatus');
-
-        // 404 Page functionality
-        const errorPage = document.getElementById('errorPage');
 
         shareButton.addEventListener('click', () => {
             shareModal.style.display = 'block';
@@ -625,14 +622,6 @@
             qr.make();
             qrCode.innerHTML = qr.createImgTag(5);
         }
-
-        // 404 Page handling
-        window.addEventListener('load', () => {
-            if (window.location.pathname !== '/') {
-                document.querySelector('.container').style.display = 'none';
-                errorPage.style.display = 'block';
-            }
-        });
     </script>
 </body>
 </html>
