@@ -622,4 +622,16 @@
 
         shareWhatsapp.addEventListener('click', (e) => {
             e.preventDefault();
-            window.open(`https://api.wh
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent('Check out Agam Riyandana\'s portfolio: ' + window.location.href)}`, '_blank');
+        });
+
+        function generateQRCode() {
+            const qr = qrcode(0, 'M');
+            qr.addData(window.location.href);
+            qr.make();
+            qrCode.innerHTML = qr.createImgTag(5);
+        }
+    </script>
+</body>
+</html>
+
