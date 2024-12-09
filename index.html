@@ -18,15 +18,14 @@
     <meta property="og:url" content="https://agamriyandana.my.id">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3345566781682408"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3345566781682408" crossorigin="anonymous"></script>
     <style>
-        /* Your existing styles here */
-        /* ... */
-
-        /* Add a new style for the AdSense container */
-        .adsense-container {
-            max-width: 100%;
+        /* ... (keep all the existing styles) ... */
+        
+        /* Add a new style for the ad container */
+        .ad-container {
+            width: 100%;
+            max-width: 728px;
             margin: 20px auto;
             text-align: center;
         }
@@ -64,7 +63,7 @@
             object-fit: cover;
             border: 3px solid rgba(255, 255, 255, 0.1);
         }
-
+        
         h1 {
             font-size: 20px;
             font-weight: 700;
@@ -102,7 +101,7 @@
             margin-right: 4px;
             color: #FFD700;
         }
-
+        
         .location {
             font-size: 14px;
             color: rgba(255, 255, 255, 0.6);
@@ -138,6 +137,7 @@
             background-color: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.3);
         }
+        
         .button i {
             margin-right: 8px;
         }
@@ -169,7 +169,7 @@
             align-items: center;
             justify-content: center;
         }
-
+        
         .menu-item:hover {
             background-color: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.3);
@@ -209,7 +209,7 @@
             font-weight: bold;
             border: 2px solid rgba(255, 255, 255, 0.1);
         }
-
+        
         .social-button:hover {
             background-color: #333;
             border-color: rgba(255, 255, 255, 0.2);
@@ -266,7 +266,7 @@
         .social-button.youtube:hover {
         background-color: #990000;
         }
-
+        
         .social-button.spotify {
         background-color: #006450;
         color: white;
@@ -279,7 +279,7 @@
         .button i, .menu-item i {
             margin-right: 8px;
         }
-
+        
         /* New styles for share button and modal */
         .share-button {
             position: fixed;
@@ -316,7 +316,7 @@
             max-width: 90%;
             width: 300px;
         }
-
+        
         .share-modal h2 {
             margin-bottom: 15px;
             font-size: 18px;
@@ -348,7 +348,7 @@
             max-width: 100%;
             height: auto;
         }
-
+        
         .modal-close {
             position: absolute;
             top: 10px;
@@ -370,7 +370,7 @@
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 999;
         }
-
+        
         /* Styles for Verified Status menu */
         .verified-status-modal {
             display: none;
@@ -402,7 +402,7 @@
             text-align: left;
             margin-bottom: 20px;
         }
-
+        
         .verified-status-content p {
             margin-bottom: 10px;
         }
@@ -415,8 +415,7 @@
             border: none;
             color: white;
             font-size: 20px;
-            cursor: pointer;
-        }
+            cursor: po
     </style>
     <script type="application/ld+json">
     {
@@ -469,6 +468,19 @@
             </a>
         </div>
 
+        <!-- Add the AdSense ad unit here -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-3345566781682408"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
         <div class="menu-items">
             <a href="https://blog.agamriyandana.my.id" class="menu-item">
                 <i class="fas fa-fire"></i>
@@ -506,25 +518,6 @@
                 Spotify
             </a>
         </div>
-    </main>
-    <body>
-    <main class="container">
-        <!-- Your existing content here -->
-        <!-- ... -->
-
-        <!-- Add an AdSense container -->
-        <div class="adsense-container">
-            <!-- AdSense ad unit will be inserted here -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-3345566781682408"
-                 data-ad-slot="YOUR_AD_SLOT_ID"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-        </div>
-
-        <!-- Continue with your existing content -->
-        <!-- ... -->
     </main>
     <footer>
         <p>&copy; <span id="year"></span> Agam Riyandana. All Rights Reserved.</p>
@@ -572,12 +565,6 @@
     <div class="overlay" id="overlay"></div>
 
     <script>
-        // Your existing JavaScript here
-        // ...
-
-        // Add AdSense ad display code
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        
         document.getElementById('year').textContent = new Date().getFullYear();
 
         // Share functionality
@@ -635,17 +622,4 @@
 
         shareWhatsapp.addEventListener('click', (e) => {
             e.preventDefault();
-            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent('Check out Agam Riyandana\'s portfolio: ' + window.location.href)}`, '_blank');
-        });
-
-        function generateQRCode() {
-            const qr = qrcode(0, 'M');
-            qr.addData(window.location.href);
-            qr.make();
-            qrCode.innerHTML = qr.createImgTag(5);
-        }
-    </script>
-    <!-- Move AdSense script to the end of the body -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3345566781682408" crossorigin="anonymous"></script>
-</body>
-</html>
+            window.open(`https://api.wh
