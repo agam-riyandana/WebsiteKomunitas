@@ -34,11 +34,11 @@
         },
         {
           "key": "permissions-policy",
-          "value": "geolocation=(self)"
+          "value": "accelerometer=(), autoplay=(), camera=(), cross-origin-isolated=(), display-capture=(self), encrypted-media=(), fullscreen=*, geolocation=(self), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), payment=*, picture-in-picture=*, publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=*, usb=(), xr-spatial-tracking=(), gamepad=(), serial=()"
         },
         {
           "key": "access-control-allow-origin",
-          "value": "null"
+          "value": "https://agamriyandana.my.id"
         }
       ]
     },
