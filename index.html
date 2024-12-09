@@ -222,7 +222,7 @@
         }
 
         .social-button.instagram {
-            background-color: #E1306C;
+            background-color: #C13584;
             color: white;
         }
 
@@ -253,7 +253,7 @@
         }
 
         .social-button.twitter:hover {
-            background-color: #1D3050;
+            background-color: #162540;
         }
 
         .social-button.twitter i {
@@ -452,7 +452,7 @@
     </script>
 </head>
 <body>
-    <div class="container">
+    <main class="container">
         <img src="/webprofil.png?height=150&width=150" alt="Profile" class="profile-img">
         <h1>
             Agam Riyandana
@@ -516,31 +516,31 @@
                 Spotify
             </a>
         </div>
-    </div>
+    </main>
     <footer>
         <p>&copy; <span id="year"></span> Agam Riyandana. All Rights Reserved.</p>
     </footer>
 
     <!-- Share button -->
-    <button class="share-button" id="shareButton">
+    <button class="share-button" id="shareButton" aria-label="Share this page">
         <i class="fas fa-share-alt"></i>
     </button>
 
     <!-- Share modal -->
     <div class="share-modal" id="shareModal">
-        <button class="modal-close" id="closeModal">&times;</button>
+        <button class="modal-close" id="closeModal" aria-label="Close share modal">&times;</button>
         <h2>Share this page</h2>
         <div class="share-options">
-            <a href="https://agamriyandana.my.id" class="share-option" id="shareFacebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://agamriyandana.my.id" class="share-option" id="shareTwitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://agamriyandana.my.id" class="share-option" id="shareWhatsapp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://agamriyandana.my.id" class="share-option" id="shareFacebook" aria-label="Share on Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://agamriyandana.my.id" class="share-option" id="shareTwitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://agamriyandana.my.id" class="share-option" id="shareWhatsapp" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
         <div class="qr-code" id="qrCode"></div>
     </div>
 
     <!-- Verified Status modal -->
     <div class="verified-status-modal" id="verifiedStatusModal">
-        <button class="verified-status-close" id="closeVerifiedStatus">&times;</button>
+        <button class="verified-status-close" id="closeVerifiedStatus" aria-label="Close verified status modal">&times;</button>
         <h2>
             Verified Status
             <span class="verified-badge">
