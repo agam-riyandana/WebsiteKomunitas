@@ -21,6 +21,16 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3345566781682408"
      crossorigin="anonymous"></script>
     <style>
+        /* Your existing styles here */
+        /* ... */
+
+        /* Add a new style for the AdSense container */
+        .adsense-container {
+            max-width: 100%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -433,6 +443,25 @@
 </head>
 <body>
     <main class="container">
+        <!-- Your existing content here -->
+        <!-- ... -->
+
+        <!-- Add an AdSense container -->
+        <div class="adsense-container">
+            <!-- AdSense ad unit will be inserted here -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-3345566781682408"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+        </div>
+
+        <!-- Continue with your existing content -->
+        <!-- ... -->
+    </main>
+<body>
+    <main class="container">
         <img src="/webprofil.png?height=150&width=150" alt="Profile picture of Agam Riyandana" class="profile-img" width="185">
         <h1>
             Agam Riyandana
@@ -543,6 +572,12 @@
     <div class="overlay" id="overlay"></div>
 
     <script>
+        // Your existing JavaScript here
+        // ...
+
+        // Add AdSense ad display code
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        
         document.getElementById('year').textContent = new Date().getFullYear();
 
         // Share functionality
@@ -610,5 +645,7 @@
             qrCode.innerHTML = qr.createImgTag(5);
         }
     </script>
+    <!-- Move AdSense script to the end of the body -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3345566781682408" crossorigin="anonymous"></script>
 </body>
 </html>
