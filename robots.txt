@@ -1,3 +1,4 @@
 User-agent: Mediapartners-Google
 Disallow: /
+Allow: /
 Sitemap: https://agamriyandana.my.id/sitemap.xml
