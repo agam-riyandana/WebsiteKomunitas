@@ -536,12 +536,10 @@
 
         <!-- Add the AdSense ad unit here -->
         <div class="ad-container">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3345566781682408" crossorigin="anonymous"></script>
-            <!-- Replace YOUR_AD_SLOT_ID with your actual ad slot ID -->
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-3345566781682408"
-                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-slot="9857334488"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
             <script>
@@ -751,6 +749,17 @@
             }
         });
 
+        // AdSense error handling
+        window.onerror = function(message, source, lineno, colno, error) {
+          if (source.includes('googlesyndication.com') || source.includes('googleads')) {
+            console.log('AdSense error:', message);
+            // You can add additional error handling here if needed
+            return true; // Prevents the error from being displayed in the console
+          }
+        };
+  
+        // Load AdSense ads
+        (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
 </body>
 </html>
