@@ -309,66 +309,128 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: #1a1a1a;
-            padding: 20px;
-            border-radius: 10px;
+            background-color: #121212;
+            padding: 24px;
+            border-radius: 16px;
             z-index: 1000;
             max-width: 90%;
-            width: 300px;
+            width: 360px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
         }
         
         .share-modal h2 {
-            margin-bottom: 15px;
-            font-size: 18px;
+            margin-bottom: 24px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .share-modal h2::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>');
         }
 
         .share-options {
             display: flex;
-            justify-content: space-around;
-            margin-bottom: 20px;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 24px;
         }
 
         .share-option {
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            color: #000000;
+            text-decoration: none;
+            transition: background-color 0.2s;
         }
 
         .share-option:hover {
-            color: #3897f0;
+            background-color: #f5f5f5;
+        }
+
+        .share-option i {
+            font-size: 24px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .qr-code {
+            background-color: #ffffff;
+            padding: 24px;
+            border-radius: 12px;
+            margin: 24px 0;
             text-align: center;
-            margin-top: 20px;
         }
 
         .qr-code img {
-            max-width: 100%;
+            max-width: 200px;
             height: auto;
-        }
-        
-        .modal-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
+            margin: 0 auto;
         }
 
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            transition: background-color 0.2s;
+        }
+
+        .modal-close:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .download-button {
+            display: block;
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
+            padding: 12px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 16px;
+            transition: background-color 0.2s;
+        }
+
+        .download-button:hover {
+            background-color: #ff3333;
+        }
+
+        .share-url {
+            text-align: center;
+            color: #666;
+            margin: 12px 0;
+            font-size: 14px;
         }
         
         /* Styles for Verified Status menu */
@@ -475,7 +537,7 @@
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-3345566781682408"
-                 data-ad-slot="9857334488"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
             <script>
@@ -533,13 +595,35 @@
     <!-- Share modal -->
     <div class="share-modal" id="shareModal">
         <button class="modal-close" id="closeModal" aria-label="Close share modal">&times;</button>
-        <h2>Share this page</h2>
-        <div class="share-options">
-            <a href="https://agamriyandana.my.id" class="share-option" id="shareFacebook" aria-label="Share on Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://agamriyandana.my.id" class="share-option" id="shareTwitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://agamriyandana.my.id" class="share-option" id="shareWhatsapp" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        </div>
+        <h2>Share Website Biolink</h2>
         <div class="qr-code" id="qrCode"></div>
+        <div class="share-url">https://agamriyandana.my.id</div>
+        <a href="#" class="download-button">
+            <i class="fas fa-download"></i>
+            Download
+        </a>
+        <div class="share-options">
+            <a href="#" class="share-option" id="shareFacebook">
+                <i class="fab fa-facebook" style="color: #1877f2;"></i>
+                Facebook
+            </a>
+            <a href="#" class="share-option" id="shareTwitter">
+                <i class="fab fa-x-twitter"></i>
+                Twitter X
+            </a>
+            <a href="#" class="share-option" id="shareWhatsapp">
+                <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+                WhatsApp
+            </a>
+            <a href="#" class="share-option" id="copyUrl">
+                <i class="fas fa-clipboard"></i>
+                Copy URL
+            </a>
+            <a href="#" class="share-option" id="copyPlusUrl">
+                <i class="fas fa-plus"></i>
+                Copy Plus URL
+            </a>
+        </div>
     </div>
 
     <!-- Verified Status modal -->
@@ -633,6 +717,24 @@
             qr.make();
             qrCode.innerHTML = qr.createImgTag(5);
         }
+
+        // Add these event listeners after the existing ones
+        document.getElementById('copyUrl').addEventListener('click', (e) => {
+            e.preventDefault();
+            navigator.clipboard.writeText(window.location.href);
+            alert('URL copied to clipboard!');
+        });
+
+        document.getElementById('copyPlusUrl').addEventListener('click', (e) => {
+            e.preventDefault();
+            navigator.clipboard.writeText(window.location.href + '/plus');
+            alert('Plus URL copied to clipboard!');
+        });
+
+        document.getElementById('createMicrosite').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open('https://agamriyandana.my.id', '_blank');
+        });
     </script>
 </body>
 </html>
