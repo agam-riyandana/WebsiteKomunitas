@@ -309,7 +309,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: #121212;
+            background-color: #000000; /* Updated background color */
+            color: #ffffff; /* Updated text color */
             padding: 24px;
             border-radius: 16px;
             z-index: 1000;
@@ -405,12 +406,12 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
 
-        .download-button {
+        .download-button { /* Updated download button styles */
             display: block;
             width: 100%;
             padding: 12px;
-            background-color: #ff4d4d;
-            color: white;
+            background-color: #ffffff; /* Updated background color */
+            color: #000000; /* Updated text color */
             border: none;
             border-radius: 12px;
             font-size: 16px;
@@ -422,8 +423,8 @@
             transition: background-color 0.2s;
         }
 
-        .download-button:hover {
-            background-color: #ff3333;
+        .download-button:hover { /* Updated hover styles */
+            background-color: #f0f0f0;
         }
 
         .share-url {
@@ -598,9 +599,9 @@
         <h2>Share Website Biolink</h2>
         <div class="qr-code" id="qrCode"></div>
         <div class="share-url">https://agamriyandana.my.id</div>
-        <a href="#" class="download-button">
+        <a href="#" class="download-button" id="downloadButton">
             <i class="fas fa-download"></i>
-            Download
+            Download QR Code
         </a>
         <div class="share-options">
             <a href="#" class="share-option" id="shareFacebook">
@@ -731,10 +732,19 @@
             alert('Plus URL copied to clipboard!');
         });
 
-        document.getElementById('createMicrosite').addEventListener('click', (e) => {
+        document.getElementById('downloadButton').addEventListener('click', function(e) {
             e.preventDefault();
-            window.open('https://agamriyandana.my.id', '_blank');
+            const qrCodeImg = document.querySelector('#qrCode img');
+            if (qrCodeImg) {
+                const link = document.createElement('a');
+                link.download = 'agam-riyandana-qr-code.png';
+                link.href = qrCodeImg.src;
+                link.click();
+            } else {
+                alert('QR Code image not found. Please try again.');
+            }
         });
+
     </script>
 </body>
 </html>
