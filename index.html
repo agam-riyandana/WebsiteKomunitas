@@ -309,7 +309,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: #000000; /* Updated background color */
+            background-color: #0a0d16; /* Updated background color */
             color: #ffffff; /* Updated text color */
             padding: 24px;
             border-radius: 16px;
@@ -370,7 +370,7 @@
         }
 
         .qr-code {
-            background-color: #ffffff;
+            background-color: #1a1a1a; /* Darker background for QR code container */
             padding: 24px;
             border-radius: 12px;
             margin: 24px 0;
@@ -429,9 +429,12 @@
 
         .share-url {
             text-align: center;
-            color: #666;
+            color: #ffffff; /* Changed from #666 to white for better contrast */
             margin: 12px 0;
             font-size: 14px;
+            padding: 8px;
+            background-color: #1a1a1a; /* Added dark background */
+            border-radius: 8px;
         }
         
         /* Styles for Verified Status menu */
@@ -716,7 +719,10 @@
             const qr = qrcode(0, 'M');
             qr.addData(window.location.href);
             qr.make();
-            qrCode.innerHTML = qr.createImgTag(5);
+            const qrImageTag = qr.createImgTag(5);
+            // Add alt text to the QR code image
+            const qrWithAlt = qrImageTag.replace('<img', '<img alt="QR Code for Agam Riyandana\'s website"');
+            qrCode.innerHTML = qrWithAlt;
         }
 
         // Add these event listeners after the existing ones
