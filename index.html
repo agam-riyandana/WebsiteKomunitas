@@ -449,44 +449,107 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: #1a1a1a;
-            padding: 20px;
-            border-radius: 10px;
+            background-color: #fff;
+            color: #000;
+            padding: 2rem;
+            border-radius: 20px;
             z-index: 1000;
             max-width: 90%;
-            width: 300px;
+            width: 400px;
+            text-align: center;
         }
 
-        .verified-status-modal h2 {
-            margin-bottom: 15px;
-            font-size: 18px;
+        .verified-badge-large {
+            width: 80px;
+            height: 80px;
+            background-color: #4285f4;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0 auto 1.5rem;
         }
 
-        .verified-status-modal h2 .verified-badge {
-            margin-left: 10px;
+        .verified-badge-large i {
+            font-size: 40px;
+            color: white;
+        }
+
+        .verified-status-modal h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #000;
         }
 
         .verified-status-content {
-            text-align: left;
-            margin-bottom: 20px;
-        }
-        
-        .verified-status-content p {
-            margin-bottom: 10px;
+            text-align: center;
+            margin-bottom: 1.5rem;
         }
 
-        .verified-status-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
+        .belongs-to {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .owner-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-decoration: underline;
+        }
+
+        .type-label, .verified-at-label {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .type-value, .verified-at-value {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .type-value i {
+            color: #FFD700;
+            margin-right: 8px;
+        }
+
+        .verification-info {
+            background-color: #f0f7ff;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .verification-info p {
+            color: #4285f4;
+            font-size: 16px;
+        }
+
+        .learn-more {
+            color: #4285f4;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            width: 100%;
+            padding: 12px;
+            background-color: #f5f5f5;
             border: none;
-            color: white;
-            font-size: 20px;
+            border-radius: 10px;
+            color: #666;
+            font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .modal-close:hover {
+            background-color: #e5e5e5;
         }
     </style>
     <script type="application/ld+json">
@@ -624,36 +687,37 @@
                 <i class="fas fa-clipboard"></i>
                 Copy URL
             </a>
-            <a href="#" class="share-option" id="copyPlusUrl">
-                <i class="fas fa-plus"></i>
-                Copy Plus URL
-            </a>
-            <a href="#" class="share-option" id="shareInstagramStories">
-                <i class="fab fa-instagram" style="color: #C13584;"></i>
-                Instagram Stories
+            <a href="#" class="share-option" id="shareTelegram">
+                <i class="fab fa-telegram" style="color: #0088cc;"></i>
+                Telegram
             </a>
         </div>
     </div>
 
     <!-- Verified Status modal -->
     <div class="verified-status-modal" id="verifiedStatusModal">
-        <button class="verified-status-close" id="closeVerifiedStatus" aria-label="Close verified status modal">&times;</button>
-        <h2>
-            Verified Status
-            <span class="verified-badge">
-                <i class="fas fa-check"></i>
-            </span>
-        </h2>
-        <div class="verified-status-content">
-            <p>This account is verified because it's notable in government, news, entertainment, or another designated category.</p>
-            <p>Verified accounts have the following benefits:</p>
-            <ul>
-                <li>Increased visibility and reach</li>
-                <li>Protection against impersonation</li>
-                <li>Domain ownership verified</li>
-                <li>Identity confirmed</li>
-            </ul>
+        <div class="verified-badge-large">
+            <i class="fas fa-check"></i>
         </div>
+        <h2>Verified Status</h2>
+        <div class="verified-status-content">
+            <p class="belongs-to">This microsite belongs to:</p>
+            <p class="owner-name">Agam Riyandana</p>
+
+            <p class="type-label">Type:</p>
+            <p class="type-value">
+                <i class="fas fa-star"></i>
+                Content Creator
+            </p>
+
+            <p class="verified-at-label">Verified At:</p>
+            <p class="verified-at-value">01 Aug 2024</p>
+
+            <div class="verification-info">
+                <p>Get verification badge on s.id? <a href="#" class="learn-more">Learn More</a></p>
+            </div>
+        </div>
+        <button class="modal-close" id="closeVerifiedStatus">Close</button>
     </div>
 
     <!-- Overlay -->
@@ -737,12 +801,6 @@
             alert('URL copied to clipboard!');
         });
 
-        document.getElementById('copyPlusUrl').addEventListener('click', (e) => {
-            e.preventDefault();
-            navigator.clipboard.writeText(window.location.href + '/plus');
-            alert('Plus URL copied to clipboard!');
-        });
-
         document.getElementById('downloadButton').addEventListener('click', function(e) {
             e.preventDefault();
             const qrCodeImg = document.querySelector('#qrCode img');
@@ -756,16 +814,9 @@
             }
         });
 
-        document.getElementById('shareInstagramStories').addEventListener('click', (e) => {
+        document.getElementById('shareTelegram').addEventListener('click', (e) => {
             e.preventDefault();
-            // Instagram stories sharing URL
-            const url = `instagram://story-camera?url=${encodeURIComponent(window.location.href)}`;
-            window.location.href = url;
-            
-            // Fallback for desktop or if Instagram app is not installed
-            setTimeout(() => {
-                window.open('https://instagram.com', '_blank');
-            }, 2000);
+            window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent('Check out Agam Riyandana\'s portfolio!')}`, '_blank');
         });
 
         // AdSense error handling and initialization
