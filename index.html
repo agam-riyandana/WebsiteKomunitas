@@ -540,7 +540,7 @@
             </a>
         </div>
 
-        <!-- Add the AdSense ad unit here -->
+        <!-- rest of the body -->
         <div class="ad-container">
             <ins class="adsbygoogle"
                  style="display:block"
@@ -548,7 +548,11 @@
                  data-ad-slot="9857334488"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
+        <!-- rest of the body -->
 
         <div class="menu-items">
             <a href="https://blog.agamriyandana.my.id" class="menu-item">
@@ -763,8 +767,8 @@
 
         window.onerror = function(message, source, lineno, colno, error) {
             if (source.includes('googlesyndication.com') || source.includes('googleads')) {
-                console.log('AdSense error:', message);
-                return true; 
+                console.warn('AdSense warning:', message);
+                return true;
             }
         };
     </script>
