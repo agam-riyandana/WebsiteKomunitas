@@ -442,135 +442,52 @@
             border-radius: 8px;
         }
         
-        /* ... (previous styles remain the same) ... */
+        /* Styles for Verified Status menu */
         .verified-status-modal {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #0a0d16;
-        padding: 2rem;
-        border-radius: 20px;
-        z-index: 1000;
-        max-width: 90%;
-        width: 400px;
-        text-align: center;
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-    }
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1000;
+            max-width: 90%;
+            width: 300px;
+        }
 
-    .verified-badge-large {
-        width: 80px;
-        height: 80px;
-        background-color: #0066ff;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 1.5rem;
-    }
+        .verified-status-modal h2 {
+            margin-bottom: 15px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .verified-badge-large i {
-        font-size: 40px;
-        color: white;
-    }
+        .verified-status-modal h2 .verified-badge {
+            margin-left: 10px;
+        }
 
-    .verified-status-modal h2 {
-        font-size: 28px;
-        font-weight: 600;
-        margin-bottom: 2rem;
-        color: #ffffff;
-    }
+        .verified-status-content {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        
+        .verified-status-content p {
+            margin-bottom: 10px;
+        }
 
-    .verified-info {
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-
-    .belongs-to {
-        font-size: 18px;
-        color: #ffffff;
-        margin-bottom: 0.5rem;
-    }
-
-    .owner-name {
-        font-size: 24px;
-        font-weight: 600;
-        color: #ffffff;
-        text-decoration: underline;
-        display: block;
-        margin-bottom: 2rem;
-    }
-
-    .owner-name:hover {
-        color: #0066ff;
-    }
-
-    .type-label, .verified-at-label {
-        font-size: 18px;
-        color: #ffffff;
-        margin-bottom: 0.5rem;
-    }
-
-    .type-value {
-        font-size: 24px;
-        font-weight: 600;
-        color: #ffffff;
-        margin-bottom: 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-    }
-
-    .type-value i {
-        color: #ffd700;
-    }
-
-    .verified-at-value {
-        font-size: 24px;
-        font-weight: 600;
-        color: #ffffff;
-        margin-bottom: 2rem;
-    }
-
-    .learn-more-box {
-        background-color: rgba(0, 102, 255, 0.1);
-        padding: 1rem;
-        border-radius: 12px;
-        margin-bottom: 1rem;
-    }
-
-    .learn-more-box p {
-        color: #ffffff;
-        font-size: 16px;
-    }
-
-    .learn-more-link {
-        color: #0066ff;
-        text-decoration: none;
-        font-weight: 600;
-    }
-
-    .learn-more-link:hover {
-        text-decoration: underline;
-    }
-
-    .verified-status-close {
-        width: 100%;
-        padding: 1rem;
-        background: none;
-        border: none;
-        color: #666;
-        font-size: 18px;
-        cursor: pointer;
-        margin-top: 1rem;
-        transition: color 0.2s;
-    }
-
-    .verified-status-close:hover {
-        color: #ffffff;
-    }
+        .verified-status-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
     </style>
     <script type="application/ld+json">
     {
@@ -716,28 +633,22 @@
 
     <!-- Verified Status modal -->
     <div class="verified-status-modal" id="verifiedStatusModal">
-        <button class="verified-status-close" id="closeVerifiedStatus" aria-label="Close verified status modal">Close</button>
-        <div class="verified-status-content">
-            <div class="verified-badge-large">
+        <button class="verified-status-close" id="closeVerifiedStatus" aria-label="Close verified status modal">&times;</button>
+        <h2>
+            Verified Status
+            <span class="verified-badge">
                 <i class="fas fa-check"></i>
-            </div>
-            <h2>Verified Status</h2>
-            <div class="verified-info">
-                <p class="belongs-to">This Website belongs to:</p>
-                <a href="https://agamriyandana.my.id" class="owner-name">Agam Riyandana</a>
-                
-                <p class="type-label">Type:</p>
-                <p class="type-value">
-                    <i class="fas fa-star"></i>
-                    Content Creator
-                </p>
-                
-                <p class="verified-at-label">Verified At:</p>
-                <p class="verified-at-value">01 Aug 2024</p>
-            </div>
-            <div class="learn-more-box">
-                <p>Get verification badge on s.id? <a href="#" class="learn-more-link">Learn More</a></p>
-            </div>
+            </span>
+        </h2>
+        <div class="verified-status-content">
+            <p>This account is verified because it's notable in government, news, entertainment, or another designated category.</p>
+            <p>Verified accounts have the following benefits:</p>
+            <ul>
+                <li>Increased visibility and reach</li>
+                <li>Protection against impersonation</li>
+                <li>Domain ownership verified</li>
+                <li>Identity confirmed</li>
+            </ul>
         </div>
     </div>
 
