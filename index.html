@@ -291,7 +291,7 @@
             border-radius: 50%;
             width: 48px;
             height: 48px;
-            font-size: 24px;
+            font-size: 24px; /* Updated font size */
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -318,6 +318,7 @@
             max-width: 90%;
             width: 360px;
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Added border */
         }
         
         .share-modal h2 {
@@ -350,15 +351,17 @@
             align-items: center;
             gap: 12px;
             padding: 12px;
-            background-color: #ffffff;
+            background-color: #1a1a1a; /* Updated background color */
+            color: #ffffff; /* Updated text color */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Added border */
             border-radius: 12px;
-            color: #000000;
             text-decoration: none;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s, border-color 0.2s; /* Added transition for border */
         }
 
         .share-option:hover {
-            background-color: #f5f5f5;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .share-option i {
@@ -411,9 +414,9 @@
             display: block;
             width: 100%;
             padding: 12px;
-            background-color: #ffffff; /* Updated background color */
-            color: #000000; /* Updated text color */
-            border: none;
+            background-color: #1a1a1a; /* Updated background color */
+            color: #ffffff; /* Updated text color */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Added border */
             border-radius: 12px;
             font-size: 16px;
             font-weight: 600;
@@ -421,11 +424,12 @@
             text-align: center;
             text-decoration: none;
             margin-top: 16px;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s, border-color 0.2s; /* Added transition for border */
         }
 
         .download-button:hover { /* Updated hover styles */
-            background-color: #f0f0f0;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .share-url {
@@ -482,7 +486,8 @@
             border: none;
             color: white;
             font-size: 20px;
-            cursor: po
+            cursor: pointer;
+        }
     </style>
     <script type="application/ld+json">
     {
@@ -543,9 +548,6 @@
                  data-ad-slot="9857334488"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
         </div>
 
         <div class="menu-items">
@@ -592,13 +594,7 @@
 
     <!-- Share button -->
     <button class="share-button" id="shareButton" aria-label="Share this page">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 8C19.6569 8 21 6.65685 21 5C21 3.34315 19.6569 2 18 2C16.3431 2 15 3.34315 15 5C15 6.65685 16.3431 8 18 8Z" fill="currentColor"/>
-            <path d="M6 15C7.65685 15 9 13.6569 9 12C9 10.3431 7.65685 9 6 9C4.34315 9 3 10.3431 3 12C3 13.6569 4.34315 15 6 15Z" fill="currentColor"/>
-            <path d="M18 22C19.6569 22 21 20.6569 21 19C21 17.3431 19.6569 16 18 16C16.3431 16 15 17.3431 15 19C15 20.6569 16.3431 22 18 22Z" fill="currentColor"/>
-            <path d="M8.59 13.51L15.42 17.49" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M15.41 6.51L8.59 10.49" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <i class="fas fa-share-nodes"></i>
     </button>
 
     <!-- Share modal -->
@@ -631,6 +627,10 @@
             <a href="#" class="share-option" id="copyPlusUrl">
                 <i class="fas fa-plus"></i>
                 Copy Plus URL
+            </a>
+            <a href="#" class="share-option" id="shareInstagramStories">
+                <i class="fab fa-instagram" style="color: #C13584;"></i>
+                Instagram Stories
             </a>
         </div>
     </div>
@@ -756,17 +756,34 @@
             }
         });
 
-        // AdSense error handling
+        document.getElementById('shareInstagramStories').addEventListener('click', (e) => {
+            e.preventDefault();
+            // Instagram stories sharing URL
+            const url = `instagram://story-camera?url=${encodeURIComponent(window.location.href)}`;
+            window.location.href = url;
+            
+            // Fallback for desktop or if Instagram app is not installed
+            setTimeout(() => {
+                window.open('https://instagram.com', '_blank');
+            }, 2000);
+        });
+
+        // AdSense error handling and initialization
+        function initAdSense() {
+            if (window.adsbygoogle && !window.adsbygoogle.loaded) {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                window.adsbygoogle.loaded = true;
+            }
+        }
+
+        window.addEventListener('load', initAdSense);
+
         window.onerror = function(message, source, lineno, colno, error) {
-          if (source.includes('googlesyndication.com') || source.includes('googleads')) {
-            console.log('AdSense error:', message);
-            // You can add additional error handling here if needed
-            return true; // Prevents the error from being displayed in the console
-          }
+            if (source.includes('googlesyndication.com') || source.includes('googleads')) {
+                console.log('AdSense error:', message);
+                return true; 
+            }
         };
-  
-        // Load AdSense ads
-        (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
 </body>
 </html>
