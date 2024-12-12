@@ -31,75 +31,6 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3345566781682408" crossorigin="anonymous"></script>
     <style>
         /* ... (keep all the existing styles) ... */
-
-        .chat-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 300px;
-            height: 400px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            display: none;
-        }
-
-        .chat-header {
-            background-color: #f0f0f0;
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .chat-header button {
-            float: right;
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-        }
-
-        .chat-body {
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .chat-footer {
-            background-color: #f0f0f0;
-            padding: 10px;
-            border-top: 1px solid #ddd;
-        }
-
-        #message {
-            width: 70%;
-            height: 30px;
-            padding: 10px;
-            border: 1px solid #ccc;
-        }
-
-        #send {
-            width: 20%;
-            height: 30px;
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #toggle-chat-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: block;
-        }
         
         /* Add Adsense a new style for the ad container */
         .ad-container {
@@ -635,21 +566,6 @@
         </div>
         <!-- rest of the body -->
 
-        <button id="toggle-chat-btn">Chat</button>
-        <div class="chat-container" id="chat-container">
-        <div class="chat-header">
-        <h2>ChatGPT</h2>
-        <button id="toggle-chat">X</button>
-        </div>
-        <div class="chat-body" id="chat-body">
-        <!-- Pesan akan ditampilkan di sini -->
-        </div>
-        <div class="chat-footer">
-        <input type="text" id="message" placeholder="Tulis pesan...">
-        <button id="send">Kirim</button>
-        </div>
-    </div>
-
         <div class="menu-items">
             <a href="https://blog.agamriyandana.my.id" class="menu-item">
                 <i class="fas fa-fire"></i>
@@ -867,58 +783,6 @@
                 return true;
             }
         };
-
-        // JavaScript
-        const chatContainer = document.getElementById('chat-container');
-        const toggleChatBtn = document.getElementById('toggle-chat-btn');
-        const chatHeader = document.querySelector('.chat-header');
-        const toggleChat = document.getElementById('toggle-chat');
-        const chatBody = document.getElementById('chat-body');
-        const messageInput = document.getElementById('message');
-        const sendButton = document.getElementById('send');
-
-        // Fungsi untuk menampilkan/menyembunyikan chat
-        function toggleChatDisplay() {
-            chatContainer.style.display = chatContainer.style.display === 'block' ? 'none' : 'block';
-        }
-
-        // Fungsi untuk menampilkan pesan
-        function displayMessage(message) {
-            const messageElement = document.createElement('div');
-            messageElement.innerText = message;
-            chatBody.appendChild(messageElement);
-        }
-
-        // Fungsi untuk mengirim pesan ke API ChatGPT
-        async function sendMessage(message) {
-            const apiKey = process.env.OPENAI_API_KEY;
-            const endpoint = 'https://api.openai.com/v1/chat/completions';
-
-            const response = await fetch(endpoint, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${apiKey}`
-                },
-                body: JSON.stringify({
-                    "model": "gpt-3.5-turbo",
-                    "messages": [{"role": "user", "content": message}],
-                    "max_tokens": 2048
-                })
-            });
-
-            const data = await response.json();
-            const responseMessage = data.choices[0].message.content;
-            displayMessage(`ChatGPT: ${responseMessage}`);
-        }
-
-        // Event listener untuk tombol toggle
-        toggleChatBtn.addEventListener('click', toggleChatDisplay);
-        toggleChat.addEventListener('click', toggleChatDisplay);
-
-        // Event listener untuk tombol kirim
-        sendButton.addEventListener
-    </script>
 </body>
 </html>
 
