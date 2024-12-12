@@ -29,10 +29,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3345566781682408" crossorigin="anonymous"></script>
+    <script src="https://jsc.mgid.com/site/908419.js" async></script>
     <style>
         /* ... (keep all the existing styles) ... */
+        /* Styles for the MGID ad container */
+        .mgid-ad-container {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            z-index: 100;
+            max-width: 300px;
+            width: 100%;
+        }
+
+        @media (max-width: 1200px) {
+            .mgid-ad-container {
+                position: static;
+                transform: none;
+                margin: 20px auto;
+            }
+        }
         
-        /* Add a new style for the ad container */
+        /* Add Adsense a new style for the ad container */
         .ad-container {
             width: 100%;
             max-width: 728px;
@@ -581,6 +600,11 @@
             </a>
         </div>
 
+        <!-- MGID Ad Container -->
+    <div class="mgid-ad-container">
+        <div id="M908419ScriptRootC1530734"></div>
+    </div>
+
         <div class="social-container">
             <a href="https://instagram.com/realagam1" class="social-button instagram">
                 <i class="fab fa-instagram"></i>
@@ -673,7 +697,14 @@
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
-
+         
+        // MGID Ad initialization
+        window.addEventListener('load', function() {
+            if (typeof window.MgSensorApi !== 'undefined') {
+                window.MgSensorApi.init();
+            }
+        });
+        
         // Share functionality
         const shareButton = document.getElementById('shareButton');
         const shareModal = document.getElementById('shareModal');
