@@ -1,21 +1,14 @@
 User-agent: *
 Allow: /
 
-# Allow Googlebot to access all content
 User-agent: Googlebot
 Allow: /
+Allow: /pagead/
+Allow: /pagead/js/
+Allow: /pagead/static/
+Allow: /pagead/ads
+Allow: /doubleclick.net/
+Allow: /googleads.g.doubleclick.net/
+Allow: /pagead2.googlesyndication.com/
 
-# Allow Googlebot to access Google Ads content
-User-agent: Googlebot-Image
-Allow: /
-
-# Allow AdSense bot
-User-agent: Mediapartners-Google
-Allow: /
-
-# Allow all Google bots
-User-agent: Google-Extended
-Allow: /
-
-# Sitemap
 Sitemap: https://agamriyandana.my.id/sitemap.xml
