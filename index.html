@@ -32,7 +32,7 @@
     <style>
         /* ... (keep all the existing styles) ... */
         
-        /* Add Adsense a new style for the ad container */
+        /* Add a new style for the ad container */
         .ad-container {
             width: 100%;
             max-width: 728px;
@@ -673,7 +673,7 @@
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
-        
+
         // Share functionality
         const shareButton = document.getElementById('shareButton');
         const shareModal = document.getElementById('shareModal');
@@ -682,8 +682,6 @@
         const shareFacebook = document.getElementById('shareFacebook');
         const shareTwitter = document.getElementById('shareTwitter');
         const shareWhatsapp = document.getElementById('shareWhatsapp');
-        const shareTelegram = document.getElementById('shareTelegram');
-        const copyUrl = document.getElementById('copyUrl');
         const qrCode = document.getElementById('qrCode');
 
         // Verified Status functionality
@@ -719,37 +717,19 @@
             overlay.style.display = 'none';
         });
 
-        function shareOnPlatform(url) {
-            window.open(url, '_blank');
-        }
-
         shareFacebook.addEventListener('click', (e) => {
             e.preventDefault();
-            shareOnPlatform(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank');
         });
 
         shareTwitter.addEventListener('click', (e) => {
             e.preventDefault();
-            shareOnPlatform(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent('Check out Agam Riyandana\'s portfolio!')}`);
+            window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent('Check out Agam Riyandana\'s portfolio!')}`, '_blank');
         });
 
         shareWhatsapp.addEventListener('click', (e) => {
             e.preventDefault();
-            shareOnPlatform(`https://api.whatsapp.com/send?text=${encodeURIComponent('Check out Agam Riyandana\'s portfolio: ' + window.location.href)}`);
-        });
-
-        shareTelegram.addEventListener('click', (e) => {
-            e.preventDefault();
-            shareOnPlatform(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent('Check out Agam Riyandana\'s portfolio!')}`);
-        });
-
-        copyUrl.addEventListener('click', (e) => {
-            e.preventDefault();
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                alert('URL copied to clipboard!');
-            }).catch(err => {
-                console.error('Failed to copy URL: ', err);
-            });
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent('Check out Agam Riyandana\'s portfolio: ' + window.location.href)}`, '_blank');
         });
 
         function generateQRCode() {
@@ -762,6 +742,13 @@
             qrCode.innerHTML = qrWithAlt;
         }
 
+        // Add these event listeners after the existing ones
+        document.getElementById('copyUrl').addEventListener('click', (e) => {
+            e.preventDefault();
+            navigator.clipboard.writeText(window.location.href);
+            alert('URL copied to clipboard!');
+        });
+
         document.getElementById('downloadButton').addEventListener('click', function(e) {
             e.preventDefault();
             const qrCodeImg = document.querySelector('#qrCode img');
@@ -773,6 +760,11 @@
             } else {
                 alert('QR Code image not found. Please try again.');
             }
+        });
+
+        document.getElementById('shareTelegram').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent('Check out Agam Riyandana\'s portfolio!')}`, '_blank');
         });
 
         // AdSense error handling and initialization
@@ -791,6 +783,7 @@
                 return true;
             }
         };
+    </script>
 </body>
 </html>
 
