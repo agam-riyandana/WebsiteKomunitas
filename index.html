@@ -30,6 +30,32 @@
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3345566781682408" crossorigin="anonymous"></script>
     <style>
+        /* Add new styles for the ad mgid column */
+        .ad-mgid-container {
+            width: 100%;
+            max-width: 728px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .content-wrapper {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .main-content {
+                width: 65%;
+            }
+
+            .ad-mgid-container {
+                width: 30%;
+                position: sticky;
+                top: 20px;
+                align-self: flex-start;
+            }
+        }
+        
         /* Add new styles for the legal buttons */
         .legal-container {
             display: grid;
@@ -64,14 +90,6 @@
         }
         
         /* ... (keep all the existing styles) ... */
-        
-        /* Add a new style for the ad container */
-        .ad-container {
-            width: 100%;
-            max-width: 728px;
-            margin: 20px auto;
-            text-align: center;
-        }
         
         * {
             margin: 0;
@@ -585,20 +603,6 @@
             </a>
         </div>
 
-        <!-- rest of the body -->
-        <div class="ad-container">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-3345566781682408"
-                 data-ad-slot="9857334488"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-        <!-- rest of the body -->
-
         <div class="menu-items">
             <a href="https://blog.agamriyandana.my.id" class="menu-item">
                 <i class="fas fa-fire"></i>
@@ -648,6 +652,12 @@
                 Terms of Use
             </a>
         </div>
+        <div class="ad-mgid-container">
+            <!-- MGID Ad Widget -->
+            <div id="M877765ScriptRootC1436088"></div>
+            <script src="https://jsc.mgid.com/a/g/agamriyandana.my.id.1436088.js" async></script>
+          </div>
+     </div>
     </main>
     <footer>
         <p>&copy; <span id="year"></span> Agam Riyandana. All Rights Reserved.</p>
@@ -811,23 +821,6 @@
             e.preventDefault();
             window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent('Check out Agam Riyandana\'s portfolio!')}`, '_blank');
         });
-
-        // AdSense error handling and initialization
-        function initAdSense() {
-            if (window.adsbygoogle && !window.adsbygoogle.loaded) {
-                (adsbygoogle = window.adsbygoogle || []).push({});
-                window.adsbygoogle.loaded = true;
-            }
-        }
-
-        window.addEventListener('load', initAdSense);
-
-        window.onerror = function(message, source, lineno, colno, error) {
-            if (source.includes('googlesyndication.com') || source.includes('googleads')) {
-                console.warn('AdSense warning:', message);
-                return true;
-            }
-        };
     </script>
 </body>
 </html>
