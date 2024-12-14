@@ -30,6 +30,39 @@
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3345566781682408" crossorigin="anonymous"></script>
     <style>
+        /* Add new styles for the legal buttons */
+        .legal-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .legal-button {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background-color 0.3s;
+            font-size: 14px;
+            font-weight: bold;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .legal-button:hover {
+            background-color: #333;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .legal-button i {
+            font-size: 16px;
+        }
+        
         /* ... (keep all the existing styles) ... */
         
         /* Add a new style for the ad container */
@@ -601,6 +634,18 @@
             <a href="https://open.spotify.com/artist/47w2bmfv89qm3wss9v4aEX?si=bLttpBoNT4u85dTDd573VA" class="social-button spotify">
                 <i class="fab fa-spotify"></i>
                 Spotify
+            </a>
+        </div>
+
+        <!-- Add the new legal buttons container -->
+        <div class="legal-container">
+            <a href="privacy-policy.html" class="legal-button">
+                <i class="fas fa-shield-alt"></i>
+                Privacy Policy
+            </a>
+            <a href="terms-of-use.html" class="legal-button">
+                <i class="fas fa-file-contract"></i>
+                Terms of Use
             </a>
         </div>
     </main>
