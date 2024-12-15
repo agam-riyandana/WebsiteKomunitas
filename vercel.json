@@ -1,4 +1,17 @@
 {
+  "routes": [
+    {
+      "src": "/404.html",
+      "status": 404,
+      "dest": "/404.html"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
   "headers": [
     {
       "source": "/service-worker.js",
@@ -25,19 +38,19 @@
           "value": "1; mode=block"
         },
         {
-          "key": "content-security-policy",
+          "key": "Content-Security-Policy",
           "value": "upgrade-insecure-requests"
         },
         {
-          "key": "referrer-policy",
+          "key": "Referrer-Policy",
           "value": "no-referrer-when-downgrade"
         },
         {
-          "key": "permissions-policy",
+          "key": "Permissions-Policy",
           "value": "accelerometer=(), autoplay=(), camera=(), cross-origin-isolated=(), display-capture=(self), encrypted-media=(), fullscreen=*, geolocation=(self), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), payment=*, picture-in-picture=*, publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=*, usb=(), xr-spatial-tracking=(), gamepad=(), serial=()"
         },
         {
-          "key": "access-control-allow-origin",
+          "key": "Access-Control-Allow-Origin",
           "value": "https://agamriyandana.my.id"
         }
       ]
@@ -52,7 +65,7 @@
       ],
       "headers": [
         {
-          "key": "x-authorized",
+          "key": "X-Authorized",
           "value": "true"
         }
       ]
