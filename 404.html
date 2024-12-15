@@ -59,12 +59,16 @@
             color: #4ecdc4;
         }
         .flag {
-            width: 40px; /* Adjust width */
-            height: 30px; /* Maintain proportional height */
-            object-fit: contain; /* Ensure proper fit */
-            margin-right: 10px;
-            border: 1px solid #4ecdc4; /* Optional: Border for visibility */
-            border-radius: 3px; /* Optional: Rounded corners */
+            width: 25px; /* Smaller width */
+            height: auto; /* Maintain aspect ratio */
+            object-fit: contain; /* Prevent stretching */
+            margin-right: 10px; /* Space between flag and country name */
+            border-radius: 3px; /* Optional: rounded corners */
+        }
+        @media (max-width: 600px) {
+            .flag {
+                width: 20px; /* Make the flag even smaller on smaller screens */
+            }
         }
         .back-button {
             background-color: #4ecdc4;
