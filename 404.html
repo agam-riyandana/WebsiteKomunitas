@@ -58,6 +58,14 @@
             font-weight: bold;
             color: #4ecdc4;
         }
+        .flag {
+            width: 40px; /* Adjust width */
+            height: 30px; /* Maintain proportional height */
+            object-fit: contain; /* Ensure proper fit */
+            margin-right: 10px;
+            border: 1px solid #4ecdc4; /* Optional: Border for visibility */
+            border-radius: 3px; /* Optional: Rounded corners */
+        }
         .back-button {
             background-color: #4ecdc4;
             color: #ffffff;
@@ -70,12 +78,6 @@
         }
         .back-button:hover {
             background-color: #45b7aa;
-        }
-        .flag {
-            width: 50px;
-            height: auto;
-            vertical-align: middle;
-            margin-right: 10px;
         }
     </style>
 </head>
@@ -94,13 +96,14 @@
                 <span id="city">Loading...</span>
             </div>
             <div class="info-item">
-                <span class="info-label">ISP:</span>
-                <span id="isp">Loading...</span>
+                <span class="info-label">Country:</span>
+                <img id="flag" class="flag" src="" alt="Flag">
+                <span id="country">Loading...</span>
             </div>
-        </div>
-        <div class="info-box">
-            <h3>Country Information</h3>
-            <div id="country-list">Loading countries...</div>
+            <div class="info-item">
+                <span class="info-label">Languages:</span>
+                <span id="languages">Loading...</span>
+            </div>
         </div>
         <button class="back-button" onclick="window.history.back()">Go Back</button>
     </div>
@@ -108,42 +111,32 @@
     <script>
         async function getIpInfo() {
             try {
-                const response = await fetch('https://ipapi.co/json/');
-                const data = await response.json();
-                document.getElementById('ip-address').textContent = data.ip;
-                document.getElementById('city').textContent = data.city;
-                document.getElementById('isp').textContent = data.org;
+                const ipResponse = await fetch('https://ipapi.co/json/');
+                const ipData = await ipResponse.json();
+                document.getElementById('ip-address').textContent = ipData.ip;
+                document.getElementById('city').textContent = ipData.city;
+
+                const countryResponse = await fetch(`https://restcountries.com/v3.1/alpha/${ipData.country}`);
+                const countryData = await countryResponse.json();
+
+                const countryName = countryData[0].name.common;
+                const flagUrl = countryData[0].flags.svg;
+                const languages = Object.values(countryData[0].languages).join(', ');
+
+                document.getElementById('country').textContent = countryName;
+                document.getElementById('flag').src = flagUrl;
+                document.getElementById('flag').alt = `${countryName} Flag`;
+                document.getElementById('languages').textContent = languages;
             } catch (error) {
-                console.error('Error fetching IP info:', error);
+                console.error('Error fetching data:', error);
                 document.getElementById('ip-address').textContent = 'Error';
                 document.getElementById('city').textContent = 'Error';
-                document.getElementById('isp').textContent = 'Error';
-            }
-        }
-
-        async function getCountriesInfo() {
-            try {
-                const response = await fetch('https://restcountries.com/v3.1/all');
-                const countries = await response.json();
-                const countryList = document.getElementById('country-list');
-                countryList.innerHTML = '';
-
-                countries.forEach(country => {
-                    const countryItem = document.createElement('div');
-                    countryItem.innerHTML = `
-                        <img class="flag" src="${country.flags.svg}" alt="Flag of ${country.name.common}">
-                        <span><strong>${country.name.common}</strong> - Language: ${Object.values(country.languages || {}).join(', ')}</span>
-                    `;
-                    countryList.appendChild(countryItem);
-                });
-            } catch (error) {
-                console.error('Error fetching countries info:', error);
-                document.getElementById('country-list').textContent = 'Error loading countries.';
+                document.getElementById('country').textContent = 'Error';
+                document.getElementById('languages').textContent = 'Error';
             }
         }
 
         getIpInfo();
-        getCountriesInfo();
     </script>
 </body>
 </html>
