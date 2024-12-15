@@ -71,46 +71,49 @@
             }
         }
         .back-button {
-            background-color: #4ecdc4;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s;
+         background-color: #006e6d; /* Darker shade for better contrast */
+         color: #ffffff; /* White text for contrast */
+         border: none;
+         padding: 10px 20px;
+         border-radius: 5px;
+         cursor: pointer;
+         font-size: 1rem;
+         transition: background-color 0.3s;
         }
-        .back-button:hover {
-            background-color: #45b7aa;
+         .back-button:hover {
+          background-color: #005a58; /* Darker hover state */
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <i class="fas fa-exclamation-triangle icon"></i>
-        <h1>404</h1>
-        <p>Oops! The page you're looking for doesn't exist.</p>
-        <div class="info-box">
-            <div class="info-item">
-                <span class="info-label">IP Address:</span>
-                <span id="ip-address">Loading...</span>
+    <main>
+        <div class="container">
+            <i class="fas fa-exclamation-triangle icon"></i>
+            <h1>404</h1>
+            <p>Oops! The page you're looking for doesn't exist.</p>
+            <div class="info-box">
+                <div class="info-item">
+                    <span class="info-label">IP Address:</span>
+                    <span id="ip-address">Loading...</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">City:</span>
+                    <span id="city">Loading...</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Country:</span>
+                    <img id="flag" class="flag" src="" alt="Flag">
+                    <span id="country">Loading...</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Languages:</span>
+                    <span id="languages">Loading...</span>
+                </div>
             </div>
-            <div class="info-item">
-                <span class="info-label">City:</span>
-                <span id="city">Loading...</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Country:</span>
-                <img id="flag" class="flag" src="" alt="Flag">
-                <span id="country">Loading...</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Languages:</span>
-                <span id="languages">Loading...</span>
-            </div>
+            <button class="back-button" onclick="window.history.back()">Go Back</button>
         </div>
-        <button class="back-button" onclick="window.history.back()">Go Back</button>
-    </div>
+    </main>
+</body>
 
     <script>
         async function getIpInfo() {
