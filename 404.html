@@ -59,26 +59,29 @@
             color: #4ecdc4;
         }
         .flag {
-            width: 25%;  /* Use percentage for responsive size */
-            max-width: 50px;  /* Max width to avoid being too large */
-            height: auto;  /* Maintain aspect ratio */
-            object-fit: contain;  /* Ensure flag fits well */
-            margin-right: 10px;
-            border: 1px solid #4ecdc4; /* Optional: Border for visibility */
-            border-radius: 3px; /* Optional: Rounded corners */
+            width: 25px; /* Smaller width */
+            height: auto; /* Maintain aspect ratio */
+            object-fit: contain; /* Prevent stretching */
+            margin-right: 10px; /* Space between flag and country name */
+            border-radius: 3px; /* Optional: rounded corners */
+        }
+        @media (max-width: 600px) {
+            .flag {
+                width: 20px; /* Make the flag even smaller on smaller screens */
+            }
         }
         .back-button {
-            background-color: #006e6d; /* Darker shade for better contrast */
-            color: #ffffff; /* White text for contrast */
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s;
+         background-color: #006e6d; /* Darker shade for better contrast */
+         color: #ffffff; /* White text for contrast */
+         border: none;
+         padding: 10px 20px;
+         border-radius: 5px;
+         cursor: pointer;
+         font-size: 1rem;
+         transition: background-color 0.3s;
         }
-        .back-button:hover {
-            background-color: #005a58; /* Darker hover state */
+         .back-button:hover {
+          background-color: #005a58; /* Darker hover state */
         }
     </style>
 </head>
@@ -103,25 +106,23 @@
                     <span id="country">Loading...</span>
                 </div>
                 <div class="info-item">
-                    <span class="info-label">ISP:</span>
-                    <span id="isp">Loading...</span>
+                    <span class="info-label">Languages:</span>
+                    <span id="languages">Loading...</span>
                 </div>
             </div>
             <button class="back-button" onclick="window.history.back()">Go Back</button>
         </div>
     </main>
+</body>
 
     <script>
         async function getIpInfo() {
             try {
                 const ipResponse = await fetch('https://ipapi.co/json/');
                 const ipData = await ipResponse.json();
-
-                // Display IP Address and City
                 document.getElementById('ip-address').textContent = ipData.ip;
                 document.getElementById('city').textContent = ipData.city;
 
-                // Fetch Country Data
                 const countryResponse = await fetch(`https://restcountries.com/v3.1/alpha/${ipData.country}`);
                 const countryData = await countryResponse.json();
 
@@ -129,20 +130,16 @@
                 const flagUrl = countryData[0].flags.svg;
                 const languages = Object.values(countryData[0].languages).join(', ');
 
-                // Display Country, Flag, and Languages
                 document.getElementById('country').textContent = countryName;
                 document.getElementById('flag').src = flagUrl;
                 document.getElementById('flag').alt = `${countryName} Flag`;
                 document.getElementById('languages').textContent = languages;
-
-                // Display ISP (Internet Service Provider)
-                document.getElementById('isp').textContent = ipData.org;
             } catch (error) {
                 console.error('Error fetching data:', error);
                 document.getElementById('ip-address').textContent = 'Error';
                 document.getElementById('city').textContent = 'Error';
                 document.getElementById('country').textContent = 'Error';
-                document.getElementById('isp').textContent = 'Error';
+                document.getElementById('languages').textContent = 'Error';
             }
         }
 
