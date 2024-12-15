@@ -58,9 +58,15 @@
             font-weight: bold;
             color: #4ecdc4;
         }
+        .flag-icon {
+            width: 30px;
+            height: auto;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
         .back-button {
-            background-color: #4ecdc4;
-            color: #ffffff;
+            background-color: #006e6d; /* Darker shade for better contrast */
+            color: #ffffff; /* White text for contrast */
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
@@ -69,51 +75,80 @@
             transition: background-color 0.3s;
         }
         .back-button:hover {
-            background-color: #45b7aa;
+            background-color: #005a58; /* Darker hover state */
         }
+        /* Responsive flag */
+        @media only screen and (max-width: 600px) {
+            .flag-icon {
+                width: 20px;
+            }
     </style>
 </head>
 <body>
-    <div class="container">
-        <i class="fas fa-exclamation-triangle icon"></i>
-        <h1>404</h1>
-        <p>Oops! The page you're looking for doesn't exist.</p>
-        <div class="info-box">
-            <div class="info-item">
-                <span class="info-label">IP Address:</span>
-                <span id="ip-address">Loading...</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">City:</span>
-                <span id="city">Loading...</span>
-            </div>
-            <div class="info-item">
+    <main>
+        <div class="container">
+            <i class="fas fa-exclamation-triangle icon"></i>
+            <h1>404</h1>
+            <p>Oops! The page you're looking for doesn't exist.</p>
+            <div class="info-box">
+                <div class="info-item">
+                    <span class="info-label">IP Address:</span>
+                    <span id="ip-address">Loading...</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">City:</span>
+                    <span id="city">Loading...</span>
+                </div>
+                <div class="info-item">
                     <span class="info-label">Country:</span>
-                    <img class="flag-icon" id="flag-icon">
+                    <img id="flag" class="flag" src="" alt="Flag">
                     <span id="country">Loading...</span>
                 </div>
-            <div class="info-item">
-                <span class="info-label">ISP:</span>
-                <span id="isp">Loading...</span>
+                <div class="info-item">
+                    <span class="info-label">Languages:</span>
+                    <span id="languages">Loading...</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">ISP:</span>
+                    <span id="isp">Loading...</span>
+                </div>
             </div>
+            <button class="back-button" onclick="window.history.back()">Go Back</button>
         </div>
-        <button class="back-button" onclick="window.history.back()">Go Back</button>
-    </div>
+    </main>
 
     <script>
         async function getIpInfo() {
             try {
-                const response = await fetch('https://ipapi.co/json/');
-                const data = await response.json();
-                document.getElementById('ip-address').textContent = data.ip;
-                document.getElementById('city').textContent = data.city;
-                document.getElementById('isp').textContent = data.org;
+                const ipResponse = await fetch('https://ipapi.co/json/');
+                const ipData = await ipResponse.json();
+
+                // Display IP Address and City
+                document.getElementById('ip-address').textContent = ipData.ip;
+                document.getElementById('city').textContent = ipData.city;
+
+                // Fetch Country Data
+                const countryResponse = await fetch(`https://restcountries.com/v3.1/alpha/${ipData.country}`);
+                const countryData = await countryResponse.json();
+
+                const countryName = countryData[0].name.common;
+                const flagUrl = countryData[0].flags.svg;
+                const languages = Object.values(countryData[0].languages).join(', ');
+
+                // Display Country, Flag, and Languages
+                document.getElementById('country').textContent = countryName;
+                document.getElementById('flag').src = flagUrl;
+                document.getElementById('flag').alt = `${countryName} Flag`;
+                document.getElementById('languages').textContent = languages;
+
+                // Display ISP (Internet Service Provider)
+                document.getElementById('isp').textContent = ipData.org;
             } catch (error) {
-                console.error('Error fetching IP info:', error);
+                console.error('Error fetching data:', error);
                 document.getElementById('ip-address').textContent = 'Error';
                 document.getElementById('city').textContent = 'Error';
-                document.getElementById('country').textContent = data.country_name;
-                document.getElementById('flag-icon').src = `https://flagcdn.com/w160/${data.country_code.toLowerCase()}.png`;
+                document.getElementById('country').textContent = 'Error';
+                document.getElementById('languages').textContent = 'Error';
                 document.getElementById('isp').textContent = 'Error';
             }
         }
