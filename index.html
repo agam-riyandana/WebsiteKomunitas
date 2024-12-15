@@ -30,62 +30,6 @@
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
     <script src="https://jsc.mgid.com/site/908419.js" async></script>
     <style>
-        /*Add new style DDOS attack*/
-         {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        body {
-            background-color: #0a0d16;
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        .container {
-            background-color: #1a1a1a;
-            border-radius: 10px;
-            padding: 30px;
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #ffd700;
-            margin-bottom: 20px;
-        }
-        .info-box {
-            background-color: #2a2a2a;
-            border-radius: 5px;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-        .info-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        .info-item:last-child {
-            margin-bottom: 0;
-        }
-        .info-label {
-            font-weight: bold;
-            color: #ffd700;
-        }
-        .cf-turnstile {
-            margin-top: 20px;
-        }
-        .icon {
-            margin-right: 10px;
-            color: #ffd700;
-        }
-        
         /* Add new styles for the legal buttons */
         .legal-container {
             display: grid;
@@ -682,25 +626,6 @@
                 Terms of Use
             </a>
         </div>
-        <!-- add DDOS Attack -->
-        <div class="container">
-        <h1><i class="fas fa-shield-alt icon"></i>DDOS Attack Challenge</h1>
-        <div class="info-box">
-            <div class="info-item">
-                <span class="info-label"><i class="fas fa-network-wired icon"></i>IP Address:</span>
-                <span id="ip-address">Loading...</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label"><i class="fas fa-globe icon"></i>Country:</span>
-                <span id="country">Loading...</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label"><i class="fas fa-city icon"></i>City:</span>
-                <span id="city">Loading...</span>
-            </div>
-        </div>
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAAA0jD29urnudvzt_"></div>
-        </div>
     </main>
     <style> div[data-widget-id="1710875"] { min-height: 300px; } </style> 
      <div data-type="_mgwidget" data-widget-id="1710875"> 
@@ -869,25 +794,6 @@
             e.preventDefault();
             window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent('Check out Agam Riyandana\'s portfolio!')}`, '_blank');
         });
-
-        // Function to get user's IP information
-        async function getIpInfo() {
-            try {
-                const response = await fetch('https://ipapi.co/json/');
-                const data = await response.json();
-                document.getElementById('ip-address').textContent = data.ip;
-                document.getElementById('country').textContent = data.country_name;
-                document.getElementById('city').textContent = data.city;
-            } catch (error) {
-                console.error('Error fetching IP info:', error);
-                document.getElementById('ip-address').textContent = 'Error';
-                document.getElementById('country').textContent = 'Error';
-                document.getElementById('city').textContent = 'Error';
-            }
-        }
-
-        // Call the function to get IP info when the page loads
-        getIpInfo();
     </script>
 </body>
 </html>
