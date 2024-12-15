@@ -88,6 +88,11 @@
                 <span id="city">Loading...</span>
             </div>
             <div class="info-item">
+                    <span class="info-label">Country:</span>
+                    <img class="flag-icon" id="flag-icon">
+                    <span id="country">Loading...</span>
+                </div>
+            <div class="info-item">
                 <span class="info-label">ISP:</span>
                 <span id="isp">Loading...</span>
             </div>
@@ -107,6 +112,8 @@
                 console.error('Error fetching IP info:', error);
                 document.getElementById('ip-address').textContent = 'Error';
                 document.getElementById('city').textContent = 'Error';
+                document.getElementById('country').textContent = data.country_name;
+                document.getElementById('flag-icon').src = `https://flagcdn.com/w160/${data.country_code.toLowerCase()}.png`;
                 document.getElementById('isp').textContent = 'Error';
             }
         }
