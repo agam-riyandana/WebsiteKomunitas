@@ -35,13 +35,13 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         h1 {
-            color: #ff6b6b;
+            color: #ff8f8f;
             margin-bottom: 20px;
             font-size: 3rem;
         }
         .icon {
             font-size: 5rem;
-            color: #ff6b6b;
+            color: #ff8f8f;
             margin-bottom: 20px;
         }
         p {
@@ -61,12 +61,12 @@
         }
         .info-label {
             font-weight: bold;
-            color: #4ecdc4;
+            color: #6fefef;
             margin-right: 10px;
             min-width: 100px;
         }
         .back-button {
-            background-color: #4ecdc4;
+            background-color: #2b8a8a;
             color: #ffffff;
             border: none;
             padding: 10px 20px;
@@ -76,7 +76,7 @@
             transition: background-color 0.3s;
         }
         .back-button:hover {
-            background-color: #45b7aa;
+            background-color: #1f6f6f;
         }
         .flag {
             width: 30px;
@@ -84,6 +84,17 @@
             margin-right: 10px;
             object-fit: cover;
             border-radius: 3px;
+        }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
         }
         @media (max-width: 480px) {
             .container {
@@ -106,18 +117,19 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <i class="fas fa-exclamation-triangle icon"></i>
+    <main class="container">
+        <i class="fas fa-exclamation-triangle icon" aria-hidden="true"></i>
         <h1>404</h1>
         <p>Oops! The page you're looking for doesn't exist.</p>
-        <div class="info-box">
+        <section class="info-box">
+            <h2 class="sr-only">Your Information</h2>
             <div class="info-item">
                 <span class="info-label">IP Address:</span>
                 <span id="ip-address">Loading...</span>
             </div>
             <div class="info-item">
                 <span class="info-label">Country:</span>
-                <img id="country-flag" class="flag" src="" alt="Country flag">
+                <img id="country-flag" class="flag" src="" alt="">
                 <span id="country">Loading...</span>
             </div>
             <div class="info-item">
@@ -128,9 +140,19 @@
                 <span class="info-label">ISP:</span>
                 <span id="isp">Loading...</span>
             </div>
-        </div>
-        <button class="back-button" onclick="window.history.back()">Go Back</button>
-    </div>
+            <div class="info-item">
+                <span class="info-label">Device:</span>
+                <span id="device">Loading...</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Brand:</span>
+                <span id="brand">Loading...</span>
+            </div>
+        </section>
+        <nav>
+            <button class="back-button" onclick="window.history.back()">Go Back</button>
+        </nav>
+    </main>
 
     <script>
         async function getIpInfo() {
@@ -147,12 +169,41 @@
                 const flagImg = document.getElementById('country-flag');
                 flagImg.src = flagUrl;
                 flagImg.alt = `${data.country_name} flag`;
+
+                // Get device information
+                const userAgent = navigator.userAgent;
+                let device = "Unknown";
+                let brand = "Unknown";
+
+                if (/Android/i.test(userAgent)) {
+                    device = "Android";
+                    const match = userAgent.match(/Android.*?;\s*([^;]+)\s*/);
+                    brand = match ? match[1] : "Unknown";
+                } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
+                    device = userAgent.match(/iPhone|iPad|iPod/)[0];
+                    brand = "Apple";
+                } else if (/Windows/i.test(userAgent)) {
+                    device = "Windows PC";
+                    brand = "Microsoft";
+                } else if (/Macintosh/i.test(userAgent)) {
+                    device = "Mac";
+                    brand = "Apple";
+                } else if (/Linux/i.test(userAgent)) {
+                    device = "Linux PC";
+                    brand = "Linux";
+                }
+
+                document.getElementById('device').textContent = device;
+                document.getElementById('brand').textContent = brand;
+
             } catch (error) {
-                console.error('Error fetching IP info:', error);
+                console.error('Error fetching info:', error);
                 document.getElementById('ip-address').textContent = 'Error';
                 document.getElementById('country').textContent = 'Error';
                 document.getElementById('city').textContent = 'Error';
                 document.getElementById('isp').textContent = 'Error';
+                document.getElementById('device').textContent = 'Error';
+                document.getElementById('brand').textContent = 'Error';
                 document.getElementById('country-flag').style.display = 'none';
             }
         }
