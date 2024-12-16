@@ -53,10 +53,14 @@
         }
         .info-item {
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
         }
         .info-label {
             font-weight: bold;
             color: #4ecdc4;
+            margin-right: 10px;
+            min-width: 100px;
         }
         .back-button {
             background-color: #4ecdc4;
@@ -71,6 +75,31 @@
         .back-button:hover {
             background-color: #45b7aa;
         }
+        .flag {
+            width: 30px;
+            height: 20px;
+            margin-right: 10px;
+            object-fit: cover;
+            border-radius: 3px;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .icon {
+                font-size: 4rem;
+            }
+            .info-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .info-label {
+                margin-bottom: 5px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -82,6 +111,11 @@
             <div class="info-item">
                 <span class="info-label">IP Address:</span>
                 <span id="ip-address">Loading...</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Country:</span>
+                <img id="country-flag" class="flag" src="" alt="Country flag">
+                <span id="country">Loading...</span>
             </div>
             <div class="info-item">
                 <span class="info-label">City:</span>
@@ -101,13 +135,22 @@
                 const response = await fetch('https://ipapi.co/json/');
                 const data = await response.json();
                 document.getElementById('ip-address').textContent = data.ip;
+                document.getElementById('country').textContent = data.country_name;
                 document.getElementById('city').textContent = data.city;
                 document.getElementById('isp').textContent = data.org;
+                
+                // Set the country flag
+                const flagUrl = `https://flagcdn.com/w40/${data.country_code.toLowerCase()}.png`;
+                const flagImg = document.getElementById('country-flag');
+                flagImg.src = flagUrl;
+                flagImg.alt = `${data.country_name} flag`;
             } catch (error) {
                 console.error('Error fetching IP info:', error);
                 document.getElementById('ip-address').textContent = 'Error';
+                document.getElementById('country').textContent = 'Error';
                 document.getElementById('city').textContent = 'Error';
                 document.getElementById('isp').textContent = 'Error';
+                document.getElementById('country-flag').style.display = 'none';
             }
         }
 
