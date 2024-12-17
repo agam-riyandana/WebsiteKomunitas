@@ -36,6 +36,36 @@
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
     <script src="https://jsc.mgid.com/site/908419.js" async></script>
     <style>
+        /* Add new styles for IP info */
+        .ip-info {
+            background-color: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        .ip-info p {
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .ip-info i {
+            margin-right: 8px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .flag {
+            width: 24px;
+            height: 16px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
         /* Add new styles for the legal buttons */
         .legal-container {
             display: grid;
@@ -660,24 +690,30 @@
         <div class="share-options">
             <a href="#" class="share-option" id="shareFacebook">
                 <i class="fab fa-facebook" style="color: #1877f2;"></i>
-                Facebook
+                <span>Facebook</span>
             </a>
             <a href="#" class="share-option" id="shareTwitter">
                 <i class="fab fa-x-twitter"></i>
-                Twitter X
+                <span>Twitter X</span>
             </a>
             <a href="#" class="share-option" id="shareWhatsapp">
                 <i class="fab fa-whatsapp" style="color: #25D366;"></i>
-                WhatsApp
+                <span>WhatsApp</span>
             </a>
             <a href="#" class="share-option" id="shareTelegram">
                 <i class="fab fa-telegram" style="color: #0088cc;"></i>
-                Telegram
+                <span>Telegram</span>
             </a>
             <a href="#" class="share-option" id="copyUrl">
                 <i class="fas fa-clipboard"></i>
-                Copy URL
+                <span>Copy URL</span>
             </a>
+        </div>
+        <div class="ip-info" id="ipInfo">
+            <p><i class="fas fa-network-wired"></i> IP: <span id="ip"></span></p>
+            <p><i class="fas fa-building"></i> ISP: <span id="isp"></span></p>
+            <p><i class="fas fa-city"></i> City: <span id="city"></span></p>
+            <p><i class="fas fa-globe"></i> Country: <span id="country"></span> <img id="flag" class="flag" alt="Country flag"></p>
         </div>
     </div>
 
@@ -799,6 +835,32 @@
         document.getElementById('shareTelegram').addEventListener('click', (e) => {
             e.preventDefault();
             window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent('Check out Agam Riyandana\'s portfolio!')}`, '_blank');
+        });
+
+        // Add new JavaScript for fetching IP info
+        async function fetchIPInfo() {
+            try {
+                const response = await fetch('https://ipapi.co/json/');
+                const data = await response.json();
+                
+                document.getElementById('ip').textContent = data.ip;
+                document.getElementById('isp').textContent = data.org;
+                document.getElementById('city').textContent = data.city;
+                document.getElementById('country').textContent = data.country_name;
+                document.getElementById('flag').src = `https://flagcdn.com/w40/${data.country_code.toLowerCase()}.png`;
+                document.getElementById('flag').alt = `${data.country_name} flag`;
+            } catch (error) {
+                console.error('Error fetching IP info:', error);
+                document.getElementById('ipInfo').innerHTML = '<p>Unable to fetch IP information</p>';
+            }
+        }
+
+        // Modify the existing share button event listener
+        shareButton.addEventListener('click', () => {
+            shareModal.style.display = 'block';
+            overlay.style.display = 'block';
+            generateQRCode();
+            fetchIPInfo(); // Add this line to fetch IP info when the modal opens
         });
     </script>
 </body>
