@@ -108,22 +108,6 @@
             justify-content: center;
         }
 
-        .verified-badge {
-            width: 16px;
-            height: 16px;
-            background-color: #3897f0;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 6px;
-            vertical-align: middle;
-        }
-
-        .verified-badge i {
-            font-size: 10px;
-            color: white;
-        }
 
         .subtitle {
             font-size: 14px;
@@ -478,51 +462,71 @@
         }
         
         /* Styles for Verified Status menu */
-        .verified-status-modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #1a1a1a;
-            padding: 20px;
-            border-radius: 10px;
-            z-index: 1000;
-            max-width: 90%;
-            width: 300px;
-        }
 
-        .verified-status-modal h2 {
-            margin-bottom: 15px;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        .info-button {
+         position: fixed;
+         top: 20px;
+         left: 20px;
+         background-color: #e4e6eb;
+         color: #001835;
+         border: none;
+         border-radius: 50%;
+         width: 40px;
+         height: 40px;
+         font-size: 20px;
+         cursor: pointer;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         transition: background-color 0.3s;
+         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     }
 
-        .verified-status-modal h2 .verified-badge {
-            margin-left: 10px;
-        }
+     .info-button:hover {
+         background-color: #d8dadf;
+     }
 
-        .verified-status-content {
-            text-align: left;
-            margin-bottom: 20px;
-        }
-        
-        .verified-status-content p {
-            margin-bottom: 10px;
-        }
+     .info-modal {
+         display: none;
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         background-color: #0a0d16;
+         color: #ffffff;
+         padding: 20px;
+         border-radius: 16px;
+         z-index: 1000;
+         max-width: 90%;
+         width: 320px;
+         box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+         border: 1px solid rgba(255, 255, 255, 0.1);
+     }
 
-        .verified-status-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-        }
+     .info-modal h2 {
+         margin-bottom: 16px;
+         font-size: 20px;
+         font-weight: 600;
+     }
+
+     .info-content {
+         margin-bottom: 16px;
+     }
+
+     .info-content p {
+         margin-bottom: 8px;
+     }
+
+     .info-close {
+         position: absolute;
+         top: 10px;
+         right: 10px;
+         background: none;
+         border: none;
+         color: white;
+         font-size: 20px;
+         cursor: pointer;
+     }
     </style>
     <script type="application/ld+json">
     {
@@ -554,9 +558,6 @@
         <img src="/webprofil.png?height=150&width=150" alt="Profile picture of Agam Riyandana" class="profile-img" width="185" height="185">
         <h1>
             Agam Riyandana
-            <span class="verified-badge" title="Verified" id="verifiedBadge">
-                <i class="fas fa-check"></i>
-            </span>
         </h1>
         <div class="subtitle">
             <i class="fa-solid fa-star"></i>
@@ -571,7 +572,7 @@
                 <i class="fas fa-briefcase"></i>
                 Portfolio
             </a>
-            <a href="mailto:agamriyandana7@gmail.com" class="button">
+            <a href="/cdn-cgi/l/email-protection#e08187818d928999818e84818e81d7a0878d81898cce838f8d" class="button">
                 <i class="fas fa-envelope"></i>
                 Email Contact
             </a>
@@ -630,7 +631,7 @@
     <style> div[data-widget-id="1710875"] { min-height: 300px; } </style> 
      <div data-type="_mgwidget" data-widget-id="1710875"> 
      </div> 
-     <script>(function(w,q){w[q]=w[q]||[];w[q].push(["_mgc.load"])})(window,"_mgq"); 
+     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(function(w,q){w[q]=w[q]||[];w[q].push(["_mgc.load"])})(window,"_mgq"); 
      </script>
     <footer>
         <p>&copy; <span id="year"></span> Agam Riyandana. All Rights Reserved.</p>
@@ -699,6 +700,18 @@
     <!-- Overlay -->
     <div class="overlay" id="overlay"></div>
 
+    <button id="infoButton" class="info-button" aria-label="Show Information">
+        <i class="fas fa-info-circle"></i>
+    </button>
+
+    <div id="infoModal" class="info-modal">
+        <button id="closeInfoModal" class="info-close" aria-label="Close info modal">&times;</button>
+        <h2>Connection Information</h2>
+        <div id="infoContent" class="info-content">
+            <p>Loading...</p>
+        </div>
+    </div>
+
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -742,6 +755,7 @@
         overlay.addEventListener('click', () => {
             shareModal.style.display = 'none';
             verifiedStatusModal.style.display = 'none';
+            infoModal.style.display = 'none';
             overlay.style.display = 'none';
         });
 
@@ -757,7 +771,7 @@
 
         shareWhatsapp.addEventListener('click', (e) => {
             e.preventDefault();
-            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent('Check out Agam Riyandana\'s portfolio: ' + window.location.href)}`, '_blank');
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent('Check outAgam Riyandana\'s portfolio: ' + window.location.href)}`, '_blank');
         });
 
         function generateQRCode() {
@@ -794,6 +808,48 @@
             e.preventDefault();
             window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent('Check out Agam Riyandana\'s portfolio!')}`, '_blank');
         });
+
+        const infoButton = document.getElementById('infoButton');
+        const infoModal = document.getElementById('infoModal');
+        const closeInfoModal = document.getElementById('closeInfoModal');
+        const infoContent = document.getElementById('infoContent');
+
+        infoButton.addEventListener('click', () => {
+            infoModal.style.display = 'block';
+            overlay.style.display = 'block';
+            fetchIPInfo();
+        });
+
+        closeInfoModal.addEventListener('click', () => {
+            infoModal.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+
+        function fetchIPInfo() {
+            fetch('https://ipapi.co/json/')
+                .then(response => response.json())
+                .then(data => {
+                    const flagEmoji = getFlagEmoji(data.country_code);
+                    infoContent.innerHTML = `
+                        <p><strong>IP Address:</strong> ${data.ip}</p>
+                        <p><strong>City:</strong> ${data.city}</p>
+                        <p><strong>Country:</strong> ${data.country_name} ${flagEmoji}</p>
+                        <p><strong>ISP:</strong> ${data.org}</p>
+                    `;
+                })
+                .catch(error => {
+                    infoContent.innerHTML = '<p>Error fetching information. Please try again later.</p>';
+                    console.error('Error:', error);
+                });
+        }
+
+        function getFlagEmoji(countryCode) {
+            const codePoints = countryCode
+                .toUpperCase()
+                .split('')
+                .map(char => 127397 + char.charCodeAt());
+            return String.fromCodePoint(...codePoints);
+        }
     </script>
 </body>
 </html>
