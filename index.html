@@ -676,26 +676,6 @@
         </div>
     </div>
 
-    <!-- Verified Status modal -->
-    <div class="verified-status-modal" id="verifiedStatusModal">
-        <button class="verified-status-close" id="closeVerifiedStatus" aria-label="Close verified status modal">&times;</button>
-        <h2>
-            Verified Status
-            <span class="verified-badge">
-                <i class="fas fa-check"></i>
-            </span>
-        </h2>
-        <div class="verified-status-content">
-            <p>This account is verified because it's notable in government, news, entertainment, or another designated category.</p>
-            <p>Verified accounts have the following benefits:</p>
-            <ul>
-                <li>Increased visibility and reach</li>
-                <li>Protection against impersonation</li>
-                <li>Domain ownership verified</li>
-                <li>Identity confirmed</li>
-            </ul>
-        </div>
-    </div>
 
     <!-- Overlay -->
     <div class="overlay" id="overlay"></div>
@@ -725,11 +705,6 @@
         const shareWhatsapp = document.getElementById('shareWhatsapp');
         const qrCode = document.getElementById('qrCode');
 
-        // Verified Status functionality
-        const verifiedBadge = document.getElementById('verifiedBadge');
-        const verifiedStatusModal = document.getElementById('verifiedStatusModal');
-        const closeVerifiedStatus = document.getElementById('closeVerifiedStatus');
-
         shareButton.addEventListener('click', () => {
             shareModal.style.display = 'block';
             overlay.style.display = 'block';
@@ -741,20 +716,8 @@
             overlay.style.display = 'none';
         });
 
-        verifiedBadge.addEventListener('click', (e) => {
-            e.preventDefault();
-            verifiedStatusModal.style.display = 'block';
-            overlay.style.display = 'block';
-        });
-
-        closeVerifiedStatus.addEventListener('click', () => {
-            verifiedStatusModal.style.display = 'none';
-            overlay.style.display = 'none';
-        });
-
         overlay.addEventListener('click', () => {
             shareModal.style.display = 'none';
-            verifiedStatusModal.style.display = 'none';
             infoModal.style.display = 'none';
             overlay.style.display = 'none';
         });
@@ -826,6 +789,7 @@
         });
 
         function fetchIPInfo() {
+            infoContent.innerHTML = '<p>Loading...</p>';
             fetch('https://ipapi.co/json/')
                 .then(response => response.json())
                 .then(data => {
