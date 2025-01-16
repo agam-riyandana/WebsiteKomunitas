@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global VAT Calculator | Calculate VAT for Multiple Countries</title>
+    <meta name="description" content="Calculate Value Added Tax (VAT) for multiple countries. Our user-friendly tool supports various currencies and provides up-to-date VAT rates for international transactions.">
+    <meta name="keywords" content="VAT calculator, global VAT, tax calculation, international tax, VAT rates">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'nextjs-dark': '#000000',
+                        'nextjs-light': '#FFFFFF',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-nextjs-light text-nextjs-dark min-h-screen flex flex-col">
+    <header class="bg-nextjs-dark text-nextjs-light p-4">
+        <h1 class="text-2xl font-bold text-center">Global VAT Calculator</h1>
+    </header>
+
+    <main class="flex-grow container mx-auto p-4">
+        <section class="bg-nextjs-light rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4" id="vat-explanation-title">What is VAT?</h2>
+            <p class="text-nextjs-dark" id="vat-explanation">
+                Value Added Tax (VAT) is a consumption tax placed on a product whenever value is added at each stage of the supply chain, from production to the point of sale. The amount of VAT that the user pays is based on the cost of the product, less any of the costs of materials used in the product that have already been taxed.
+            </p>
+        </section>
+
+        <section class="bg-nextjs-light rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold mb-4">VAT Calculator</h2>
+            <div class="mb-4">
+                <label for="amount" class="block text-sm font-medium text-nextjs-dark" id="amount-label">Amount:</label>
+                <input type="number" id="amount" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-nextjs-dark focus:ring focus:ring-nextjs-dark focus:ring-opacity-50" placeholder="Enter amount">
+            </div>
+
+            <div class="mb-4">
+                <label for="country" class="block text-sm font-medium text-nextjs-dark" id="country-label">Select Country:</label>
+                <select id="country" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-nextjs-dark focus:ring focus:ring-nextjs-dark focus:ring-opacity-50">
+                    <option value="indonesia">🇮🇩 Indonesia (11%)</option>
+                    <option value="uk">🇬🇧 United Kingdom (20%)</option>
+                    <option value="germany">🇩🇪 Germany (19%)</option>
+                    <option value="france">🇫🇷 France (20%)</option>
+                    <option value="usa">🇺🇸 United States (Varies by state)</option>
+                    <option value="japan">🇯🇵 Japan (10%)</option>
+                    <option value="australia">🇦🇺 Australia (10%)</option>
+                    <option value="canada">🇨🇦 Canada (5% + Provincial tax)</option>
+                    <option value="singapore">🇸🇬 Singapore (7%)</option>
+                    <option value="custom">🌐 Custom VAT</option>
+                </select>
+            </div>
+
+            <div id="customVatInput" class="mb-4 hidden">
+                <label for="customVat" class="block text-sm font-medium text-nextjs-dark" id="custom-vat-label">Custom VAT (%):</label>
+                <input type="number" id="customVat" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-nextjs-dark focus:ring focus:ring-nextjs-dark focus:ring-opacity-50" placeholder="Enter custom VAT percentage">
+            </div>
+
+            <button onclick="calculateVAT()" class="w-full bg-nextjs-dark hover:bg-gray-800 text-nextjs-light font-bold py-2 px-4 rounded" id="calculate-button">
+                Calculate VAT
+            </button>
+
+            <div id="result" class="mt-4 p-4 bg-gray-100 rounded-md hidden">
+                <h3 class="text-lg font-semibold" id="result-title">Result:</h3>
+                <p id="original-amount-text">Original Amount: <span id="originalAmount"></span></p>
+                <p id="vat-amount-text">VAT Amount: <span id="vatAmount"></span></p>
+                <p id="total-amount-text">Total Amount: <span id="totalAmount"></span></p>
+            </div>
+        </section>
+
+        <section class="mt-8 bg-nextjs-light rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold mb-4" id="vat-rates-title">VAT Rates by Country</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="vat-rates-list">
+                <!-- VAT rates will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-nextjs-dark text-nextjs-light p-4">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <p class="mb-2" id="follow-us-text">Follow us on social media:</p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#" class="text-nextjs-light hover:text-gray-300" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-nextjs-light hover:text-gray-300" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-nextjs-light hover:text-gray-300" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-nextjs-light hover:text-gray-300" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="flex space-x-2">
+                <button onclick="setLanguage('en')" class="bg-nextjs-light text-nextjs-dark px-3 py-1 rounded-md shadow-md hover:bg-gray-200 text-sm">
+                    🇺🇸 EN
+                </button>
+                <button onclick="setLanguage('id')" class="bg-nextjs-light text-nextjs-dark px-3 py-1 rounded-md shadow-md hover:bg-gray-200 text-sm">
+                    🇮🇩 ID
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                vatExplanationTitle: "What is VAT?",
+                vatExplanation: "Value Added Tax (VAT) is a consumption tax placed on a product whenever value is added at each stage of the supply chain, from production to the point of sale. The amount of VAT that the user pays is based on the cost of the product, less any of the costs of materials used in the product that have already been taxed.",
+                amountLabel: "Amount:",
+                countryLabel: "Select Country:",
+                customVatLabel: "Custom VAT (%):",
+                calculateButton: "Calculate VAT",
+                resultTitle: "Result:",
+                originalAmountText: "Original Amount:",
+                vatAmountText: "VAT Amount:",
+                totalAmountText: "Total Amount:",
+                followUsText: "Follow us on social media:",
+                languageSelector: "🇺🇸 EN",
+                vatRatesTitle: "VAT Rates by Country"
+            },
+            id: {
+                vatExplanationTitle: "Apa itu PPN?",
+                vatExplanation: "Pajak Pertambahan Nilai (PPN) adalah pajak konsumsi yang dikenakan pada produk setiap kali nilai ditambahkan pada setiap tahap rantai pasokan, dari produksi hingga titik penjualan. Jumlah PPN yang dibayar pengguna didasarkan pada biaya produk, dikurangi biaya bahan yang digunakan dalam produk yang telah dikenakan pajak sebelumnya.",
+                amountLabel: "Jumlah:",
+                countryLabel: "Pilih Negara:",
+                customVatLabel: "PPN Kustom (%):",
+                calculateButton: "Hitung PPN",
+                resultTitle: "Hasil:",
+                originalAmountText: "Jumlah Awal:",
+                vatAmountText: "Jumlah PPN:",
+                totalAmountText: "Jumlah Total:",
+                followUsText: "Ikuti kami di media sosial:",
+                languageSelector: "🇮🇩 ID",
+                vatRatesTitle: "Tarif PPN per Negara"
+            }
+        };
+
+        const vatRates = {
+            indonesia: { flag: "🇮🇩", name: "Indonesia", rate: 11, currency: "IDR" },
+            uk: { flag: "🇬🇧", name: "United Kingdom", rate: 20, currency: "GBP" },
+            germany: { flag: "🇩🇪", name: "Germany", rate: 19, currency: "EUR" },
+            france: { flag: "🇫🇷", name: "France", rate: 20, currency: "EUR" },
+            usa: { flag: "🇺🇸", name: "United States", rate: "Varies", currency: "USD" },
+            japan: { flag: "🇯🇵", name: "Japan", rate: 10, currency: "JPY" },
+            australia: { flag: "🇦🇺", name: "Australia", rate: 10, currency: "AUD" },
+            canada: { flag: "🇨🇦", name: "Canada", rate: "5% + Provincial", currency: "CAD" },
+            singapore: { flag: "🇸🇬", name: "Singapore", rate: 7, currency: "SGD" }
+        };
+
+        let currentLanguage = 'en';
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            document.documentElement.lang = lang;
+            const elements = {
+                'vat-explanation-title': translations[lang].vatExplanationTitle,
+                'vat-explanation': translations[lang].vatExplanation,
+                'amount-label': translations[lang].amountLabel,
+                'country-label': translations[lang].countryLabel,
+                'custom-vat-label': translations[lang].customVatLabel,
+                'calculate-button': translations[lang].calculateButton,
+                'result-title': translations[lang].resultTitle,
+                'original-amount-text': translations[lang].originalAmountText,
+                'vat-amount-text': translations[lang].vatAmountText,
+                'total-amount-text': translations[lang].totalAmountText,
+                'follow-us-text': translations[lang].followUsText,
+                'vat-rates-title': translations[lang].vatRatesTitle
+            };
+
+            for (const [id, text] of Object.entries(elements)) {
+                const element = document.getElementById(id);
+                if (element) {
+                    if (id.endsWith('-text')) {
+                        element.firstChild.textContent = text;
+                    } else {
+                        element.textContent = text;
+                    }
+                }
+            }
+
+            // Update language selector buttons
+            document.querySelectorAll('button[onclick^="setLanguage"]').forEach(button => {
+                const buttonLang = button.getAttribute('onclick').split("'")[1];
+                button.textContent = translations[buttonLang].languageSelector;
+            });
+
+            updateVATRatesList();
+        }
+
+        function updateVATRatesList() {
+            const vatRatesList = document.getElementById('vat-rates-list');
+            vatRatesList.innerHTML = '';
+            for (const [country, data] of Object.entries(vatRates)) {
+                const rateElement = document.createElement('div');
+                rateElement.className = 'flex items-center justify-between border-b pb-2';
+                rateElement.innerHTML = `
+                    <span>${data.flag} ${data.name}</span>
+                    <span>${typeof data.rate === 'number' ? data.rate + '%' : data.rate}</span>
+                `;
+                vatRatesList.appendChild(rateElement);
+            }
+        }
+
+        function calculateVAT() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const country = document.getElementById('country').value;
+            let vatRate;
+            let currency;
+
+            if (country === 'custom') {
+                vatRate = parseFloat(document.getElementById('customVat').value) / 100;
+                currency = currentLanguage === 'en' ? 'USD' : 'IDR';
+            } else {
+                const countryData = vatRates[country];
+                vatRate = typeof countryData.rate === 'number' ? countryData.rate / 100 : 0.1; // Default to 10% for variable rates
+                currency = countryData.currency;
+            }
+
+            const vatAmount = amount * vatRate;
+            const totalAmount = amount + vatAmount;
+
+            const formatter = new Intl.NumberFormat(currentLanguage === 'en' ? 'en-US' : 'id-ID', {
+                style: 'currency',
+                currency: currency,
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+
+            document.getElementById('originalAmount').textContent = formatter.format(amount);
+            document.getElementById('vatAmount').textContent = formatter.format(vatAmount);
+            document.getElementById('totalAmount').textContent = formatter.format(totalAmount);
+            document.getElementById('result').classList.remove('hidden');
+        }
+
+        document.getElementById('country').addEventListener('change', function() {
+            const customVatInput = document.getElementById('customVatInput');
+            if (this.value === 'custom') {
+                customVatInput.classList.remove('hidden');
+            } else {
+                customVatInput.classList.add('hidden');
+            }
+        });
+
+        // Initialize the VAT rates list
+        updateVATRatesList();
+    </script>
+</body>
+</html>
+
