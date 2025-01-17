@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global VAT Calculator | Calculate VAT for Multiple Countries</title>
-    <meta name="description" content="Calculate Value Added Tax (VAT) for multiple countries. Our user-friendly tool supports various currencies and provides up-to-date VAT rates for international transactions.">
-    <meta name="keywords" content="VAT calculator, global VAT, tax calculation, international tax, VAT rates">
+    <title>Global VAT Calculator | Accurate VAT Calculations for Multiple Countries</title>
+    <meta name="description" content="Calculate Value Added Tax (VAT) accurately for multiple countries. Our user-friendly tool supports various currencies, provides up-to-date VAT rates, and offers detailed explanations for international transactions.">
+    <meta name="keywords" content="VAT calculator, global VAT, tax calculation, international tax, VAT rates, accurate VAT">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script>
@@ -52,7 +52,7 @@
                     <option value="japan">🇯🇵 Japan (10%)</option>
                     <option value="australia">🇦🇺 Australia (10%)</option>
                     <option value="canada">🇨🇦 Canada (5% + Provincial tax)</option>
-                    <option value="singapore">🇸🇬 Singapore (7%)</option>
+                    <option value="singapore">🇸🇬 Singapore (8%)</option>
                     <option value="custom">🌐 Custom VAT</option>
                 </select>
             </div>
@@ -68,9 +68,18 @@
 
             <div id="result" class="mt-4 p-4 bg-gray-100 rounded-md hidden">
                 <h3 class="text-lg font-semibold" id="result-title">Result:</h3>
-                <p id="original-amount-text">Original Amount: <span id="originalAmount"></span></p>
-                <p id="vat-amount-text">VAT Amount: <span id="vatAmount"></span></p>
-                <p id="total-amount-text">Total Amount: <span id="totalAmount"></span></p>
+                <div id="original-amount-text" class="mb-2">
+                    <p class="font-semibold">Initial Amount: <span id="originalAmount"></span></p>
+                    <p class="text-sm text-gray-600" id="originalAmountExplanation"></p>
+                </div>
+                <div id="vat-amount-text" class="mb-2">
+                    <p class="font-semibold">VAT Amount: <span id="vatAmount"></span></p>
+                    <p class="text-sm text-gray-600" id="vatAmountExplanation"></p>
+                </div>
+                <div id="total-amount-text">
+                    <p class="font-semibold">Total Amount: <span id="totalAmount"></span></p>
+                    <p class="text-sm text-gray-600" id="totalAmountExplanation"></p>
+                </div>
             </div>
         </section>
 
@@ -114,7 +123,7 @@
                 customVatLabel: "Custom VAT (%):",
                 calculateButton: "Calculate VAT",
                 resultTitle: "Result:",
-                originalAmountText: "Original Amount:",
+                originalAmountText: "Initial Amount:",
                 vatAmountText: "VAT Amount:",
                 totalAmountText: "Total Amount:",
                 followUsText: "Follow us on social media:",
@@ -147,7 +156,7 @@
             japan: { flag: "🇯🇵", name: "Japan", rate: 10, currency: "JPY" },
             australia: { flag: "🇦🇺", name: "Australia", rate: 10, currency: "AUD" },
             canada: { flag: "🇨🇦", name: "Canada", rate: "5% + Provincial", currency: "CAD" },
-            singapore: { flag: "🇸🇬", name: "Singapore", rate: 7, currency: "SGD" }
+            singapore: { flag: "🇸🇬", name: "Singapore", rate: 8, currency: "SGD" }
         };
 
         let currentLanguage = 'en';
@@ -174,7 +183,10 @@
                 const element = document.getElementById(id);
                 if (element) {
                     if (id.endsWith('-text')) {
-                        element.firstChild.textContent = text;
+                        const labelElement = element.querySelector('p:first-child');
+                        if (labelElement) {
+                            labelElement.firstChild.textContent = text;
+                        }
                     } else {
                         element.textContent = text;
                     }
@@ -209,14 +221,17 @@
             const country = document.getElementById('country').value;
             let vatRate;
             let currency;
+            let countryName;
 
             if (country === 'custom') {
                 vatRate = parseFloat(document.getElementById('customVat').value) / 100;
                 currency = currentLanguage === 'en' ? 'USD' : 'IDR';
+                countryName = 'Custom';
             } else {
                 const countryData = vatRates[country];
                 vatRate = typeof countryData.rate === 'number' ? countryData.rate / 100 : 0.1; // Default to 10% for variable rates
                 currency = countryData.currency;
+                countryName = countryData.name;
             }
 
             const vatAmount = amount * vatRate;
@@ -232,6 +247,24 @@
             document.getElementById('originalAmount').textContent = formatter.format(amount);
             document.getElementById('vatAmount').textContent = formatter.format(vatAmount);
             document.getElementById('totalAmount').textContent = formatter.format(totalAmount);
+
+            // Add explanations
+            const originalAmountExplanation = currentLanguage === 'en' ?
+                `This is the initial amount you entered, before VAT is applied.` :
+                `Ini adalah jumlah awal yang Anda masukkan, sebelum PPN diterapkan.`;
+
+            const vatAmountExplanation = currentLanguage === 'en' ?
+                `This is the amount of VAT calculated at ${(vatRate * 100).toFixed(2)}% for ${countryName}. VAT is a consumption tax added to the price of goods and services.` :
+                `Ini adalah jumlah PPN yang dihitung pada ${(vatRate * 100).toFixed(2)}% untuk ${countryName}. PPN adalah pajak konsumsi yang ditambahkan ke harga barang dan jasa.`;
+
+            const totalAmountExplanation = currentLanguage === 'en' ?
+                `This is the total amount including the initial price plus the VAT. This is what you would typically pay at checkout.` :
+                `Ini adalah jumlah total termasuk harga awal ditambah PPN. Ini adalah yang biasanya Anda bayar saat checkout.`;
+
+            document.getElementById('originalAmountExplanation').textContent = originalAmountExplanation;
+            document.getElementById('vatAmountExplanation').textContent = vatAmountExplanation;
+            document.getElementById('totalAmountExplanation').textContent = totalAmountExplanation;
+
             document.getElementById('result').classList.remove('hidden');
         }
 
@@ -249,4 +282,3 @@
     </script>
 </body>
 </html>
-
