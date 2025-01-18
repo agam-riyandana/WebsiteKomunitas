@@ -102,34 +102,18 @@
                     <a href="#" class="text-nextjs-light hover:text-gray-300" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
-            <div class="flex flex-wrap justify-center space-x-2 space-y-2">
-                <button onclick="setLanguage('en')" class="bg-nextjs-light text-nextjs-dark px-3 py-1 rounded-md shadow-md hover:bg-gray-200 text-sm">
-                    🇺🇸 EN
-                </button>
-                <button onclick="setLanguage('id')" class="bg-nextjs-light text-nextjs-dark px-3 py-1 rounded-md shadow-md hover:bg-gray-200 text-sm">
-                    🇮🇩 ID
-                </button>
-                <button onclick="setLanguage('ja')" class="bg-nextjs-light text-nextjs-dark px-3 py-1 rounded-md shadow-md hover:bg-gray-200 text-sm">
-                    🇯🇵 JA
-                </button>
-                <button onclick="setLanguage('hi')" class="bg-nextjs-light text-nextjs-dark px-3 py-1 rounded-md shadow-md hover:bg-gray-200 text-sm">
-                    🇮🇳 HI
-                </button>
-                <button onclick="setLanguage('ko')" class="bg-nextjs-light text-nextjs-dark px-3 py-1 rounded-md shadow-md hover:bg-gray-200 text-sm">
-                    🇰🇷 KO
-                </button>
-                <button onclick="setLanguage('ru')" class="bg-nextjs-light text-nextjs-dark px-3 py-1 rounded-md shadow-md hover:bg-gray-200 text-sm">
-                    🇷🇺 RU
-                </button>
-                <button onclick="setLanguage('zh')" class="bg-nextjs-light text-nextjs-dark px-3 py-1 rounded-md shadow-md hover:bg-gray-200 text-sm">
-                    🇨🇳 ZH
-                </button>
-                <button onclick="setLanguage('fil')" class="bg-nextjs-light text-nextjs-dark px-3 py-1 rounded-md shadow-md hover:bg-gray-200 text-sm">
-                    🇵🇭 FIL
-                </button>
-                <button onclick="setLanguage('my')" class="bg-nextjs-light text-nextjs-dark px-3 py-1 rounded-md shadow-md hover:bg-gray-200 text-sm">
-                    🇲🇲 MY
-                </button>
+            <div class="relative inline-block text-left">
+                <div>
+                    <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" id="language-menu-button" aria-expanded="false" aria-haspopup="true">
+                        <span id="selected-language">🇺🇸 English</span>
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="language-menu-button" tabindex="-1" id="language-menu">
+                    <!-- Dropdown menu items will be inserted here -->
+                </div>
             </div>
         </div>
     </footer>
@@ -148,7 +132,7 @@
                 vatAmountText: "VAT Amount:",
                 totalAmountText: "Total Amount:",
                 followUsText: "Follow us on social media:",
-                languageSelector: "🇺🇸 EN",
+                languageSelector: "🇺🇸 English",
                 vatRatesTitle: "VAT Rates by Country"
             },
             id: {
@@ -163,7 +147,7 @@
                 vatAmountText: "Jumlah PPN:",
                 totalAmountText: "Jumlah Total:",
                 followUsText: "Ikuti kami di media sosial:",
-                languageSelector: "🇮🇩 ID",
+                languageSelector: "🇮🇩 Bahasa Indonesia",
                 vatRatesTitle: "Tarif PPN per Negara"
             },
             ja: {
@@ -178,7 +162,7 @@
                 vatAmountText: "消費税額：",
                 totalAmountText: "合計金額：",
                 followUsText: "ソーシャルメディアでフォローする：",
-                languageSelector: "🇯🇵 JA",
+                languageSelector: "🇯🇵 日本語",
                 vatRatesTitle: "国別消費税率"
             },
             hi: {
@@ -193,7 +177,7 @@
                 vatAmountText: "वैट राशि:",
                 totalAmountText: "कुल राशि:",
                 followUsText: "सोशल मीडिया पर हमें फॉलो करें:",
-                languageSelector: "🇮🇳 HI",
+                languageSelector: "🇮🇳 हिन्दी",
                 vatRatesTitle: "देश के अनुसार वैट दरें"
             },
             ko: {
@@ -208,7 +192,7 @@
                 vatAmountText: "부가가치세 금액:",
                 totalAmountText: "총 금액:",
                 followUsText: "소셜 미디어에서 팔로우하세요:",
-                languageSelector: "🇰🇷 KO",
+                languageSelector: "🇰🇷 한국어",
                 vatRatesTitle: "국가별 부가가치세율"
             },
             ru: {
@@ -223,7 +207,7 @@
                 vatAmountText: "Сумма НДС:",
                 totalAmountText: "Общая сумма:",
                 followUsText: "Подпишитесь на нас в социальных сетях:",
-                languageSelector: "🇷🇺 RU",
+                languageSelector: "🇷🇺 Русский",
                 vatRatesTitle: "Ставки НДС по странам"
             },
             zh: {
@@ -238,7 +222,7 @@
                 vatAmountText: "增值税金额：",
                 totalAmountText: "总金额：",
                 followUsText: "在社交媒体上关注我们：",
-                languageSelector: "🇨🇳 ZH",
+                languageSelector: "🇨🇳 中文",
                 vatRatesTitle: "各国增值税率"
             },
             fil: {
@@ -253,7 +237,7 @@
                 vatAmountText: "Halaga ng VAT:",
                 totalAmountText: "Kabuuang Halaga:",
                 followUsText: "Sundan kami sa social media:",
-                languageSelector: "🇵🇭 FIL",
+                languageSelector: "🇵🇭 Filipino",
                 vatRatesTitle: "Mga Rate ng VAT ayon sa Bansa"
             },
             my: {
@@ -268,7 +252,7 @@
                 vatAmountText: "VAT ပမာဏ:",
                 totalAmountText: "စုစုပေါင်းပမာဏ:",
                 followUsText: "လူမှုကွန်ရက်တွင် ကျွန်ုပ်တို့ကို Follow လုပ်ပါ:",
-                languageSelector: "🇲🇲 MY",
+                languageSelector: "🇲🇲 မြန်မာဘာသာ",
                 vatRatesTitle: "နိုင်ငံအလိုက် VAT နှုန်းထားများ"
             }
         };
@@ -319,13 +303,9 @@
                 }
             }
 
-            // Update language selector buttons
-            document.querySelectorAll('button[onclick^="setLanguage"]').forEach(button => {
-                const buttonLang = button.getAttribute('onclick').split("'")[1];
-                button.textContent = translations[buttonLang].languageSelector;
-            });
-
+            document.getElementById('selected-language').textContent = translations[lang].languageSelector;
             updateVATRatesList();
+            toggleLanguageMenu();
         }
 
         function updateVATRatesList() {
@@ -400,6 +380,47 @@
 
         // Initialize the VAT rates list
         updateVATRatesList();
+        setLanguage('en'); // Set initial language to English
+
+        // Add event listener for language menu button
+        const languageMenuButton = document.getElementById('language-menu-button');
+        const languageMenu = document.getElementById('language-menu');
+        languageMenuButton.addEventListener('click', toggleLanguageMenu);
+
+
+        function toggleLanguageMenu() {
+            const menu = document.getElementById('language-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function populateLanguageMenu() {
+            const menu = document.getElementById('language-menu');
+            for (const [lang, translation] of Object.entries(translations)) {
+                const item = document.createElement('a');
+                item.href = '#';
+                item.classList.add('text-gray-700', 'block', 'px-4', 'py-2', 'text-sm');
+                item.setAttribute('role', 'menuitem');
+                item.setAttribute('tabindex', '-1');
+                item.textContent = translation.languageSelector;
+                item.onclick = (e) => {
+                    e.preventDefault();
+                    setLanguage(lang);
+                };
+                menu.appendChild(item);
+            }
+        }
+
+        // Close the dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('language-menu');
+            const button = document.getElementById('language-menu-button');
+            if (!menu.contains(event.target) && !button.contains(event.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+
+        // Initialize the language menu
+        populateLanguageMenu();
     </script>
 </body>
 </html>
