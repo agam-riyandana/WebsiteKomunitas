@@ -41,7 +41,20 @@
 </head>
 <body class="bg-nextjs-light text-nextjs-dark min-h-screen flex flex-col">
     <header class="bg-nextjs-dark text-nextjs-light p-4">
-        <h1 class="text-2xl font-bold text-center">Global VAT Calculator</h1>
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Global VAT Calculator</h1>
+            <div class="relative inline-block text-left">
+                <button type="button" class="inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" id="language-menu-button" aria-expanded="false" aria-haspopup="true">
+                    <span id="selected-language">🇺🇸 English</span>
+                    <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div class="hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none z-10" role="menu" aria-orientation="vertical" aria-labelledby="language-menu-button" tabindex="-1" id="language-menu">
+                    <!-- Dropdown menu items will be inserted here -->
+                </div>
+            </div>
+        </div>
     </header>
 
     <main class="flex-grow container mx-auto p-4">
@@ -110,27 +123,14 @@
     </main>
 
     <footer class="bg-nextjs-dark text-nextjs-light p-4">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-4 md:mb-0">
+        <div class="container mx-auto flex justify-center items-center">
+            <div>
                 <p class="mb-2" id="follow-us-text">Follow us on social media:</p>
                 <div class="flex justify-center space-x-4">
                     <a href="#" class="text-nextjs-light hover:text-gray-300" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="text-nextjs-light hover:text-gray-300" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="text-nextjs-light hover:text-gray-300" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="text-nextjs-light hover:text-gray-300" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="relative inline-block text-left">
-                <div>
-                    <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" id="language-menu-button" aria-expanded="false" aria-haspopup="true">
-                        <span id="selected-language">🇺🇸 English</span>
-                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none z-10" role="menu" aria-orientation="vertical" aria-labelledby="language-menu-button" tabindex="-1" id="language-menu">
-                    <!-- Dropdown menu items will be inserted here -->
                 </div>
             </div>
         </div>
@@ -436,12 +436,12 @@
             const windowWidth = window.innerWidth;
             
             if (windowWidth < 640) { // Mobile view
-                menu.classList.add('top-full', 'left-0', 'right-0');
-                menu.classList.remove('right-0', 'mt-2');
+                menu.classList.add('right-0');
+                menu.classList.remove('left-0');
                 menu.style.width = '100%';
             } else { // Desktop view
-                menu.classList.remove('top-full', 'left-0', 'right-0');
-                menu.classList.add('right-0', 'mt-2');
+                menu.classList.remove('left-0');
+                menu.classList.add('right-0');
                 menu.style.width = '14rem'; // 56 * 0.25rem = 14rem (w-56)
             }
         }
