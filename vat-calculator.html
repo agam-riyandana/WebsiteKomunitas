@@ -8,6 +8,24 @@
     <meta name="keywords" content="VAT calculator, global VAT, tax calculation, international tax, VAT rates, accurate VAT">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        #language-menu {
+            max-height: 60vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #4B5563 #E5E7EB;
+        }
+        #language-menu::-webkit-scrollbar {
+            width: 6px;
+        }
+        #language-menu::-webkit-scrollbar-track {
+            background: #E5E7EB;
+        }
+        #language-menu::-webkit-scrollbar-thumb {
+            background-color: #4B5563;
+            border-radius: 3px;
+        }
+    </style>
     <script>
         tailwind.config = {
             theme: {
@@ -111,7 +129,7 @@
                         </svg>
                     </button>
                 </div>
-                <div class="hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="language-menu-button" tabindex="-1" id="language-menu">
+                <div class="hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none z-10" role="menu" aria-orientation="vertical" aria-labelledby="language-menu-button" tabindex="-1" id="language-menu">
                     <!-- Dropdown menu items will be inserted here -->
                 </div>
             </div>
@@ -391,14 +409,16 @@
         function toggleLanguageMenu() {
             const menu = document.getElementById('language-menu');
             menu.classList.toggle('hidden');
+            handleResize(); // Ensure correct positioning when toggling
         }
 
         function populateLanguageMenu() {
             const menu = document.getElementById('language-menu');
-            for (const [lang, translation] of Object.entries(translations)) {
-                const item = document.createElement('a');
-                item.href = '#';
-                item.classList.add('text-gray-700', 'block', 'px-4', 'py-2', 'text-sm');
+            menu.innerHTML = ''; // Clear existing items
+            const sortedLanguages = Object.entries(translations).sort((a, b) => a[1].languageSelector.localeCompare(b[1].languageSelector));
+            for (const [lang, translation] of sortedLanguages) {
+                const item = document.createElement('button');
+                item.className = 'text-gray-700 block px-4 py-2 text-sm w-full text-left hover:bg-gray-100 transition-colors duration-150';
                 item.setAttribute('role', 'menuitem');
                 item.setAttribute('tabindex', '-1');
                 item.textContent = translation.languageSelector;
@@ -409,6 +429,28 @@
                 menu.appendChild(item);
             }
         }
+
+        function handleResize() {
+            const menu = document.getElementById('language-menu');
+            const button = document.getElementById('language-menu-button');
+            const windowWidth = window.innerWidth;
+            
+            if (windowWidth < 640) { // Mobile view
+                menu.classList.add('top-full', 'left-0', 'right-0');
+                menu.classList.remove('right-0', 'mt-2');
+                menu.style.width = '100%';
+            } else { // Desktop view
+                menu.classList.remove('top-full', 'left-0', 'right-0');
+                menu.classList.add('right-0', 'mt-2');
+                menu.style.width = '14rem'; // 56 * 0.25rem = 14rem (w-56)
+            }
+        }
+
+        // Add event listener for window resize
+        window.addEventListener('resize', handleResize);
+
+        // Call handleResize initially to set the correct layout
+        handleResize();
 
         // Close the dropdown when clicking outside
         document.addEventListener('click', function(event) {
