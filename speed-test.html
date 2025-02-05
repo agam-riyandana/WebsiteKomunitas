@@ -1,181 +1,379 @@
 <!DOCTYPE html>
-<html lang="id" class="h-full">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speedtest Indonesia</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'navy': '#141526',
-                        'navy-light': '#1a1b2e',
-                        'cyan': '#28EBD7',
-                        'dark-blue': '#0D1016',
-                    }
-                }
-            }
-        }
-    </script>
+    <title>SpeedTest Clone</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0E1525;
+            color: white;
+            min-height: 100vh;
+        }
+
+        header {
+            border-bottom: 1px solid #1E2537;
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: #9CA3AF;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #22D3EE;
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .icon-button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .icon-button:hover {
+            background-color: #1E2537;
+        }
+
+        .main-content {
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .control-button {
+            background: none;
+            border: none;
+            color: #9CA3AF;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .control-button:hover {
+            color: white;
+        }
+
+        .speed-test {
+            margin-bottom: 4rem;
+        }
+
         .go-button {
-            transition: all 0.3s ease;
-            background: radial-gradient(circle, #1a1b2e 60%, transparent 60%);
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid #1E2537;
+            background: none;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 2rem;
         }
+
         .go-button:hover {
-            box-shadow: 0 0 30px rgba(40, 235, 215, 0.3);
+            border-color: #22D3EE;
+            color: #22D3EE;
         }
+
+        .go-button.running {
+            border-color: #22D3EE;
+            color: #22D3EE;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .server-info {
+            color: #9CA3AF;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .connection-toggle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            color: #9CA3AF;
+            font-size: 0.875rem;
+        }
+
+        .toggle-switch {
+            width: 48px;
+            height: 24px;
+            background-color: #1E2537;
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #22D3EE;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s;
+        }
+
+        .toggle-switch.active::after {
+            transform: translateX(24px);
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .action-button {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.3s;
+        }
+
+        .primary-button {
+            background: none;
+            border: 1px solid #22D3EE;
+            color: #22D3EE;
+        }
+
+        .primary-button:hover {
+            background-color: rgba(34, 211, 238, 0.1);
+        }
+
+        .secondary-button {
+            background: none;
+            border: 1px solid #1E2537;
+            color: #9CA3AF;
+        }
+
+        .secondary-button:hover {
+            background-color: #1E2537;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
         .feature-card {
-            transition: all 0.3s ease;
-            background: linear-gradient(to bottom, rgba(26, 27, 46, 0.5), rgba(13, 16, 22, 0.5));
+            background-color: rgba(30, 37, 55, 0.5);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
+
         .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(40, 235, 215, 0.1);
+            background-color: #1E2537;
         }
-        .progress-ring {
-            transition: all 0.3s ease;
+
+        .feature-icon {
+            font-size: 2rem;
+            color: #22D3EE;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            color: #9CA3AF;
+            font-size: 0.875rem;
+        }
+
+        .speed-result {
+            display: none;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #22D3EE;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
-<body class="flex flex-col min-h-full bg-dark-blue text-white">
-    <!-- Navigation -->
-    <nav class="border-b border-gray-800/50">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-3">
-                    <svg class="w-8 h-8 text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M12 6v6l4 2"/>
-                    </svg>
-                    <span class="font-bold text-xl tracking-wider">SPEEDTEST</span>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#" class="text-gray-400 hover:text-cyan transition-colors">Apps</a>
-                    <a href="#" class="text-gray-400 hover:text-cyan transition-colors">Learn</a>
-                    <a href="#" class="text-gray-400 hover:text-cyan transition-colors">Data</a>
-                    <a href="#" class="text-gray-400 hover:text-cyan transition-colors">About</a>
-                    <button class="w-8 h-8 rounded-full bg-navy-light flex items-center justify-center">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                        </svg>
-                    </button>
-                    <button class="w-8 h-8 rounded-full bg-navy-light flex items-center justify-center">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                        </svg>
-                    </button>
-                </div>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">SPEEDTEST</a>
+            <nav class="nav-menu">
+                <a href="#">Apps</a>
+                <a href="#">Learn</a>
+                <a href="#">Data</a>
+                <a href="#">About</a>
+            </nav>
+            <div class="user-actions">
+                <button class="icon-button">⏱️</button>
+                <button class="icon-button">👤</button>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Main Content -->
-    <main class="flex-grow container mx-auto px-6 py-8">
-        <div class="flex flex-col items-center justify-center space-y-8 max-w-4xl mx-auto">
-            <!-- Controls -->
-            <div class="flex space-x-6 text-sm">
-                <button class="flex items-center space-x-2 text-gray-400 hover:text-cyan">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path d="M9 17l-5-5 5-5m6 10l5-5-5-5" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                    </svg>
-                    <span>RESULTS</span>
-                </button>
-                <button class="flex items-center space-x-2 text-gray-400 hover:text-cyan">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                        <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                    </svg>
-                    <span>SETTINGS</span>
-                </button>
+    <main class="main-content container">
+        <div class="controls">
+            <button class="control-button">📊 RESULTS</button>
+            <button class="control-button">⚙️ SETTINGS</button>
+        </div>
+
+        <div class="speed-test">
+            <button id="goButton" class="go-button">GO</button>
+            <div id="speedResult" class="speed-result">0 Mbps</div>
+            <div class="server-info">
+                DigitalOcean • 64.227.106.56
             </div>
-
-            <!-- Speed Test Circle -->
-            <div class="relative w-72 h-72">
-                <div class="absolute inset-0 rounded-full border-2 border-cyan/20"></div>
-                <button class="go-button absolute inset-4 rounded-full border-2 border-cyan flex items-center justify-center text-4xl font-bold text-cyan hover:text-white transition-colors">
-                    GO
-                </button>
+            <div class="connection-toggle">
+                <span>Multi</span>
+                <div class="toggle-switch"></div>
+                <span>Single</span>
             </div>
+        </div>
 
-            <!-- Server Info -->
-            <div class="flex items-center space-x-3 text-sm text-gray-400">
-                <img src="/placeholder.svg?height=24&width=24" class="w-6 h-6 rounded-full" alt="Server">
-                <span>DigitalOcean</span>
-                <span class="text-gray-600">64.227.106.56</span>
-                <div class="flex items-center space-x-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                    </svg>
-                    <span>Finding optimal server...</span>
-                </div>
+        <div class="action-buttons">
+            <button class="action-button primary-button">Create an Account</button>
+            <button class="action-button secondary-button">Results History</button>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🖥️</div>
+                <div class="feature-title">Desktop Apps</div>
             </div>
-
-            <!-- Connection Type -->
-            <div class="flex items-center space-x-4 text-sm">
-                <span class="text-gray-400">Connections:</span>
-                <div class="flex border border-cyan/30 rounded-full p-1">
-                    <button class="px-6 py-1.5 rounded-full bg-cyan/10 text-cyan">Multi</button>
-                    <button class="px-6 py-1.5 text-gray-400 hover:text-cyan transition-colors">Single</button>
-                </div>
+            <div class="feature-card">
+                <div class="feature-icon">📶</div>
+                <div class="feature-title">Troubleshoot Your Wifi</div>
             </div>
-
-            <!-- Account Actions -->
-            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full max-w-md">
-                <button class="flex-1 px-6 py-2.5 border border-cyan rounded-full text-cyan hover:bg-cyan hover:text-navy transition-colors text-sm font-medium">
-                    Create an Account
-                </button>
-                <button class="flex-1 px-6 py-2.5 border border-gray-700 rounded-full text-gray-400 hover:border-cyan hover:text-cyan transition-colors text-sm font-medium">
-                    Results History
-                </button>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <div class="feature-title">Check for Outages</div>
             </div>
-
-            <!-- Features Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full mt-12">
-                <div class="feature-card p-6 rounded-xl text-center">
-                    <div class="w-16 h-16 mx-auto mb-4 bg-cyan/10 rounded-lg flex items-center justify-center">
-                        <svg class="w-8 h-8 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <p class="text-cyan font-medium">Desktop Apps</p>
-                </div>
-                <div class="feature-card p-6 rounded-xl text-center">
-                    <div class="w-16 h-16 mx-auto mb-4 bg-cyan/10 rounded-lg flex items-center justify-center">
-                        <svg class="w-8 h-8 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <p class="text-cyan font-medium">Troubleshoot Your Wifi</p>
-                </div>
-                <div class="feature-card p-6 rounded-xl text-center">
-                    <div class="w-16 h-16 mx-auto mb-4 bg-cyan/10 rounded-lg flex items-center justify-center">
-                        <svg class="w-8 h-8 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <p class="text-cyan font-medium">Check for Outages</p>
-                </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <div class="feature-title">Prepare to Talk to Your ISP</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <div class="feature-title">How Much Speed Do You Need?</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <div class="feature-title">Download Mobile Apps</div>
             </div>
         </div>
     </main>
 
-    <!-- Speed Test Implementation -->
-    <div id="speedtest-container" class="hidden fixed inset-0 bg-dark-blue bg-opacity-95 flex items-center justify-center z-50">
-        <div class="w-full max-w-4xl p-4">
-            <iframe width="100%" height="650px" frameborder="0" src="https://openspeedtest.com/Get-widget.php"></iframe>
-            <button onclick="document.getElementById('speedtest-container').classList.add('hidden')" class="mt-4 px-6 py-2 border border-cyan rounded-full text-cyan hover:bg-cyan hover:text-navy transition-colors">
-                Close Speed Test
-            </button>
-        </div>
-    </div>
-
     <script>
-        document.querySelector('.go-button').addEventListener('click', function() {
-            document.getElementById('speedtest-container').classList.remove('hidden');
+        const goButton = document.getElementById('goButton');
+        const speedResult = document.getElementById('speedResult');
+        const toggleSwitch = document.querySelector('.toggle-switch');
+        let isRunning = false;
+
+        // Simulate speed test
+        function runSpeedTest() {
+            if (isRunning) return;
+            
+            isRunning = true;
+            goButton.classList.add('running');
+            goButton.style.display = 'none';
+            speedResult.style.display = 'block';
+            
+            let progress = 0;
+            let speed = 0;
+            
+            const interval = setInterval(() => {
+                progress += 1;
+                speed = Math.random() * 100;
+                speedResult.textContent = `${speed.toFixed(2)} Mbps`;
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        isRunning = false;
+                        goButton.classList.remove('running');
+                        goButton.style.display = 'block';
+                        speedResult.style.display = 'none';
+                    }, 2000);
+                }
+            }, 50);
+        }
+
+        // Toggle connection type
+        toggleSwitch.addEventListener('click', () => {
+            toggleSwitch.classList.toggle('active');
         });
+
+        // Start speed test
+        goButton.addEventListener('click', runSpeedTest);
     </script>
 </body>
 </html>
