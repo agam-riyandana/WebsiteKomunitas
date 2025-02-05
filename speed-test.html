@@ -1,81 +1,42 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uji Kecepatan Internet Indonesia dengan Okla</title>
-    <style>
-        :root {
-            --red: #ff0000;
-            --white: #ffffff;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            background-color: var(--red);
-            color: var(--white);
-            text-align: center;
-            padding: 20px 0;
-            margin-bottom: 30px;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-
-        .speed-test {
-            background-color: var(--white);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            color: #666;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 10px;
-            }
-
-            h1 {
-                font-size: 2em;
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'indo-red': '#ff0000',
+                    }
+                }
             }
         }
-    </style>
+    </script>
 </head>
-<body>
-    <header>
-        <h1>Uji Kecepatan Internet Indonesia dengan Okla</h1>
+<body class="flex flex-col min-h-full bg-gray-100 text-gray-800">
+    <header class="bg-indo-red text-white py-6 shadow-lg">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-4xl font-bold text-center">Uji Kecepatan Internet Indonesia</h1>
+        </div>
     </header>
-    <div class="container">
-        <div class="speed-test">
-            <!-- Okla Speedtest Widget -->
-            <div id="speedtest">
-                <iframe width="100%" height="650px" frameborder="0" src="https://openspeedtest.com/Get-widget.php"></iframe>
+
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-semibold mb-4 text-center text-indo-red">Powered by Okla Speedtest</h2>
+            <div class="aspect-w-16 aspect-h-9">
+                <iframe class="w-full h-full" src="https://openspeedtest.com/Get-widget.php" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
-    </div>
-    <footer>
-        <p>&copy; 2025 Uji Kecepatan Internet Indonesia. Hak Cipta Dilindungi.</p>
-        <p>Powered by Okla Speedtest</p>
+    </main>
+
+    <footer class="bg-gray-200 text-gray-600 py-4">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Uji Kecepatan Internet Indonesia. Hak Cipta Dilindungi.</p>
+        </div>
     </footer>
 </body>
 </html>
