@@ -138,6 +138,14 @@
             100% { transform: scale(1); }
         }
 
+        .speed-result {
+            display: none;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #22D3EE;
+            margin-bottom: 1rem;
+        }
+
         .server-info {
             color: #9CA3AF;
             font-size: 0.875rem;
@@ -244,12 +252,11 @@
             font-size: 0.875rem;
         }
 
-        .speed-result {
+        .test-info {
             display: none;
-            font-size: 3rem;
-            font-weight: bold;
-            color: #22D3EE;
-            margin-bottom: 1rem;
+            color: #9CA3AF;
+            font-size: 0.875rem;
+            margin-top: 1rem;
         }
 
         @media (max-width: 768px) {
@@ -289,6 +296,11 @@
         <div class="speed-test">
             <button id="goButton" class="go-button">GO</button>
             <div id="speedResult" class="speed-result">0 Mbps</div>
+            <div id="testInfo" class="test-info">
+                <p>Location: <span id="location">Loading...</span></p>
+                <p>IP: <span id="ip">Loading...</span></p>
+                <p>ISP: <span id="isp">Loading...</span></p>
+            </div>
             <div class="server-info">
                 DigitalOcean • 64.227.106.56
             </div>
@@ -335,7 +347,11 @@
     <script>
         const goButton = document.getElementById('goButton');
         const speedResult = document.getElementById('speedResult');
+        const testInfo = document.getElementById('testInfo');
         const toggleSwitch = document.querySelector('.toggle-switch');
+        const locationSpan = document.getElementById('location');
+        const ipSpan = document.getElementById('ip');
+        const ispSpan = document.getElementById('isp');
         let isRunning = false;
 
         // Simulate speed test
@@ -346,13 +362,22 @@
             goButton.classList.add('running');
             goButton.style.display = 'none';
             speedResult.style.display = 'block';
+            testInfo.style.display = 'block';
             
             let progress = 0;
             let speed = 0;
             
+            // Simulate fetching location, IP, and ISP info
+            setTimeout(() => {
+                locationSpan.textContent = 'Jakarta, Indonesia';
+                ipSpan.textContent = '203.0.113.195';
+                ispSpan.textContent = 'PT Telkom Indonesia';
+            }, 1000);
+
             const interval = setInterval(() => {
                 progress += 1;
-                speed = Math.random() * 100;
+                // Simulate more realistic speed fluctuations
+                speed = Math.sin(progress / 10) * 50 + 50; // fluctuate between 0-100 Mbps
                 speedResult.textContent = `${speed.toFixed(2)} Mbps`;
                 
                 if (progress >= 100) {
@@ -362,6 +387,7 @@
                         goButton.classList.remove('running');
                         goButton.style.display = 'block';
                         speedResult.style.display = 'none';
+                        testInfo.style.display = 'none';
                     }, 2000);
                 }
             }, 50);
