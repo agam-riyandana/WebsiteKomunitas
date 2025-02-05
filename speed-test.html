@@ -12,7 +12,8 @@
                     colors: {
                         'navy': '#141526',
                         'navy-light': '#1a1b2e',
-                        'cyan': '#00ffff',
+                        'cyan': '#28EBD7',
+                        'dark-blue': '#0D1016',
                     }
                 }
             }
@@ -21,106 +22,159 @@
     <style>
         .go-button {
             transition: all 0.3s ease;
+            background: radial-gradient(circle, #1a1b2e 60%, transparent 60%);
         }
         .go-button:hover {
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            box-shadow: 0 0 30px rgba(40, 235, 215, 0.3);
         }
-        .feature-icon {
+        .feature-card {
             transition: all 0.3s ease;
+            background: linear-gradient(to bottom, rgba(26, 27, 46, 0.5), rgba(13, 16, 22, 0.5));
         }
-        .feature-icon:hover {
+        .feature-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(40, 235, 215, 0.1);
+        }
+        .progress-ring {
+            transition: all 0.3s ease;
         }
     </style>
 </head>
-<body class="flex flex-col min-h-full bg-navy text-white">
+<body class="flex flex-col min-h-full bg-dark-blue text-white">
     <!-- Navigation -->
-    <nav class="border-b border-gray-800">
-        <div class="container mx-auto px-4 py-4">
+    <nav class="border-b border-gray-800/50">
+        <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-2">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                <div class="flex items-center space-x-3">
+                    <svg class="w-8 h-8 text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
                     </svg>
-                    <span class="font-bold text-xl">SPEEDTEST</span>
+                    <span class="font-bold text-xl tracking-wider">SPEEDTEST</span>
                 </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#" class="hover:text-cyan">Apps</a>
-                    <a href="#" class="hover:text-cyan">Learn</a>
-                    <a href="#" class="hover:text-cyan">Data</a>
-                    <a href="#" class="hover:text-cyan">About</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-400 hover:text-cyan transition-colors">Apps</a>
+                    <a href="#" class="text-gray-400 hover:text-cyan transition-colors">Learn</a>
+                    <a href="#" class="text-gray-400 hover:text-cyan transition-colors">Data</a>
+                    <a href="#" class="text-gray-400 hover:text-cyan transition-colors">About</a>
+                    <button class="w-8 h-8 rounded-full bg-navy-light flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        </svg>
+                    </button>
+                    <button class="w-8 h-8 rounded-full bg-navy-light flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="flex-grow container mx-auto px-4 py-8">
-        <div class="flex flex-col items-center justify-center space-y-8">
+    <main class="flex-grow container mx-auto px-6 py-8">
+        <div class="flex flex-col items-center justify-center space-y-8 max-w-4xl mx-auto">
             <!-- Controls -->
-            <div class="flex space-x-4 text-sm text-gray-400">
-                <button class="hover:text-cyan">RESULTS</button>
-                <button class="hover:text-cyan">SETTINGS</button>
+            <div class="flex space-x-6 text-sm">
+                <button class="flex items-center space-x-2 text-gray-400 hover:text-cyan">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 17l-5-5 5-5m6 10l5-5-5-5" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                    </svg>
+                    <span>RESULTS</span>
+                </button>
+                <button class="flex items-center space-x-2 text-gray-400 hover:text-cyan">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                    </svg>
+                    <span>SETTINGS</span>
+                </button>
             </div>
 
-            <!-- Speed Test Area -->
-            <div class="relative">
-                <button class="go-button w-40 h-40 rounded-full border-2 border-cyan flex items-center justify-center text-3xl font-bold hover:bg-navy-light">
+            <!-- Speed Test Circle -->
+            <div class="relative w-72 h-72">
+                <div class="absolute inset-0 rounded-full border-2 border-cyan/20"></div>
+                <button class="go-button absolute inset-4 rounded-full border-2 border-cyan flex items-center justify-center text-4xl font-bold text-cyan hover:text-white transition-colors">
                     GO
                 </button>
             </div>
 
             <!-- Server Info -->
-            <div class="text-center text-gray-400">
-                <p>Finding optimal server...</p>
+            <div class="flex items-center space-x-3 text-sm text-gray-400">
+                <img src="/placeholder.svg?height=24&width=24" class="w-6 h-6 rounded-full" alt="Server">
+                <span>DigitalOcean</span>
+                <span class="text-gray-600">64.227.106.56</span>
+                <div class="flex items-center space-x-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                    </svg>
+                    <span>Finding optimal server...</span>
+                </div>
             </div>
 
             <!-- Connection Type -->
             <div class="flex items-center space-x-4 text-sm">
-                <span>Connections:</span>
-                <div class="flex border rounded-full p-1">
-                    <button class="px-4 py-1 rounded-full bg-navy-light">Multi</button>
-                    <button class="px-4 py-1">Single</button>
+                <span class="text-gray-400">Connections:</span>
+                <div class="flex border border-cyan/30 rounded-full p-1">
+                    <button class="px-6 py-1.5 rounded-full bg-cyan/10 text-cyan">Multi</button>
+                    <button class="px-6 py-1.5 text-gray-400 hover:text-cyan transition-colors">Single</button>
                 </div>
             </div>
 
             <!-- Account Actions -->
-            <div class="flex space-x-4">
-                <button class="px-6 py-2 border border-cyan rounded-full text-cyan hover:bg-cyan hover:text-navy">
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full max-w-md">
+                <button class="flex-1 px-6 py-2.5 border border-cyan rounded-full text-cyan hover:bg-cyan hover:text-navy transition-colors text-sm font-medium">
                     Create an Account
                 </button>
-                <button class="px-6 py-2 border border-gray-700 rounded-full hover:border-cyan hover:text-cyan">
+                <button class="flex-1 px-6 py-2.5 border border-gray-700 rounded-full text-gray-400 hover:border-cyan hover:text-cyan transition-colors text-sm font-medium">
                     Results History
                 </button>
             </div>
 
             <!-- Features Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <div class="feature-icon text-center">
-                    <img src="https://sjc.microlink.io/O5Qv1cvDXdqA64NMbWU52Way1giJiop5FfL8krjfcbwJLHOKLWluLG-ZZOaGV7sAZQd4OTLKmYAn1WPsp--0xA.jpeg" alt="Desktop Apps" class="w-16 h-16 mx-auto mb-4">
-                    <p class="text-cyan">Desktop Apps</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full mt-12">
+                <div class="feature-card p-6 rounded-xl text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-cyan/10 rounded-lg flex items-center justify-center">
+                        <svg class="w-8 h-8 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <p class="text-cyan font-medium">Desktop Apps</p>
                 </div>
-                <div class="feature-icon text-center">
-                    <img src="https://sjc.microlink.io/O5Qv1cvDXdqA64NMbWU52Way1giJiop5FfL8krjfcbwJLHOKLWluLG-ZZOaGV7sAZQd4OTLKmYAn1WPsp--0xA.jpeg" alt="Wifi Troubleshoot" class="w-16 h-16 mx-auto mb-4">
-                    <p class="text-cyan">Troubleshoot Your Wifi</p>
+                <div class="feature-card p-6 rounded-xl text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-cyan/10 rounded-lg flex items-center justify-center">
+                        <svg class="w-8 h-8 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <p class="text-cyan font-medium">Troubleshoot Your Wifi</p>
                 </div>
-                <div class="feature-icon text-center">
-                    <img src="https://sjc.microlink.io/O5Qv1cvDXdqA64NMbWU52Way1giJiop5FfL8krjfcbwJLHOKLWluLG-ZZOaGV7sAZQd4OTLKmYAn1WPsp--0xA.jpeg" alt="Check Outages" class="w-16 h-16 mx-auto mb-4">
-                    <p class="text-cyan">Check for Outages</p>
+                <div class="feature-card p-6 rounded-xl text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-cyan/10 rounded-lg flex items-center justify-center">
+                        <svg class="w-8 h-8 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <p class="text-cyan font-medium">Check for Outages</p>
                 </div>
             </div>
         </div>
     </main>
 
     <!-- Speed Test Implementation -->
-    <div id="speedtest-container" class="hidden">
-        <iframe width="100%" height="650px" frameborder="0" src="https://openspeedtest.com/Get-widget.php"></iframe>
+    <div id="speedtest-container" class="hidden fixed inset-0 bg-dark-blue bg-opacity-95 flex items-center justify-center z-50">
+        <div class="w-full max-w-4xl p-4">
+            <iframe width="100%" height="650px" frameborder="0" src="https://openspeedtest.com/Get-widget.php"></iframe>
+            <button onclick="document.getElementById('speedtest-container').classList.add('hidden')" class="mt-4 px-6 py-2 border border-cyan rounded-full text-cyan hover:bg-cyan hover:text-navy transition-colors">
+                Close Speed Test
+            </button>
+        </div>
     </div>
 
     <script>
         document.querySelector('.go-button').addEventListener('click', function() {
-            document.querySelector('#speedtest-container').classList.remove('hidden');
-            this.classList.add('hidden');
+            document.getElementById('speedtest-container').classList.remove('hidden');
         });
     </script>
 </body>
