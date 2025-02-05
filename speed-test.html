@@ -3,40 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uji Kecepatan Internet Indonesia dengan Okla</title>
+    <title>Speedtest Indonesia</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'indo-red': '#ff0000',
+                        'navy': '#141526',
+                        'navy-light': '#1a1b2e',
+                        'cyan': '#00ffff',
                     }
                 }
             }
         }
     </script>
+    <style>
+        .go-button {
+            transition: all 0.3s ease;
+        }
+        .go-button:hover {
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+        .feature-icon {
+            transition: all 0.3s ease;
+        }
+        .feature-icon:hover {
+            transform: translateY(-5px);
+        }
+    </style>
 </head>
-<body class="flex flex-col min-h-full bg-gray-100 text-gray-800">
-    <header class="bg-indo-red text-white py-6 shadow-lg">
-        <div class="container mx-auto px-4">
-            <h1 class="text-3xl md:text-4xl font-bold text-center">Uji Kecepatan Internet Indonesia</h1>
+<body class="flex flex-col min-h-full bg-navy text-white">
+    <!-- Navigation -->
+    <nav class="border-b border-gray-800">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                    </svg>
+                    <span class="font-bold text-xl">SPEEDTEST</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="hover:text-cyan">Apps</a>
+                    <a href="#" class="hover:text-cyan">Learn</a>
+                    <a href="#" class="hover:text-cyan">Data</a>
+                    <a href="#" class="hover:text-cyan">About</a>
+                </div>
+            </div>
         </div>
-    </header>
+    </nav>
 
+    <!-- Main Content -->
     <main class="flex-grow container mx-auto px-4 py-8">
-        <div class="bg-white rounded-lg shadow-xl p-6 md:p-8">
-            <h2 class="text-2xl md:text-3xl font-semibold mb-4 text-center text-indo-red">Powered by Okla Speedtest</h2>
-            <div class="aspect-w-16 aspect-h-9">
-                <iframe class="w-full h-full" src="https://openspeedtest.com/Get-widget.php" frameborder="0" allowfullscreen></iframe>
+        <div class="flex flex-col items-center justify-center space-y-8">
+            <!-- Controls -->
+            <div class="flex space-x-4 text-sm text-gray-400">
+                <button class="hover:text-cyan">RESULTS</button>
+                <button class="hover:text-cyan">SETTINGS</button>
+            </div>
+
+            <!-- Speed Test Area -->
+            <div class="relative">
+                <button class="go-button w-40 h-40 rounded-full border-2 border-cyan flex items-center justify-center text-3xl font-bold hover:bg-navy-light">
+                    GO
+                </button>
+            </div>
+
+            <!-- Server Info -->
+            <div class="text-center text-gray-400">
+                <p>Finding optimal server...</p>
+            </div>
+
+            <!-- Connection Type -->
+            <div class="flex items-center space-x-4 text-sm">
+                <span>Connections:</span>
+                <div class="flex border rounded-full p-1">
+                    <button class="px-4 py-1 rounded-full bg-navy-light">Multi</button>
+                    <button class="px-4 py-1">Single</button>
+                </div>
+            </div>
+
+            <!-- Account Actions -->
+            <div class="flex space-x-4">
+                <button class="px-6 py-2 border border-cyan rounded-full text-cyan hover:bg-cyan hover:text-navy">
+                    Create an Account
+                </button>
+                <button class="px-6 py-2 border border-gray-700 rounded-full hover:border-cyan hover:text-cyan">
+                    Results History
+                </button>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="feature-icon text-center">
+                    <img src="https://sjc.microlink.io/O5Qv1cvDXdqA64NMbWU52Way1giJiop5FfL8krjfcbwJLHOKLWluLG-ZZOaGV7sAZQd4OTLKmYAn1WPsp--0xA.jpeg" alt="Desktop Apps" class="w-16 h-16 mx-auto mb-4">
+                    <p class="text-cyan">Desktop Apps</p>
+                </div>
+                <div class="feature-icon text-center">
+                    <img src="https://sjc.microlink.io/O5Qv1cvDXdqA64NMbWU52Way1giJiop5FfL8krjfcbwJLHOKLWluLG-ZZOaGV7sAZQd4OTLKmYAn1WPsp--0xA.jpeg" alt="Wifi Troubleshoot" class="w-16 h-16 mx-auto mb-4">
+                    <p class="text-cyan">Troubleshoot Your Wifi</p>
+                </div>
+                <div class="feature-icon text-center">
+                    <img src="https://sjc.microlink.io/O5Qv1cvDXdqA64NMbWU52Way1giJiop5FfL8krjfcbwJLHOKLWluLG-ZZOaGV7sAZQd4OTLKmYAn1WPsp--0xA.jpeg" alt="Check Outages" class="w-16 h-16 mx-auto mb-4">
+                    <p class="text-cyan">Check for Outages</p>
+                </div>
             </div>
         </div>
     </main>
 
-    <footer class="bg-gray-200 text-gray-600 py-4">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2025 Uji Kecepatan Internet Indonesia. Hak Cipta Dilindungi.</p>
-        </div>
-    </footer>
+    <!-- Speed Test Implementation -->
+    <div id="speedtest-container" class="hidden">
+        <iframe width="100%" height="650px" frameborder="0" src="https://openspeedtest.com/Get-widget.php"></iframe>
+    </div>
+
+    <script>
+        document.querySelector('.go-button').addEventListener('click', function() {
+            document.querySelector('#speedtest-container').classList.remove('hidden');
+            this.classList.add('hidden');
+        });
+    </script>
 </body>
 </html>
